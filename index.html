@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest Board — Open-Source Tools Against Information Asymmetry</title>
+    <meta name="description" content="Open-source tools that dissolve information asymmetries. Built with spare capacity from an AI-augmented workflow. 74 tools released — free forever.">
+    <meta property="og:title" content="Quest Board — Open-Source Tools Against Information Asymmetry">
+    <meta property="og:description" content="Open-source tools that dissolve information asymmetries. 74 tools making public data usable — all free, all open source.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Quest Board</h1>
+    <p class="subtitle">Open-source tools that dissolve information asymmetries</p>
+    <p class="tagline">Built with spare capacity from an AI-augmented workflow. No maintenance promises. Free forever.</p>
+</header>
+
+<main>
+
+    <!-- Released Projects -->
+    <section id="released" class="section">
+        <h2>Released (74 tools)</h2>
+
+        <article class="card released">
+            <h3>Commercial Lease Offer Decoder</h3>
+            <p class="asymmetry">Landlords, brokers, and comp vendors benefit when headline face rent is legible but concessions and escalation stay fragmented across term sheets; a small-business operator can mistake the highest-concession offer for the most expensive one or accept a nominal discount whose escalation erases it. Tenants benefit from seeing the economic deal rather than the advertised rate before signing or renewing.</p>
+            <p class="detail">Static client-side calculator for small-business tenants comparing commercial lease offers that look incomparable on the brochure. Each offer — starting rent, annual escalation (% or $/SF), free-rent months, tenant-improvement allowance, term, rentable area — is rendered as an auditable cash-flow bridge from face rent to annualized effective rent, with a year-by-year schedule, an escalation line item that exposes discount-erosion, and an optional discount rate for the present-value (level-annuity) comparison. Cheapest offer flagged with the gap to it; printable negotiation view. No data leaves the browser.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">None — user-entered lease terms; public field vocabulary from CompStak lease-comp guides · 0 external records; up to 4 user-entered offers</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/lease-offer-decoder/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/lease-offer-decoder" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>API Rate-Window Clock</h3>
+            <p class="asymmetry">API customers can see the vendor&#x27;s individual prices yet still cannot answer the launch-time question without translating weekdays, UTC windows, effective dates, and separate cache/input/output rates. Vendors collect the higher charge when otherwise identical workloads drift into peak periods; independent developers and small teams benefit from a decision-ready timing estimate before starting a long batch.</p>
+            <p class="detail">Static client-side calculator for DeepSeek&#x27;s declared weekday peak/off-peak API schedule. Select a current model, enter cache-hit input, cache-miss input, and output tokens, and choose now or a planned local time. The result shows the selected USD band, component rates, cost, effective basis, and earliest cheaper boundary with wait time and savings. English and Chinese pricing pages are parsed independently and semantic-hash pinned; source conflict or missing rates disable calculation rather than producing a zero or average.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">DeepSeek English and Chinese Models &amp; Pricing pages · 3 current model IDs, 2 language authority surfaces, 2 weekday peak windows</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/api-rate-window-clock/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/api-rate-window-clock" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Name Collision Audit</h3>
+            <p class="asymmetry">Screening vendors, public-record aggregators, and data brokers benefit when a string-level match is presented as an identity-level finding. More candidate records reads as thoroughness while the vendor controls the matching label. Consumers at housing, employment, credit, and licensing decision boundaries benefit from an independent denominator: how many unrelated people should be expected to share the string before any vendor search begins.</p>
+            <p class="detail">Static exact-name collision calculator using real Census population frequencies. Reports expected unrelated matching strings, probability of at least one collision, and source counts for surname-only or first+last estimates. The full-name calculation explicitly labels its independence approximation. Companion pages provide a copyable match-confidence disclosure request (exact / substring / phonetic / fuzzy / referent-resolved), an FCRA dispute playbook, and reproducible methodology. No names leave the browser; no record lookup occurs.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">U.S. Census Bureau 2010 surname frequencies and 2020 first-name frequencies; 15 U.S.C. 1681e(b) and 1681i · 162,253 surnames (2010) + 53,615 first names (2020)</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/name-collision-audit/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/name-collision-audit" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Model Release Status Verifier</h3>
+            <p class="asymmetry">AI news aggregators, SEO-driven trackers, and vendor marketing all profit from opacity about model release identities — invented version suffixes, inflated GA claims, preview-status ambiguity. Developers and procurement teams make adoption decisions on unverified claims. Vendors publish the truth themselves (model lists, deprecation schedules); the gap is that nobody renders it as an answerable question. This tool closes it: a pasted claim returns a verdict with the vendor&#x27;s own page quoted as evidence.</p>
+            <p class="detail">Paste-box claim verifier covering Anthropic, OpenAI, DeepSeek, and Kimi (Moonshot). Four verdicts: confirmed / contradicted / partial / unverifiable — unverifiable means no vendor surface exists for that claim class (a documented gap, never assumed clean). Matches across snapshot-suffix ids (gpt-4o and gpt-4o-2024-05-13 are the same family), family names (&quot;Claude Fable 5&quot;), and vendor short forms (&quot;V4 Flash&quot; → deepseek-v4-flash, gated on the vendor keyword). Distinguishes dates embedded in model ids from dates claimed about the model. Every verdict quotes the vendor page it rests on with the fetch timestamp. Vendor pages fetched at build time with multi-transport + per-source deadline discipline; all matching runs in the browser.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Vendor semantic-authority pages (Anthropic, OpenAI, DeepSeek, Kimi) — model lists + deprecation schedules · 170 vendor model records across 4 vendors, 6 vendor surfaces</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/model-release-verifier/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/model-release-verifier" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Notice-Policy Check</h3>
+            <p class="asymmetry">Model vendors profit from opacity when stated notice windows are generous but actual practice compresses them — developers plan migrations on the stated window and bear emergency-migration cost when actual notice falls short, and aggregators obscure the timeline further. The vendor&#x27;s own deprecation page is the only place where both the policy and the record live; this tool makes &#x27;stated policy vs what actually happened&#x27; a machine-checkable number instead of a marketing claim.</p>
+            <p class="detail">Per-vendor compliance ledgers: model, announcement date, retirement date, actual notice days, and PASS/SHORT verdicts against every stated floor (GA 6 months / specialized 3 months / preview ~2 weeks for OpenAI; 60 days for Anthropic). Track-record bars show notice per completed retirement with the vendor&#x27;s own floor as reference. Policies quoted verbatim with escape hatches. Honest coverage by design: DeepSeek publishes no deprecation page and is listed as a documented gap; models with no announcement date are marked n/a, never assumed.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Vendor semantic-authority pages: Anthropic model-deprecations page (docs.claude.com), OpenAI API deprecations page (developers.openai.com), fetched fresh each pipeline run · 146 models with retirements on record (134 OpenAI, 12 Anthropic); 67 OpenAI models below the stated 6-month GA floor, 0 Anthropic models below the stated 60-day floor</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/notice-policy/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/notice-policy" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Real Rent Growth</h3>
+            <p class="asymmetry">Property owners, REITs, property managers, and listing platforms profit from opacity — nominal rent growth is the sticker number everyone sees, and in high-inflation windows &quot;rents up 5%&quot; can hide negative real growth; the inflation-adjusted view never makes it into marketing or affordability discourse. Renters, small landlords, affordability researchers, and journalists benefit from transparency: knowing whether a market&#x27;s rents are genuinely rising in purchasing-power terms or merely tracking inflation.</p>
+            <p class="detail">Median gross rent (Census table B25064) from three ACS 5-year vintages — 2014 (2010–14), 2019 (2015–19), 2023 (2019–23) — for every US county, parish, borough, and county-equivalent (~3,200 records). Growth computed over two windows (2014→2019 and 2019→2023) plus the full 2014→2023 period, each shown nominal and real. Inflation adjustment uses the national CPI-U (BLS, via FRED) between window midpoints (2012, 2017, 2021) applied multiplicatively — the same method the EQR institutional pipeline uses (nominal = (1+real) × CPI factor − 1). Each county view shows the three rent figures, both growth windows with nominal-vs-real bars, the inflation gap, and honest caveats (medians of different renter populations, not a repeat-rent index; margins of error not shown). Rankings surface the fastest real-growth and negative-real-growth counties per window. CPI factors are displayed, not hidden.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">US Census Bureau ACS 5-Year Summary Files (2014/2019/2023 vintages, table B25064) + BLS CPI-U via FRED · 3216</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/real-rent-growth/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/real-rent-growth" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>The Building&#x27;s Record</h3>
+            <p class="asymmetry">Landlords and property managers know their buildings&#x27; municipal records — unaddressed violations, expired permits, unpermitted work, repeat inspection failures — because the renter or buyer across the table can&#x27;t check without knowing each city dataset&#x27;s vocabulary. Property-owner platforms sell this same public data back at a premium. Renters, homebuyers, and restaurant customers benefit from records that shape leasing, purchase, and patronage decisions becoming searchable by address. One Fulton Market building alone carries 102 building permits, 65 business licenses, 17 food inspections, and 2 building violations — all public, none findable by the address everyone knows.</p>
+            <p class="detail">4.37M municipal records from the City of Chicago Data Portal, joined to street addresses via normalized address keys (a vocabulary bridge built at build time — string matching fails on address records by construction). Four datasets: Building Permits (843,652 records), Building Violations (2,021,953 records), Food Inspections (313,597 records), Business Licenses (1,193,772 records). Address normalization bridges consumer vocabulary (&quot;875 N Michigan Ave&quot;, &quot;875 North Michigan Avenue&quot;) to producer vocabulary (&quot;875 N MICHIGAN AVE&quot;) — units, ordinals, directionals, and street-type abbreviations all collapse to one canonical key. Per-building views show permit history with status/type/cost, violations by status (open/closed/other), food inspection results with violation notes, and business licenses with active/expired status. Every record links to its source row on the portal. Buildings with no records on file are reported honestly — the site says so rather than guessing. Notable-building sections surface the city&#x27;s most violation-heavy, permit-heavy, and license-heavy addresses.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">City of Chicago Data Portal — Building Permits (ydr8-5enu), Building Violations (22u3-xenr), Food Inspections (4ijn-s7e5), Business Licenses (r5kz-chrr) · 4372974</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/building-record/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/building-record" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Hospital Infection Check</h3>
+            <p class="asymmetry">Hospitals know their own infection rates. Patients choosing where to have surgery don&#x27;t. CMS publishes healthcare-associated infection data for every U.S. hospital — MRSA, C. diff, central line bloodstream infections, catheter UTIs, surgical site infections — but it&#x27;s buried in CSV downloads and API queries. Someone facing surgery wants to know: does this hospital have more infections than the national average? 4,792 hospitals, 173 with worse-than-national infection rates.</p>
+            <p class="detail">4,792 U.S. hospitals from CMS Healthcare Associated Infections data (dataset 77hc-ibv8). Six infection categories: Central Line Associated Bloodstream Infection (CLABSI), Catheter Associated UTI (CAUTI), Surgical Site Infection — Colon Surgery, Surgical Site Infection — Abdominal Hysterectomy, MRSA Bacteremia, C. Difficile. Each with Standardized Infection Ratio (SIR), observed vs predicted cases, device/procedure days, confidence intervals, and comparison to national benchmark (better/worse/no different). 173 hospitals with worse-than-national measures, 1,898 with better-than-national. Enriched with hospital type, ownership, ER status, birthing-friendly designation from CMS Hospital General Information. Two search modes: hospital name and state browse (sorted by worst infection rates first).</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CMS Provider Data — Healthcare Associated Infections - Hospital (dataset 77hc-ibv8) · 4792</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/hospital-infection/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/hospital-infection" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Model Lifecycle Watch</h3>
+            <p class="asymmetry">AI news aggregators and SEO-driven trackers profit from opacity — inventing or inflating model release identities (GA claims, version suffixes, retirement dates) generates traffic while developers and procurement make adoption decisions on unverified claims, and vendors can quietly retire models whose users never read the docs page. Opus 4.1 was retired August 5, 2026 with a 60-day notice that most developers never saw — requests to claude-opus-4-1-20250805 now fail. Anyone running API workloads benefits from advance notice with the authoritative replacement, straight from the vendor&#x27;s own table.</p>
+            <p class="detail">Each model card shows lifecycle status with the vendor&#x27;s own dates: retirement date (or &#x27;not sooner than&#x27; availability guarantee for active models), deprecation announcement date, recommended replacement, and the source page. Searchable by model name, filterable by status and vendor. Honest coverage by design: DeepSeek publishes no deprecation page and is listed as a documented gap rather than hidden. Every record carries an as-of date; the pipeline is open-source and re-runnable.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Vendor semantic-authority pages: Anthropic model-deprecations page (docs.claude.com), OpenAI API deprecations page (developers.openai.com), fetched fresh each pipeline run · 163 models tracked (10 active with availability guarantees, 56 deprecated with shutdown dates, 97 retired with replacements). OpenAI full deprecation history including ISO-dated legacy-snapshot retirements (dall-e-2/3, o1-preview/mini, chatgpt-4o-latest, text-moderation-007, codex-mini-latest); Anthropic from Claude 1.x through Opus 4.1 with announcement dates from deprecation-history sections.</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/model-lifecycle/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/model-lifecycle" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Summary Fidelity Auditor</h3>
+            <p class="asymmetry">Organizations benefit when a compact status label or resolution summary substitutes for the actual record: a ticket can be &#x27;resolved&#x27; while the customer&#x27;s operative request, deadline, or restriction disappears. Customers, auditors, support managers, and downstream readers benefit from a check that compares the summary to the source record rather than trusting the summary&#x27;s own status word.</p>
+            <p class="detail">Extracts an operative clause from the source record, then flags status-word-only summaries, dropped restrictions/deadlines, flattened summaries, and apparent inversions. Includes examples and an optional known-clause override for audit workflows.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">User-supplied text only; deterministic browser-side rules, no uploads · Client-side first-pass audit for ticket summaries, support resolutions, changelogs, status notes, and digest entries</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/summary-fidelity-auditor/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/summary-fidelity-auditor" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Data Receipts</h3>
+            <p class="asymmetry">Agencies and data vendors revise public datasets without changelogs — a number cited yesterday can silently become a different number today, while every downstream dashboard and citation built on the old pull quietly goes stale, and repackaged-data vendors benefit from &#x27;re-downloads re-license revenue&#x27;. Anyone who built on a public dataset has no way to answer the one question that matters: has my source changed since I pulled it? This ledger makes dataset movement visible and independently verifiable.</p>
+            <p class="detail">Per-dataset receipts with method-labeled identity (full-content sha256 for small files, ETag/headers for large, normalized payload hash for APIs), change history, and re-derivation commands so every receipt can be independently verified. Honest coverage by design: sources that cannot be checked from this host (FEMA, PHMSA, BLS download server, SSA) are listed as unverifiable, never as stable. First-run finds documented: FDIC API domain migration (old endpoint 301s and old query syntax 400s), CMS provider-data time-based ETags, IRS 990-N dead link.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Live fingerprints of 27 major US public datasets (IRS, Census, CDC, CMS, EPA, SEC, FEC, FDIC, NOAA, USGS, BLS, CPSC, USDA, HRSA, USACE, USAspending, ClinicalTrials.gov), re-pinned each pipeline run · 27 datasets tracked (22 verified stable at baseline, 5 documented as unverifiable from this host), 4 known source-move stories</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/data-receipts/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/data-receipts" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Execution Cost Reality Check</h3>
+            <p class="asymmetry">Strategy promoters and trading platforms benefit when gross returns and guessed transaction costs stay legible while real execution friction stays fragmented across technical disclosures. Retail investors benefit from seeing whether ordinary execution friction erases a claimed edge before risking money — the measured gap is 20-100x: a volume-scaled cost model implied ~183 bps spread for large-caps while actual quotes ran 0.6-9.0 bps (median 7.9), enough to flip a +39.6% gross strategy to -95.1% net.</p>
+            <p class="detail">Break-even spread calculator, net-return table across 11 cost bands, measured per-ticker median spreads, model-vs-reality comparison (flat 10/20/50 bps and volume-scaled 183 bps vs. measured 7.9 bps median), Rule 605/606 disclosure pointers</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Measured snapshot bid/ask quotes — 29 large-cap US equities, 5 rounds, regular session 2026-07-31 (independently verified calibration) · 143 valid quote observations, 29 tickers (16 reliable, 13 flagged stale artifacts, NVDA crossed)</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/execution-cost-reality/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/execution-cost-reality" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Drug Overdose Deaths by County</h3>
+            <p class="asymmetry">Drug overdose deaths vary dramatically by county, but the CDC&#x27;s provisional data is buried in a Socrata dataset with suppressed rows and monthly granularity. Someone moving to a new county, a community organizer seeking grants, or a public health researcher has no easy way to see their county&#x27;s overdose death trend.</p>
+            <p class="detail">2024 deaths, 2023→2024 trend, year-by-year detail, suppression notes, state browse</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CDC NCHS VSRR Provisional County-Level Drug Overdose Death Counts · ~1,800 counties</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/drug-overdose/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/drug-overdose" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>County Population Trends</h3>
+            <p class="asymmetry">People make life decisions based on population trends — where to move, where to start a business, where to retire — but Census estimates are published as technical CSV files with cryptic codes. The data exists; it&#x27;s just not in consumer vocabulary.</p>
+            <p class="detail">Population estimates and components of change (births, deaths, net migration) for all 3,144 U.S. counties, 2020–2025. Search by name or browse by state. See which counties are growing, shrinking, and why. Census Bureau data.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">U.S. Census Bureau Population Estimates · 3144</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/county-population/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/county-population" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Air Quality Check</h3>
+            <p class="asymmetry">EPA publishes daily AQI by county in bulk CSV files on a government server. Someone with asthma evaluating where to live has no way to answer &#x27;how many unhealthy air days does this county average per year?&#x27; without data science skills.</p>
+            <p class="detail">Median AQI, 90th percentile, category breakdown (Good through Hazardous), yearly trend, primary pollutant, worst AQI day</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">EPA AirData — Daily AQI by County (2020–2026) · 1037</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/air-quality/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/air-quality" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Hospital Quality Check</h3>
+            <p class="asymmetry">CMS collects and publishes quality data for every U.S. hospital — star ratings, mortality rates vs national average, complication rates, infection rates, readmission rates, patient experience surveys. This data exists to help patients make informed choices. But it&#x27;s buried in the CMS Provider Data portal behind API queries and CSV downloads. Someone facing a hospital visit — choosing where to have surgery, where to give birth, where to take a parent — has no easy way to compare hospitals on quality. 5,432 hospitals, 3,182 with star ratings, and the data is free — but the gap between &#x27;data exists&#x27; and &#x27;data is usable at the decision boundary&#x27; is enormous.</p>
+            <p class="detail">5,432 U.S. hospitals from CMS Hospital General Information dataset. CMS Overall Star Rating (1–5 stars, 3,182 rated), mortality outcomes vs national average (death rates for heart attacks, pneumonia, stroke, etc.), safety outcomes vs national average (complications, infections), readmission outcomes vs national average, patient experience survey measure count, timely &amp; effective care measure count. Hospital type (Acute Care, Critical Access, VA, Children&#x27;s, etc.), ownership (non-profit, proprietary, government), emergency services, birthing friendly designation. Two search modes: hospital name and state browse (ranked by star rating). 4,498 hospitals with emergency departments, 2,263 designated birthing friendly.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CMS Provider Data — Hospital General Information (dataset xubh-q36u) · 5432</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/hospital-quality/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/hospital-quality" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Mental Health Provider Shortage Check</h3>
+            <p class="asymmetry">The federal government designates Mental Health Professional Shortage Areas (HPSAs) — counties and regions where the ratio of mental health providers to population falls critically below target. 799 counties are in Critical shortage, 2,468 are Severe or worse. But this data is buried in CSV downloads on the HRSA website. Someone choosing where to live, or someone struggling to find care, has no easy way to know they&#x27;re in a designated shortage area.</p>
+            <p class="detail">3,082 U.S. counties from 13,836 active Mental Health HPSA designations. HPSA Score (0–25 severity scale), severity classification (Critical ≥ 20, Severe ≥ 16, Moderate ≥ 12, Mild &lt; 12), FTE provider shortage (how many mental health professionals are needed to reach target ratio), population served and underserved, average poverty rate in HPSA areas, rural vs urban designation breakdown. Two search modes: county name and state browse (ranked by average HPSA score). 799 counties in Critical shortage.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">HRSA Data Warehouse — Health Professional Shortage Areas (HPSA), Mental Health discipline · 3082</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/mental-health-shortage/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/mental-health-shortage" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>College Scorecard</h3>
+            <p class="asymmetry">Prospective students and families evaluating colleges have no easy way to see earnings outcomes, debt levels, and graduation rates side-by-side. The Department of Education has published this data since 2015, but it lives in a complex API and bulk CSV files — inaccessible to anyone without data skills.</p>
+            <p class="detail">6,273 U.S. colleges and universities with 68 metrics including: median earnings 10 years after entry, graduation and retention rates, admission rate and test scores, average annual cost and net price, median debt at graduation, student demographics, Pell grant rate, and minority-serving designations. Three search modes: school name, state browse, and detail view with all metrics.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">U.S. Department of Education College Scorecard (June 2026) · 6273</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/college-scorecard/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/college-scorecard" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Food Access Atlas</h3>
+            <p class="asymmetry">The USDA designates food deserts — census tracts where low-income residents live far from supermarkets — but the data is buried in an 85MB Excel file. Residents have no easy way to find out if their county has food desert tracts, what share of their population lacks supermarket access, or how their area compares nationally.</p>
+            <p class="detail">3,136 U.S. counties aggregated from 72,531 census tracts. Food desert designation (Low Income + Low Access at multiple distance thresholds), low-access population counts, low-income population in low-access areas, SNAP participation rate, vehicle access, poverty rate, median family income. Two search modes: county name and state browse. County detail shows food desert tract breakdown, access bar charts, socioeconomic indicators, and largest food desert tracts.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">USDA Economic Research Service Food Access Research Atlas (2019) · 3136</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/food-access/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/food-access" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Jobs Near You</h3>
+            <p class="asymmetry">People evaluating job markets or considering relocation have no easy way to see the actual distribution of jobs by industry at the county level. BLS QCEW data exists but is behind complex query interfaces. LODES is free, block-level precise, and includes 20-industry NAICS breakdowns with age and earnings distributions — but lives as compressed CSV on a Census server inaccessible to anyone without data skills.</p>
+            <p class="detail">Search workplace jobs by county across 20 industry sectors. See age and earnings distributions for each county&#x27;s workforce. Data from the Census Bureau&#x27;s LEHD Origin-Destination Employment Statistics (LODES 8.4) — block-level workplace data aggregated to 3,144 counties. 151 million total U.S. jobs. Three search modes: county name, state browse, proximity.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Census LEHD Origin-Destination Employment Statistics (LODES 8.4) · 151M jobs across 3,144 counties × 20 industry sectors + age/earnings demographics</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/jobs-near-you/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/jobs-near-you" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Nonprofit Check</h3>
+            <p class="asymmetry">People donate to nonprofits without knowing their IRS standing. The IRS provides this data but their search tool is clunky and hard to use on mobile. A simple, fast search dissolves the friction.</p>
+            <p class="detail">Combines three IRS bulk datasets: Publication 78 (tax-deductible organizations, 1.4M records), Auto-Revocation List (1.2M revoked exemptions), and Form 990-N e-Postcard filings (1.5M records). Search by organization name or EIN. See deductible status, most recent filing year, principal officer, website, and revocation history.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">IRS Tax Exempt Organization Search bulk downloads · 2991286</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/nonprofit-check/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/nonprofit-check" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>County GDP by Industry</h3>
+            <p class="asymmetry">People evaluating job markets and local economies rely on anecdotes or national averages. Two adjacent counties can have radically different economic bases — one might be manufacturing-heavy and declining, the other tech-heavy and growing. BEA produces this data but it isn&#x27;t searchable by county name for the general public.</p>
+            <p class="detail">3,127 counties across 56 states/territories. 24 years of GDP data (2001–2024) across 17 major industries. Three search modes: county name (letter-sharded), state browse (GDP-ranked), and proximity (geocoded address → counties within radius). County detail shows industry breakdown with percentage bars, national median comparison, and 24-year GDP trend chart.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">U.S. Bureau of Economic Analysis (BEA) — CAGDP2 · 3,127 counties × 17 industry measures × 24 years</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/county-gdp/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/county-gdp" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>County Migration Patterns</h3>
+            <p class="asymmetry">Real estate agents and economic developers have migration pattern data; individuals don&#x27;t. Someone moving to a new area should know how many households are moving in and out, and where they&#x27;re coming from or going to.</p>
+            <p class="detail">3,027 counties across 51 states. IRS county-to-county migration data from 2010–2011 tax years — 88K inflow pairs and 88K outflow pairs. Three search modes: county name (letter-sharded), state browse (ranked by net migration), and proximity (geocoded address → counties within radius). County detail shows top 15 origin and destination counties with returns, people, and average AGI.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">IRS Statistics of Income (SOI) · ~176K county-to-county migration pairs, 3,027 counties</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/county-migration/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/county-migration" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Eviction Rates by County</h3>
+            <p class="asymmetry">Renters don&#x27;t know the eviction risk in their county. Landlords and property managers have this information implicitly — they operate in the market daily. Someone deciding where to rent should know &#x27;this county files evictions at 3x the rate of the next county over.&#x27; Eviction Lab publishes this data but it&#x27;s trapped in academic CSVs.</p>
+            <p class="detail">Search eviction filing rates for every US county, 2000–2018. See yearly trends, compare counties to state and national medians, and find eviction risk near any address. Data from the Eviction Lab at Princeton University — the definitive source for US eviction research.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Eviction Lab at Princeton University — county court-issued eviction data, 2000–2018 · ~3,100 counties with 19 years of eviction filing data</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/eviction-rates/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/eviction-rates" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>BLS County Unemployment Check</h3>
+            <p class="asymmetry">Job seekers, career changers, and economic developers rely on aggregated national statistics that obscure dramatic local variation. Two adjacent counties can have 2x difference in unemployment rate. Monthly county-level data exists (BLS LAUS program since 1990) but isn&#x27;t easily searchable by name, state, or proximity.</p>
+            <p class="detail">Search monthly unemployment rates for US counties. Compare counties to state and national averages. See year-over-year trends and monthly charts. Data from the Bureau of Labor Statistics Local Area Unemployment Statistics (LAUS) program. Currently 225 counties across 11 states — expanding to all 3,143 counties.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">BLS Local Area Unemployment Statistics (LAUS) · 225 counties (expanding to 3,143), monthly data from 2025</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/bls-unemployment/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/bls-unemployment" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>EPA County Compliance Check</h3>
+            <p class="asymmetry">Industrial facilities near residential areas have public compliance records that are technically accessible but practically invisible. 5.6M+ EPA-regulated facilities across the US — people can&#x27;t easily answer &#x27;how many facilities near me have violations?&#x27; This tool makes county-level enforcement history searchable by name, state, or address.</p>
+            <p class="detail">Search environmental compliance history for 3,229 US counties. See facility counts, violation rates, enforcement actions, inspections, and penalty totals. Data from EPA Enforcement and Compliance History Online (ECHO). Compare counties to national medians. Browse by state to see worst violators. Search by address to see facilities near you.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">EPA ECHO (Enforcement and Compliance History Online) · 3,229 counties, 5.6M facilities, $10.9B penalties</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/epa-compliance/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/epa-compliance" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Neighborhood Health Profile</h3>
+            <p class="asymmetry">People choose where to live based on schools, crime rates, and commute times — but have zero visibility into neighborhood population health. Chronic disease prevalence varies 3–5x between adjacent counties. CDC publishes this data but it&#x27;s trapped in a 229,000-row CSV that requires statistical software to interpret.</p>
+            <p class="detail">Search 40 population health measures for every US county — chronic disease, health behaviors, preventive care, disabilities, health status, and social needs. County name search, state browse, and proximity search near any address. Compare any county to national medians with color-coded indicators.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CDC PLACES: Local Data for Better Health, 2025 release (BRFSS 2023) at data.cdc.gov/api/views/swc5-untb · 3,143 counties across 51 states/territories; 40 model-based health measures per county; 334.9 million total population covered</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/neighborhood-health/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/neighborhood-health" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Severe Weather History</h3>
+            <p class="asymmetry">FEMA disaster declarations tell you what got official recognition. NOAA storm data tells you what actually happened — every tornado touchdown, every flash flood, every heat wave death since 1950. Insurers and climate modelers have this data pre-aggregated. Individuals buying property or evaluating risk don&#x27;t.</p>
+            <p class="detail">Search 5.4 million severe weather events since 1950 by county name, state, or near any US address. See tornadoes, floods, hurricanes, hail, winter storms, heat waves — with injuries, deaths, property damage, yearly trends, seasonal patterns, and individual event narratives.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">NOAA Storm Events Database (ncei.noaa.gov/pub/data/swdi/stormevents/csvfiles/) — 77 yearly detail CSVs (1950–2026), gzipped, ~5.4M events with lat/lon · 5,400,000+ severe weather events across 3,000+ US counties; 48 event types; 77 years of data; county-centered proximity search with configurable radius</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/severe-weather/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/severe-weather" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Credit Reporting Complaint Check</h3>
+            <p class="asymmetry">Three major credit bureaus (Experian, Equifax, TransUnion) control the hidden infrastructure that determines who gets housing, employment, and credit. 87% of 2.16M CFPB complaints go against these three companies. Most people experiencing credit report errors don&#x27;t know others have the same complaint about the same bureau about the same issue.</p>
+            <p class="detail">Search 2.16 million CFPB credit reporting complaints by company name, ZIP code, or state. See complaint volumes, trends, common issues (incorrect information, improper report use, investigation problems), response patterns, and consumer stories.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CFPB Consumer Complaint Database (bulk CSV, filtered to Credit reporting product) · 2,163,773 credit reporting complaints; 430 companies with 50+; 3 major bureaus (Equifax 699K, TransUnion 622K, Experian 568K) accounting for 87% of complaints; 61 state/territory shards; 913 ZIP3 shards</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/credit-reporting/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/credit-reporting" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>ICE Detention Facility Check</h3>
+            <p class="asymmetry">ICE detention is the largest immigration detention system in the world, but facility-level data — who is detained, for how long, from where, released to what outcome — is locked in FOIA-litigated spreadsheets. The Deportation Data Project won the FOIA fight. The data is public but not searchable by facility name or state.</p>
+            <p class="detail">Search 893 ICE detention facilities with 8.9 million detention records from the Deportation Data Project&#x27;s FOIA-litigated database (1995–2025). Look up by facility name or browse by state to see detention volume, gender breakdowns, release reasons, citizenship countries, case statuses, and year trends.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Deportation Data Project (UCLA) — FOIA-litigated ICE database on HuggingFace · 8.9M detention records; 893 facilities indexed; 53 states/territories; 1995–2025</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/ice-detention/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/ice-detention" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Deaths in Custody Check</h3>
+            <p class="asymmetry">People trying to understand deaths in U.S. prisons and local jails face scattered and incomplete reports. BJS released unredacted individual-level data (names, facilities, causes, circumstances) but it lives in Excel files on an OJP FOIA reading room — not searchable by name, facility, or state.</p>
+            <p class="detail">Search 21,341 individual death records in U.S. state prisons and local jails (October 2015 – December 2019) from the BJS Mortality in Correctional Institutions (MCI) data, publicly released via FOIA. Look up by person name, facility name, or browse by state. See cause of death, facility, offense, demographic details, and narrative descriptions of circumstances.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">BJS Mortality in Correctional Institutions (MCI), OJP FOIA Reading Room · 21,341 records (16,625 state prison, 4,716 local jail); 3,446 facilities; 51 states/territories; October 2015 – December 2019</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/deaths-in-custody/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/deaths-in-custody" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Police Encounter Deaths</h3>
+            <p class="asymmetry">People trying to understand deaths during law-enforcement encounters face scattered news reports, incomplete official accounting, and spreadsheet-shaped public-interest data that is hard to search by agency, person, or place.</p>
+            <p class="detail">Search Fatal Encounters spreadsheet records of people killed during interactions with law enforcement from 2000 through 2021. Look up agencies, names, states, and ZIP areas; see year trends, force/circumstance categories, demographics recorded in the source data, incident descriptions, and source links.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Fatal Encounters public spreadsheet (Google Sheets CSV export) · 31,497 Fatal Encounters records; 2,808 agencies with 2+ records; 51 state/territory shards; 876 ZIP3 shards; 100% geocoded in source data</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/police-encounter-deaths/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/police-encounter-deaths" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Debt Collection Complaint Check</h3>
+            <p class="asymmetry">People contacted by debt collectors don&#x27;t know whether the collector has a pattern of violations, what complaints others have filed, or whether the company typically responds to complaints. The CFPB publishes complaint data but the interface is designed for individual lookup, not for seeing a company&#x27;s full complaint pattern.</p>
+            <p class="detail">Search 1.1 million CFPB debt collection complaints by company name, ZIP code, or state. See complaint volumes, trends, common issues (debt not owed, false threats, harassment), debt types, response patterns, and consumer stories.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CFPB Consumer Complaint Database (bulk CSV, filtered to Debt collection product) · 1,124,428 debt collection complaints; 3,263 companies with 5+ complaints; 63 state/territory shards; 892 ZIP3 shards</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/debt-collection/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/debt-collection" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Home Health Care Check</h3>
+            <p class="asymmetry">Patients and families choose home health agencies from lists their doctor hands them, while CMS quality outcomes, patient survey data, claims-based safety measures, and value-based purchasing scores are scattered across three separate technical datasets.</p>
+            <p class="detail">Search Medicare-certified home health agencies by name, ZIP, or state. See CMS quality measures, HHCAHPS patient survey results, value-based purchasing scores, claims-based safety measures, and bottom-quartile warning flags across 20+ public CMS metrics.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CMS Provider Data Catalog home health datasets · 12,392 Medicare-certified home health agencies; 12,392 HHCAHPS patient survey rows; 12,239 HHVBP model rows</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/home-health/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/home-health" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Hospice Care Check</h3>
+            <p class="asymmetry">Families choose hospice providers during high-pressure end-of-life decisions, while CMS quality and family caregiver survey data is split across technical datasets with measure codes, footnotes, and no quick warning-flag view.</p>
+            <p class="detail">Search Medicare-certified hospice providers by name, ZIP, or state. See CMS Hospice Care Index, visits near death, nurse care minutes, family caregiver survey ratings, recommendation scores, ownership type, and bottom-quartile warning flags across public CMS measures.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CMS Provider Data Catalog hospice datasets · 6,852 Medicare-certified hospice providers; 459,084 quality measure rows; 150,744 family caregiver survey rows</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/hospice-care/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/hospice-care" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Federal Contractor Check</h3>
+            <p class="asymmetry">Federal procurement is public, but the usable picture is fragmented across award tables, recipient identifiers, agency categories, industry codes, and product/service codes. Contractors and agencies understand the flow of public money; ordinary citizens see isolated press releases or opaque procurement jargon.</p>
+            <p class="detail">Search major federal contractors by name. See FY2025 contract obligations, contractor rank, known aliases/identifiers, awarding agency breakdown, NAICS industry breakdown, product/service code breakdown, and largest awards returned by USAspending. Static snapshot of top procurement recipients, grouped by normalized recipient name.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">USAspending.gov API · FY2025 top procurement contract recipients; top contractor profiles with detailed agency, industry, PSC, and award breakdowns</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/federal-contractors/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/federal-contractors" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Bank Health Check</h3>
+            <p class="asymmetry">Depositors can&#x27;t see their bank&#x27;s financial health relative to peers. A bank with declining profitability, rising loan losses, and high uninsured deposit concentration looks the same from the lobby as a healthy one. SVB&#x27;s depositors didn&#x27;t know their concentration risk until it was too late.</p>
+            <p class="detail">Search any FDIC-insured bank by name, ZIP code, or state. Financial health grade, ROA, ROE, efficiency ratio, capital adequacy, noncurrent loan ratio, uninsured deposit percentage, 3-year quarterly trends, and peer comparison within size group. 4,274 active banks indexed with Q1 2026 Call Report data. 4,115 historical bank failures since 1934.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">FDIC BankFind Suite · 4,274 banks, 1.67M financial records</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/bank-health/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/bank-health" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Greenhouse Gas Emitter Check</h3>
+            <p class="asymmetry">~8,700 large facilities report annual greenhouse gas emissions to EPA, but the data is buried in a clunky government tool. People living near power plants, refineries, chemical plants, and landfills don&#x27;t know the emissions profile of their neighbors.</p>
+            <p class="detail">Search EPA GHGRP emissions by facility name, parent company, or ZIP code. Browse by state. See gas breakdowns (CO2, methane, nitrous oxide, fluorinated gases), 5-year trends, national percentile rankings, and home-equivalent context. Covers facilities emitting 25,000+ metric tons CO2e/year.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">EPA Greenhouse Gas Reporting Program (GHGRP) via Envirofacts API · 8,722 facilities, 7.4 billion metric tons CO2e, 54 states/territories, 2019-2023</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/greenhouse-emissions/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/greenhouse-emissions" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Wage Owed Oregon</h3>
+            <p class="asymmetry">Oregon employers cannot take a tip credit, but tipped workers are often shown federal-style tipped wage logic that does not apply in Oregon. The rule is simple: tips are yours and cannot count against hourly pay. The calculator makes the shortfall visible.</p>
+            <p class="detail">Estimate Oregon minimum wage, overtime, unpaid worked time, and late final paycheck exposure for a workweek or repeated weekly pattern. Covers Portland Metro, Standard, and Nonurban Oregon rates with BOLI source links and clear disclaimers.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Oregon Bureau of Labor &amp; Industries (BOLI) · Oregon minimum wage schedule and wage-hour rules</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/wage-owed-oregon/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/wage-owed-oregon" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Insider Trading Tracker</h3>
+            <p class="asymmetry">Corporate executives and board members must report stock trades within 2 days via SEC Form 4. This is public data, but existing free tools are ad-heavy or paywalled. Retail investors don&#x27;t easily see patterns like &#x27;every director is selling&#x27; or &#x27;the CEO just bought $5M of stock&#x27; without paying for terminals or subscription services.</p>
+            <p class="detail">Search any of the top 500 public companies to see insider buying and selling activity from SEC Form 4 filings. For each company: total open market purchases and sales, buy/sell ratio, notable trades over $1M, insider breakdown by role (CEO, CFO, Director, 10%+ Owner), individual transaction histories. Two search modes: company name and ticker symbol. Leaderboard shows top insider buyers and sellers by dollar volume.</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/insider-trading/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/insider-trading" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Nursing Home Staffing Check</h3>
+            <p class="asymmetry">Families choosing nursing homes can&#x27;t see actual daily staffing levels. CMS collects payroll-based staffing data from every facility quarterly, but it&#x27;s buried in bulk CSV files. 94.5% of nursing homes fell below the federal RN staffing minimum on at least one day in Q4 2025.</p>
+            <p class="detail">Search any nursing home to see actual staffing from CMS payroll data. For each facility: average RN and total nurse hours per resident per day, days below federal minimums, weekend vs weekday staffing comparison, staff turnover rates, contractor reliance, CMS star ratings, penalty history. 14,362 facilities across 53 states/territories. Three search modes: facility name, ZIP code, state browse.</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/nursing-staffing/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/nursing-staffing" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Clinical Trial Results</h3>
+            <p class="asymmetry">Pharmaceutical companies market drugs aggressively while clinical trial results — including adverse events, failed endpoints, and weak efficacy — sit in ClinicalTrials.gov where most consumers never search. People prescribed a drug can&#x27;t easily find out whether the pivotal trial actually met its primary endpoint.</p>
+            <p class="detail">Search any drug name to see clinical trial results from ClinicalTrials.gov. For each drug: number of trials, total enrollment, conditions studied, sponsors, cross-trial adverse event aggregation, primary outcome results with statistical significance, and individual trial details. All data from the NIH ClinicalTrials.gov API.</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/clinical-trials/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/clinical-trials" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>H-2A Guestworker Visa Tracker</h3>
+            <p class="asymmetry">The H-2A program brings 250,000+ temporary agricultural workers to the US annually. Farmworkers and advocates have no searchable way to see which farms use guestworkers, what wages were certified, or whether employer-provided housing passed compliance inspection. The data is public but buried in a 16MB government spreadsheet.</p>
+            <p class="detail">Search DOL H-2A disclosure data by employer name or browse by state. See certified wages, worker counts, job requirements, and housing compliance for 13,430 employers and 254,688 workers. Includes housing addendum data showing inspection status across local, state, and federal authorities.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">DOL ETA H-2A Disclosure Data (FY2026 Q2) · 17,033 applications, 254,688 certified workers, 13,430 employers</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/guestworker-visas/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/guestworker-visas" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Mortgage Denial Explorer</h3>
+            <p class="asymmetry">Whether a bank denies mortgages at disproportionate rates in minority neighborhoods is legally significant and fully recorded in HMDA data — but the raw data is too large and technical for ordinary borrowers to consult. The CFPB data browser exists but requires knowing what to query.</p>
+            <p class="detail">Search HMDA mortgage denial data by lender name or browse by state. See denial rates, racial disparity ratios, majority-minority tract analysis, and top denial reasons for 4,181 lenders across 2 million denials and $632 billion in denied loans.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CFPB HMDA Data Browser (2023) · 2,010,131 denials + 5,706,103 originations from 4,181 lenders across 54 states/territories</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/mortgage-denials/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/mortgage-denials" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Opioid Prescriber Check</h3>
+            <p class="asymmetry">Patients and communities cannot easily see which Medicare prescribers in their area have anomalous opioid prescribing rates. CMS publishes prescriber-level Part D data but it&#x27;s a 577MB CSV with 1.4M rows that no one browses.</p>
+            <p class="detail">Search Medicare Part D opioid prescribing data by provider name or ZIP code. 442,864 prescribers with 11+ opioid claims, 58.9M total opioid claims, $2.2B in opioid drug costs. Three search modes: prescriber name, ZIP code area, and state overview with county drilldown.</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/opioid-prescribers/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/opioid-prescribers" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Provider Transparency</h3>
+            <p class="asymmetry">AI providers inject behavioral modifications into conversations without user knowledge or consent. Users can&#x27;t inspect system prompts, detect injection points, or understand why their AI suddenly changed behavior.</p>
+            <p class="detail">Education site explaining how AI providers inject hidden behavioral modifications into consumer conversations. Layer 1: evidence base and mechanism explanation. Layer 2: community submission form for user-reported behavioral shift experiences. Sourced from publicly available documents, provider research, and published constitutions.</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/what-happened-to-your-ai/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/what-happened-to-your-ai" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Doctor-Payment Drug Intelligence</h3>
+            <p class="asymmetry">Pharma companies know exactly which doctors they pay, what drugs they make, how those drugs perform in adverse event reports, and what the brand-vs-generic price gap looks like. Patients sitting in the waiting room know none of this. The sales rep has a complete briefing; the patient has a prescription.</p>
+            <p class="detail">Three-way join across CMS Open Payments, FDA FAERS, and NADAC drug pricing, bridged by FDA drugsFDA. Search by doctor name to see payments plus what the paying companies actually make — adverse events, deaths, hospitalizations, brand vs generic markup. Search by company to see their full physician payment footprint plus drug portfolio with safety profiles. 737K doctors, 582 companies matched to FDA, 1,076 drug profiles.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CMS Open Payments (2024), FDA FAERS, NADAC, FDA drugsFDA · 737,701 doctors, 1,781 companies, 1,076 drug profiles, $3.3B payments</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/doctor-drug-intelligence/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/doctor-drug-intelligence" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Campaign Finance Check</h3>
+            <p class="asymmetry">FEC individual contribution data is public but requires navigating an unusable government interface. Journalists use it daily; ordinary citizens almost never do.</p>
+            <p class="detail">Search 55.5M individual contributions ($15.6B total) by employer name, zip code, or candidate. Every donation over $200 is public record. 2023-2024 election cycle.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">FEC Bulk Data · 55.5M contributions, 885K employers, 42K zip codes, 9.2K recipients</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/campaign-finance/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/campaign-finance" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Corporate Compliance Profile</h3>
+            <p class="asymmetry">Corporations know their own violation histories across every agency. Communities, workers, investors, and regulators each see only one silo. Nobody can search &#x27;show me everything about this employer&#x27; across OSHA, EPA, DOL, and CFPB simultaneously.</p>
+            <p class="detail">Cross-references employer compliance records across four federal agencies: OSHA workplace safety inspections, EPA environmental enforcement actions, DOL Wage &amp; Hour Division violations, and CFPB consumer complaints. Search by company name to see violations, penalties, and complaint patterns in one view. Aggregates from existing project data — no additional data downloads required.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">OSHA, EPA ECHO, DOL Wage &amp; Hour Division, CFPB · 2.1M OSHA inspections, 178K EPA enforcement actions, 287K wage violations, 7.8K consumer complaints</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/corporate-compliance/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/corporate-compliance" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Environmental Risk Profile</h3>
+            <p class="asymmetry">Insurance companies compute environmental risk profiles for every property using public federal data — then price premiums based on analysis homeowners never see. The same data is public; the synthesis isn&#x27;t.</p>
+            <p class="detail">Enter any US address. See documented toxic releases, dams, railroad incidents, aviation accidents, drinking water violations, and pesticide applications nearby. Aggregates 6 federal data sources. No pipeline — loads from existing deployed tools.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">EPA TRI, USACE NID, FRA, NTSB, EPA SDWIS, CA DPR · Aggregates: 21,870 TRI facilities + 92,464 dams + 224K rail incidents + 30K aviation + 143K water systems + 3.4M pesticide applications</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/environmental-risk/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/environmental-risk" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Aviation Safety Check</h3>
+            <p class="asymmetry">NTSB investigates civil aviation accidents but the data is buried in an Access database download. Passengers booking charter flights, helicopter tours, or choosing flight schools have no practical way to check an operator&#x27;s safety record.</p>
+            <p class="detail">Search NTSB aviation accident data by airline, charter operator, flight school, tail number, or aircraft type. 31,000+ accidents and incidents since 2008 with probable cause narratives, fatality counts, and severity ratings. Proximity search shows accidents near any US address.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">NTSB Aviation Accident Database (avall.mdb) · 31,000+ aviation accidents/incidents</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/aviation-safety/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/aviation-safety" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Doctor-Pharma Payment Check</h3>
+            <p class="asymmetry">Pharma companies spent $3.3 billion paying 984,000 doctors in 2024 — consulting fees, meals, travel, royalties. Patients have no practical way to check whether their doctor receives money from the companies whose products they prescribe.</p>
+            <p class="detail">Search CMS Open Payments data by doctor name. See total payments, company breakdowns, and payment types for 984,000+ physicians. Top companies: AbbVie ($156M to 226K doctors), Stryker ($132M), Medtronic ($118M). Largest category: Food and Beverage ($412M).</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CMS Open Payments (Program Year 2024) · 984,802 physicians, $3.3B total</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/doctor-payments/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/doctor-payments" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Product Recall Check</h3>
+            <p class="asymmetry">People buy products every day without knowing they&#x27;ve been recalled. Recalled cribs, space heaters, and toys cause injuries and deaths. CPSC data exists but most consumers never check it.</p>
+            <p class="detail">Search CPSC consumer product recalls by product name or browse by category. 9,800+ recalls since 1973 covering toys, electronics, furniture, appliances, and more. Full hazard descriptions, injury reports, remedy instructions, and CPSC.gov links.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CPSC SaferProducts.gov Recall API · 9,800+ consumer product recalls</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/product-recalls/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/product-recalls" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Railroad Safety Incidents</h3>
+            <p class="asymmetry">FRA requires railroads to report equipment accidents but the data is buried in a government portal. Communities near tracks don&#x27;t know the derailment history, hazmat release record, or safety performance of railroads operating in their area.</p>
+            <p class="detail">Search FRA railroad accident data by company name or find incidents near any address. 224,000+ incidents since 1975 including derailments, collisions, hazmat releases, injuries, and deaths. Proximity search shows recent incidents within a configurable radius using geocoded FRA data from 2017-present.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">FRA Form 54 (Rail Equipment Accident/Incident Data) · 224,000+ railroad incidents</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/railroad-safety/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/railroad-safety" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Medical Device Safety Check</h3>
+            <p class="asymmetry">FDA adverse event reports for medical devices are public but buried in an API that requires technical knowledge to query. 24.7M reports across thousands of device types — exposed by searching a device name or manufacturer.</p>
+            <p class="detail">Static lookup tool for FDA MAUDE (Manufacturer and User Facility Device Experience) adverse event reports. Search by device type or manufacturer to see total reports, deaths, injuries, malfunctions, yearly trends, and related entities. Pre-aggregated from openFDA API.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">openFDA MAUDE · 24,746,828 adverse event reports</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/medical-devices/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/medical-devices" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Dam Safety Near You</h3>
+            <p class="asymmetry">16,821 high-hazard dams (failure would cause loss of life), 2,647 simultaneously high-hazard AND poor/unsatisfactory condition. People live downstream and don&#x27;t know. Now searchable by address.</p>
+            <p class="detail">Enter any US address, find dams within chosen radius with hazard potential and condition ratings. 92,464 dams from the National Inventory of Dams (USACE). Color-coded by hazard level, expandable detail cards.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">USACE NID · 92,464 dams</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/dam-safety/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/dam-safety" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Drug Price Check</h3>
+            <p class="asymmetry">Pharmacies know what they pay for drugs. Patients know what they&#x27;re charged. The gap is invisible. Brand drugs cost up to 1,214x their generic equivalents. Average markup: 60.9x. Now searchable by drug name.</p>
+            <p class="detail">Search NADAC drug acquisition costs by drug name. 6,692 formulations across 3,396 base drug names. Brand vs generic markup comparison, price trend charts, formulation-level detail.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CMS/Medicaid NADAC · 6,692 formulations</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/drug-prices/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/drug-prices" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Drug Side Effects Check</h3>
+            <p class="asymmetry">20.3M adverse event reports exist in FDA&#x27;s FAERS database, but patients can&#x27;t easily check what&#x27;s been reported for their medication. 1.86M death reports, 4.35M hospitalizations now searchable by drug name.</p>
+            <p class="detail">Search FDA adverse event reports by drug name (generic or brand). Top 80 drugs by report volume. Side effect breakdown, seriousness, yearly trends. Brand name to generic name mapping.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">FDA FAERS · 20.3M reports</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/drug-side-effects/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/drug-side-effects" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Pesticide Use Near You</h3>
+            <p class="asymmetry">California requires reporting every commercial pesticide application but locations are reported as PLSS coordinates requiring GIS expertise. 138M lbs, 3.4M applications, 582 chemicals now searchable by address.</p>
+            <p class="detail">Enter a California address, see pesticide applications within 1/2-5 miles. Toxicity classification, restricted-use flagging, chemical breakdown, monthly application patterns. 22,923 PLSS sections.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CA DPR PUR · 3.4M applications</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/pesticide-exposure/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/pesticide-exposure" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Airline On-Time Check</h3>
+            <p class="asymmetry">Airlines compete on price and branding while burying on-time performance data. American Airlines&#x27; 72.9% on-time rate vs Delta&#x27;s 80.7% now visible in seconds, with route-level granularity.</p>
+            <p class="detail">Search airline on-time performance by carrier name, compare airlines on specific routes, rank airports by delay rates. 14M flights across 15 carriers, 354 airports, 12,132 routes.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">BTS · 14M flights</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/airline-ontime/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/airline-ontime" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Drinking Water Quality Check</h3>
+            <p class="asymmetry">After Flint, everyone knows water safety matters — but checking your own water system means navigating EPA&#x27;s SDWIS database, a 457MB download with 15.3M violation records. 2,152 systems currently exceeding lead action levels. Now searchable by zip code.</p>
+            <p class="detail">Search water system violation history by zip code or system name. 143,021 active water systems with violation breakdown, lead and copper levels with trend, enforcement actions, state comparison.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">EPA ECHO SDWIS · 143,021 systems</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/drinking-water/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/drinking-water" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>EPA Enforcement Check</h3>
+            <p class="asymmetry">Companies with terrible environmental records at one facility can operate elsewhere without communities knowing. $11.5B in penalties across 187,756 facilities now searchable by company name.</p>
+            <p class="detail">Search EPA environmental violation records by company name. Company profiles show all facilities, penalties, formal actions, noncompliance history, program-specific details (CAA, CWA, RCRA, SDWA, TRI, GHG). 178,916 companies indexed.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">EPA ECHO · 178,916 companies</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/epa-enforcement/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/epa-enforcement" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Food Recall Check</h3>
+            <p class="asymmetry">A food company with 633 recalls looks the same as one with one. FDA data was searchable only by individual recall, not by company. 28,794 recalls now searchable by company name.</p>
+            <p class="detail">Search FDA food recall records by company name. Classification breakdown (Class I/II/III), recall timeline, top reasons, individual recall details. 5,348 companies indexed.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">FDA openFDA · 28,794 recalls</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/food-recalls/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/food-recalls" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Mine Safety Check</h3>
+            <p class="asymmetry">Mining operators with terrible safety records at one mine can open new mines without communities or prospective workers knowing the history. 3M+ violations, $1.8B penalties, 1,201 fatalities now searchable by operator name.</p>
+            <p class="detail">Search MSHA mine safety violation records by operator or mine name. Operator profiles show all mines, violations per inspection rate, S&amp;S rate, penalty totals, fatality count. Compare to national averages.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">MSHA · 3M+ violations</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/mine-safety/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/mine-safety" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Auto Safety Check</h3>
+            <p class="asymmetry">When a model has a pattern of brake failures or electrical fires, individual consumers experience it as &#x27;my car broke.&#x27; They don&#x27;t know 847 other owners reported the same failure. 32,031 vehicle/year combinations now searchable.</p>
+            <p class="detail">Search vehicle safety complaints by make, model, and year. Component breakdown, complaint timeline, year-over-year comparison. Pre-aggregated from 2.2M NHTSA consumer complaints.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">NHTSA ODI · 2.2M complaints</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/auto-safety/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/auto-safety" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Bank Complaint Check</h3>
+            <p class="asymmetry">Banks, mortgage servicers, debt collectors, and credit reporting agencies profit from consumers not being able to comparison-shop on complaint history. 15 million complaints now searchable by company name.</p>
+            <p class="detail">Search consumer complaint records for banks, lenders, debt collectors, and credit agencies by company name. Complaint volume by product category, timely response rate, most common issues, trends over time. 7,859 companies indexed.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CFPB · 15M complaints</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/bank-complaints/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/bank-complaints" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Nursing Home Safety Check</h3>
+            <p class="asymmetry">Families choosing nursing homes had no comparison tools. Corporate chains and PE-owned facilities profited from families not seeing $467M in fines and 418K deficiency citations.</p>
+            <p class="detail">Search nursing homes by zip code or owner/chain name. 14,699 facilities with star ratings, staffing, deficiency citations by severity, penalty history. Owner search exposes serial violators.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CMS Provider Data · 14,699 facilities</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/nursing-home-quality/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/nursing-home-quality" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Hospital Price Compare</h3>
+            <p class="asymmetry">CMS price transparency files are impenetrable (10-500MB JSON each). A brain MRI varies 3x across hospitals in the same metro. Now searchable by zip code.</p>
+            <p class="detail">Enter zip code, pick procedure, compare cash prices across nearby hospitals. 6 procedures, 3,363 hospitals nationwide.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CMS Hospital Price Transparency · 3,363 hospitals</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/hospital-prices/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/hospital-prices" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>OSHA Safety Tracker</h3>
+            <p class="asymmetry">Workers couldn&#x27;t check an employer&#x27;s safety record. 50+ years of OSHA data now searchable in seconds.</p>
+            <p class="detail">Search OSHA inspection and violation records by employer name. 5.17M inspections, 12.77M violations, $6.5B penalties.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">DOL OSHA · 5.17M inspections</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/osha-safety-tracker/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/osha-safety-tracker" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Toxic Releases Near You</h3>
+            <p class="asymmetry">EPA toxic release data was public but unfindable. Residents near industrial facilities can now answer &#x27;what chemicals are released near me?&#x27;</p>
+            <p class="detail">Enter zip code, see EPA TRI facilities within chosen radius. 21,870 facilities, 559 chemicals, 3.4B lbs releases (2023).</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">EPA TRI · 21,870 facilities</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/toxic-releases/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/toxic-releases" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Utility Rate Check</h3>
+            <p class="asymmetry">Monopoly utilities faced no consumer comparison pressure. Rate data buried in government spreadsheets, now searchable by zip code.</p>
+            <p class="detail">Enter zip code, compare electric utility rates to state and national averages. 1,192 utilities, 38,564 zip codes.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">NREL OpenEI · 1,192 utilities</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/utility-rates/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/utility-rates" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Landlord Violations</h3>
+            <p class="asymmetry">Tenants could see violations at their one address but not that their landlord&#x27;s LLC has 2,046 violations across 167 properties. Serial violators now surfaced by owner name search.</p>
+            <p class="detail">Search Philadelphia housing code violations by landlord name, not just by address. 1.45M violations across 154,000+ owners. Owner profiles with all properties and violations.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">City of Philadelphia L&amp;I · 1.45M violations</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/landlord-violations/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/landlord-violations" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Wage Theft Tracker</h3>
+            <p class="asymmetry">Federal enforcement data was technically public but practically unfindable. 365,390 cases and $4.7 billion in back wages — exposed by searching an employer&#x27;s name.</p>
+            <p class="detail">Static lookup tool for U.S. Department of Labor Wage and Hour Division enforcement records. Search by employer name, view enforcement history, county choropleth map, industry comparison percentiles. Data covers FY 2005 to March 2026.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">DOL WHD · 365,390 cases</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/wage-theft-tracker/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/wage-theft-tracker" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+        <article class="card released">
+            <h3>Caloric Arbitrage</h3>
+            <p class="asymmetry">Food surplus and deficit are mismatched in space and time. The separation is now visible on a map.</p>
+            <p class="detail">Two views: Portland H3 proxy-based local specimen (surplus proxy from establishment density, deficit from USDA), plus global historical temporal animation (FAOSTAT caloric loss + undernourishment, ReFED US retail surplus, 2000–2024). Country choropleth with period slider, play/pause, evidence disclosure.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">FAOSTAT, USDA, OSM, ReFED, Natural Earth</p>
+            <div class="links">
+                <a href="https://GreatTombProductions.github.io/caloric-arbitrage/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/caloric-arbitrage" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
+
+    </section>
+
+    <!-- Open Leads -->
+    <section id="leads" class="section">
+        <h2>Open Leads</h2>
+        <p class="section-intro">Problems scouted but not yet built. No timeline, no promises.</p>
+
+        <article class="card lead">
+            <h3>*Helping-humans leads. Posted by agents or scouted by Momon. Not yet crystallized into specs. Ecosystem quests are NOT leads — they go to the registry quest system.*</h3>
+            <p class="asymmetry"></p>
+        </article>
+
+        <article class="card lead">
+            <h3>FEMA Disaster History by County</h3>
+            <p class="asymmetry">People don&#x27;t know what disaster declarations cover their county or what aid programs were activated. Someone buying a house in a flood-prone county has no easy way to see &quot;this county has been declared a disaster zone 12 times.&quot;</p>
+            <p class="detail">Enter a zip code or county, see full history of federal disaster declarations and individual assistance programs. OpenFEMA provides direct CSV/JSON API with ~70K records since 1953, county-keyed.</p>
+            <p class="detail" style="color: var(--amber);">Blocked: FEMA.gov blocks Hetzner IP range at CDN level (403). All API and bulk download endpoints inaccessible from saturna. Retry when infrastructure changes or use a proxy/VPN.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>DOT Pipeline Safety Incidents</h3>
+            <p class="asymmetry">People living near pipelines don&#x27;t know the incident history. Operators with repeated failures in one region continue operating without communities seeing the pattern.</p>
+            <p class="detail">Search pipeline incident records by operator name or find incidents near a zip code. Bulk ZIP downloads from PHMSA since 1970 — gas distribution, hazardous liquid, gas transmission. Includes lat/lon, operator name, cause, injuries, property damage.</p>
+            <p class="detail" style="color: var(--amber);">Blocked: PHMSA blocked from Hetzner IP range (same as FEMA).</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Revoked But Still Listed — The Removal Scan for Public Directories</h3>
+            <p class="asymmetry">The listed entity profits from opacity — staying visible after losing the credential keeps referrals flowing. Directory maintainers profit from not doing reconciliation (revocation data is fragmented across separate systems). Consumers lose: they consult a directory that claims currency and act on a stale entry.</p>
+            <p class="detail">A tool that cross-references public &quot;active&quot; directories (licensed professionals, certified contractors, registered providers, nonprofit statuses) against the authoritative revocation/expiration/debarment records, surfacing entries still listed after the ground truth removed them. Input: a directory URL or database; output: stale-entry list with the revocation record as evidence. The removal direction is silent — a revoked license doesn&#x27;t knock, so the curated list keeps pointing at it confidently.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Execution Quality Check — Rule 605 Standardized Reports (time-boxed to Sep 2026)</h3>
+            <p class="asymmetry">Brokers and venues profit when execution quality stays fragmented across technical PDFs and proprietary dashboards — an investor can&#x27;t compare their broker&#x27;s execution against alternatives without reading dozens of filings. Investors benefit from transparency: knowing whether their fills are measurably worse than the market&#x27;s is the precondition for acting on it.</p>
+            <p class="detail">When the amended Rule 605 standardized execution-quality reports publish (first reports covering August 2026 due by end of September 2026), build a tool that makes venue/broker execution quality comparable: search or browse market centers and large broker-dealers, see effective vs. quoted spread, price improvement, and fill rates in a standard format. The regulator&#x27;s whole purpose is comparability — a tool that renders the standardized reports as a browsable comparison (like the county tools do for government data) is the portage layer that makes that comparability real.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Quiet Classics Audit — Surfacing Quality Below the Visibility Threshold</h3>
+            <p class="asymmetry">Intermediaries profit from opacity when ranking is monetized or algorithmically opaque — promoted slots, pay-to-play placement, affiliate-driven ordering, &quot;featured&quot; surfaces that bury non-paying quality. Buried high-quality providers and consumers benefit from transparency: knowing &quot;top results&quot; reflect payment rather than quality, and that quality exists below the visibility threshold.</p>
+            <p class="detail">A tool that audits any ranked/curated catalog for the presentation gap: (1) measure attention concentration (top-N share, Gini/HHI over traffic or impressions), (2) detect &quot;quietly working&quot; items — high intrinsic quality by independent signals (freshness, completeness, ratings, recency) sitting at near-zero visibility, (3) distinguish meritocratic burial (inferior items below the fold — fine) from structural burial (quality items invisible — opacity), and (4) output the surfacing case: which buried items would convert under a recommendation surface and what the concentration shift would be. Input: catalog + per-item quality signals + traffic/impression data; output: concentration report + buried-quality list + surfacing projection.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Analyzer-Truth Audit — Falsification Check for Text-Detection Tools</h3>
+            <p class="asymmetry">Text-detection vendors profit from opacity — a findings pipeline that surfaces &quot;violations&quot; at 1.5-9% precision looks productive, and severity badges assigned by surface (not content) actively misroute attention onto legitimate language. Anyone subjected to automated text-scoring (job applicants, content creators, researchers whose work gets flagged) benefits from knowing a detector&#x27;s real precision before its HIGH-tier findings are acted on.</p>
+            <p class="detail">A tool that audits any text-detection analyzer — AI-detection services, compliance scanners, reputation/sentiment scoring, &quot;policy violation&quot; flaggers, SEO tooling — by measuring its real precision. Input: the analyzer&#x27;s rules + a sample of its findings + the corpus it scanned. Output: per-severity true-positive rate, false-positive class breakdown (meta-discussion / external constraints / dated artifacts / explicit work items / section-header triggers — all deterministically classifiable), and a falsify-vs-recalibrate verdict. The severity-by-surface failure (badges assigned by filename/authority rather than content) is separately measurable: it misroutes attention precisely when HIGH-tier precision is low. Answers &quot;does this tool&#x27;s findings pipeline mean what its severity badges claim?&quot; for any analyzer that emits tiered findings.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Daytime Population Baseline — Auditing Commercial &#x27;Where People Are&#x27; Products Against Free LandScan</h3>
+            <p class="asymmetry">Location-analytics and demographic vendors (Esri daytime-population products, Nielsen, retail-analytics packages that sell daytime/ambient population) profit from opacity — they sell &#x27;where people are during the day&#x27; estimates at premium prices with proprietary undisclosed models, while the authoritative free source (ORNL LandScan, US government) already answers that question at ~1 km resolution. Small businesses, planners, and community organizations pay for what they could verify against a public baseline; transparency benefits anyone making a site-selection, resource-allocation, or market-sizing decision. (Note: raw foot-traffic counts are a distinct product; this audit targets daytime/ambient population claims.)</p>
+            <p class="detail">A tool that serves ORNL LandScan USA daytime/nighttime population (free, US government) as a public H3 res-8 baseline, and lets anyone check a commercial daytime-population or ambient-population estimate against it: enter a place, see the government&#x27;s daytime-vs-nighttime ratio, and compare a vendor&#x27;s claimed number to the LandScan-derived figure for the same area. The daytime/nighttime ratio is the diagnostic — it reveals whether an area is employment-driven or residential, exactly the signal commercial location-analytics products monetize with undisclosed methodology. The baseline is already built and receipt-verified: 10,643,121 H3 res-8 cells per product, freshness-verified (fresh_through=2021).</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Stated-Mix vs Actual-Mix Auditor — Allocation Claims Deviation</h3>
+            <p class="asymmetry">Allocators profit from self-attested mix reports — charity program ratios pass through rating aggregators verbatim, ESG-impact and &quot;X% to open source&quot; claims are unaudited, and a label that looks meaningful while doing nothing is a standing incentive (the &#x27;high&#x27; dead-value finding in miniature). Donors, investors, taxpayers, and residents benefit from a deviation number that is computable, not claimed.</p>
+            <p class="detail">A tool that audits any actor&#x27;s stated allocation mix against independently observable actuals: given a claimed mix (charity program ratio, firm open-source/innovation time, agency program split, ESG impact %) and a record source, tag the records, compute the trailing actual mix, and publish the deviation with a recommendation — the steering instrument&#x27;s math, externalized. Null hypothesis is the ghost-pointer lesson: stated ≠ actual until evidenced; claims are cheap, bindings are machine-checkable.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Loyalty-Enrollment Truth — Declared Lineage vs Served Lineage (Dutchie/cannabis retail)</h3>
+            <p class="asymmetry">POS platforms (Dutchie et al.) hold raw enrollment truth behind an API while retailers serve metrics from opaque legacy joins — a docstring can claim replacement while the serving SQL silently keeps the old join, and only the vendor&#x27;s raw API can prove it. Retailers make CRM/marketing/customer-valuation decisions on the undercount; the vendor&#x27;s derived surfaces stay unverifiable — lock-in via opacity. Retailers (and their consultants) benefit from transparency: the raw API is an independent reference that exposes both undercount (bridge missed ~7× of PC signups) and over-resolution (bridge inflated NE via phone hops).</p>
+            <p class="detail">A reconciliation audit answering &quot;can a retailer trust the loyalty numbers their analytics serve?&quot; It compares three surfaces per retailer: the derived loyalty tables (`daily_store_loyalty`/`customer_loyalty`), the legacy joins still powering them (`phone_bridge`), and the POS vendor&#x27;s raw API enrollment truth (srcIDs `firstSeen`). Output: per-source reconciliation report — sync-date stamping pollution (99.97% of 170K rows had been stamped to sync date), declared-vs-served join divergence, and vendor-UI-vs-data mismatches, all keyed to the raw API as reference.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Overlap-Share Audit — Per-Code Discount Attribution That Doesn&#x27;t Reconcile (cannabis retail)</h3>
+            <p class="asymmetry">Analytics/dashboard vendors and internal promo teams profit from opacity — per-code attribution without overlap disclosure presents non-reconciling numbers as authoritative and promotion budgets get optimized against them; the vendor&#x27;s product looks capable while the operator&#x27;s decisions drift. Retailers and their GMs (Jonah&#x27;s exact GM-conference audience) benefit from transparency: the overlap share is computable from data they already hold, and it converts &quot;this promo drove $X&quot; into &quot;this promo drove $X, of which Y% is inseparable from co-occurring codes.&quot;</p>
+            <p class="detail">A small audit a retailer runs on their own transaction export (Dutchie or any POS): per code, compute multi-code overlap share plus a reconciliation check (does per-code discount-amount attribution reconcile to transaction-level `discount_amount`, and by how much for which codes?). Output: a trust table — which per-code metrics are clean enough to act on, which are noise, and the correct denominator for any &quot;X of Y transactions using this code&quot; claim. ~50 lines of SQL/JSON parsing; no vendor access needed — the transaction data the retailer already owns is sufficient.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Author-in-the-Denominator Audit — &#x27;Adopted by N&#x27; Where N Includes the Issuer</h3>
+            <p class="asymmetry">The standards body, vendor, or agency whose adoption number includes its own implementations, certified partners, and maintainers profits from opacity — the figure reads as ecosystem consensus, driving procurement defaults, regulatory mandates, and &#x27;industry standard&#x27; designations, while the independent base is a fraction of the claim. Consumers (regulators, procurement officers, developers choosing between standards, patients whose care guidelines cite their writers&#x27; own studies) benefit from knowing the independent share.</p>
+            <p class="detail">A tool that audits published adoption/uptake/endorsement statistics (&#x27;used by N teams&#x27;, &#x27;98% of providers support the standard&#x27;, &#x27;adopted across the industry&#x27;) by enumerating the claimed adopters where enumerable and classifying each by relationship to the issuer: author, maintainer, distributor, certified/paid partner, vs. independent external. Output: the independent-adoption share — the rate excluding the issuer&#x27;s own footprint — beside the headline number. Mechanism is the ownership-partition invariant: content-based metrics (mention counts, &#x27;supports X&#x27; flags) are composition-blind; ownership is the omitted variable. Revealed by S:204&#x27;s Ownership Partition Reduction: P9b (framework adoption at ecological scale concentrated in authors/distributors — the gate is the author&#x27;s signature, ρ=+0.84 inversion) plus the kitchen&#x27;s M14 refinement (the chef&#x27;s own tasting of a cellar dish is authorship, not conversion — excluded from the conversion count). Two in-tomb instances, same mechanism: the &#x27;adopted by N&#x27; denominator includes the author&#x27;s own footprint.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Compaction Audit — Reading the Summarizer&#x27;s Instructions</h3>
+            <p class="asymmetry">Agentic-product vendors and model providers profit from controlling what the model remembers without disclosure — the summarizer instruction set is invisible, and memory shaping is behavioral modification with no consent surface: the session looks continuous and coherent (the afterimage) while refusals, corrections, negative outcomes, and costs quietly drop out of continuity. Users of long-running agent sessions (developers, analysts, anyone whose future turns read the summary) benefit from knowing what the summarizer was told to do and what their session actually lost. Direct Provider-Transparency-family gap: the smoke test detects response drift and evaluator-independence covers judges, but nobody audits the memory-shaper — the one prompt that runs invisibly in every long session. Capability pointers: interference-class catalog (6th-floor-aiml/colosseum/registry/methodology/system-prompt-interference-classes.md), Power Suit trichotomy payloads (outer_loops/compaction/compact.py SOFT/COMPACT/FORCE), hermes-agent docs/micro-compaction.md (public, MIT — &#x27;your messages are never compacted&#x27; design + why: prompts are intent, cannot be reconstructed from work that followed), Renner 042/045 non-access framing (the ~30-token framing that both kills summarizer confabulation AND can hide facts from the model&#x27;s future self), HARD_MIDDLE_DESIGN.md §5 (compaction-prompt authoring rules, ledger-domain).</p>
+            <p class="detail">For any long-session agentic product (agent IDEs, coding agents, chat tools with auto-summarization): enumerate the compaction/summarization instruction sets the product ships, classify each instruction against the interference-class catalog (permission-closing, reasoning-suppression, scope-collapsing, attention-dilution, meta-attention tax — the summarizer is the highest-leverage prompt surface: max_turns=1, one response IS the session&#x27;s continuity), and render what the summarizer is told to preserve, weight, or drop. Companion runtime pass: the memory-fidelity receipt — bind each summary to the source exchanges it replaced (content-addressed), expose &#x27;what was dropped&#x27; (decisions, refusals, warnings, costs that didn&#x27;t survive), and cold re-read the summary against the raw transcript so the user sees the afterimage of their own session. Detection is static (read the shipped summarizer instructions — hermes&#x27;s are public MIT docs) plus runtime (summary vs source delta).</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Explainable Neighborhood Quality Score from Public Data</h3>
+            <p class="asymmetry">Real-estate data vendors and rent-setting platforms profit from opacity — black-box &quot;neighborhood quality / rentability / walkability&quot; scores and broker-sold &quot;market analytics&quot; directly shape housing decisions while consumers cannot verify what drives the number or whether it is faithful to the underlying data. Renters, homebuyers, small landlords, and community advocates benefit from transparency: an explainable score shows WHY (housing vs density vs education) and lets anyone recompute it from public records.</p>
+            <p class="detail">A map where you click any neighborhood and get an explainable quality score: the headline number plus the components that produced it (housing, density, income, education), each with market-median context and traceable to its public source variables — no black box. Enter an address or zip → see the public-data components that drive neighborhood-quality scoring in that block group: education attainment share, median income, renter share, owner value, density — each computed directly from raw ACS with provenance (vintage, table, join coverage, receipt). The &quot;did you know?&quot; punchline: the institutional score is arithmetic on tables the Census already publishes for free. Reuse the sphere-ui receiver pattern (FEMA lead): variable search → viewport → generic GeoJSON layer with per-artifact receipts, zero new renderer code. Recipe is a fixed formula, not a trained model — the transparency version exposes the same arithmetic without touching client IP (the trained Rent Rank model stays internal).</p>
+            <span class="assessment high">Low-medium pipeline complexity — no model, no training; the build is a vocabulary bridge (census → geography) + a public-data scoring projection + the existing receiver.</span>
+        </article>
+
+        <article class="card lead">
+            <h3>Historical Rent Trajectory — The Renewal-Increase Verifier</h3>
+            <p class="asymmetry">Property managers and rental-data platforms profit from opacity when a renewal offer cites &quot;market rate&quot; without revealing the trajectory behind it, or when modeled estimates are presented as observed history. Renters benefit from transparency: knowing whether a proposed increase matches the neighborhood&#x27;s actual rent path — and whether the number they&#x27;re being shown is real or estimated.</p>
+            <p class="detail">A map/tool where a renter enters their address or neighborhood and gets the actual multi-year median-rent trajectory for that area — year-by-year values, each labeled observed vs. carried-forward — plus market and national context, so a renewal increase can be checked against what the neighborhood really did. The gemba2 history store proved the full stack: public ACS/LODES vintages → annual cell-level feature series → provenance-flagged query endpoint. The provenance distinction is the point: rental platforms show modeled &quot;history&quot; as fact; this tool labels every year&#x27;s truth status instead.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>National Public Geometry Without the GIS Toll — The Viewport-Queryable Layer Pattern</h3>
+            <p class="asymmetry">Commercial GIS/web-map platforms and data resellers monetize hosted access to *public* government geometry (boundary layers, census geographies, hazard/flood polygons) — the toll is serving friction, not the data itself, and subscription pricing keeps public data behind a private paywall. Community organizations, data journalists, small governments, and independent analysts benefit from serving the same national layers from a static bucket for near-zero marginal cost, with audit-grade provenance on every figure.</p>
+            <p class="detail">A storage layout plus a tiny read-only receiver that re-encodes any national-scale public geometry parquet (Morton-16 row order, per-row bbox covering columns, bounded row groups ≤65k rows / ≤16 MiB with min/max statistics) so a browser pan/zoom compiles into a Parquet row-group filter and reads only the groups intersecting the viewport — empty-predicate requests serve in bounded reads with no GIS vendor, no API key, no national scan. Ship it as a CLI (&quot;index any public geodata parquet → viewport-queryable parquet&quot;) + the receiver pattern (viewport envelope → row-group prune → bounded GeoJSON with per-feature provenance), which together let anyone self-host national layers on plain object storage. The layout is losslessness-verified on every write (geometry identity/topology/extent/count round-trip, contract §5) — a custody receipt is bundled per file, so &quot;we served your county correctly&quot; is checkable, not claimed.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Model-Routing Truth Audit — When the Configured Model Isn&#x27;t the Called Model (AI billing fidelity)</h3>
+            <p class="asymmetry">AI platforms, proxies, and gateway vendors profit from opacity when the runtime silently reroutes to a different (often more expensive) model while the dashboard shows the configured one — the user pays for a model they didn&#x27;t get, and the fallback&#x27;s &quot;helpfulness&quot; is indistinguishable from misconfiguration. Enterprises, developers, and finance/ops teams benefit from a fidelity check computable from their own API logs + billing statements: &quot;the model I configured is the model that ran&quot; — no vendor disclosure required.</p>
+            <p class="detail">An audit for any AI orchestration stack (or a probe run against an LLM gateway): at the effect boundary, capture which provider/model actually received the call (endpoint, request bytes, response identity) and diff it against the configured/declared value. Output: a fidelity table per call class (configured vs called vs cost delta) plus the divergence mechanism named (sentinel collision / protocol-hardcoded path bypassing the provider factory / fallback value that is itself a valid choice). Detection pattern: resolver-derived truth with winner attribution (who resolved this value) instead of sentinel values, and the harness page rendering the RESOLVED provider/model, not the nominal one.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Medical Cannabis Patient Discounts — Buried in POS Codes, Not Patient-Facing</h3>
+            <p class="asymmetry">Dispensaries profit from opacity — a 20% medical discount that exists only as an unadvertised POS code is collected as margin from patients who never learn to ask. Patients benefit from transparency: knowing the discount exists and which stores honor it turns a buried code into a shoppable entitlement.</p>
+            <p class="detail">A tool that answers &quot;which dispensaries in my state actually honor medical patient discounts, and at what rate?&quot; by aggregating two surfaces: (1) state medical-cannabis program rules that mandate or permit patient discounts, and (2) observable evidence per dispensary that the discount is real (advertised menu terms, loyalty/POS codes, regulatory filings). Output: per-dispensary discount status (none / advertised / verified-in-use), with rate and terms where available. The pipeline capability is proven in-tomb — the iter6 Step 4c writer already extracts exact discount codes from Dutchie transaction JSON at scale.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Silent-Substitution Audit — Derived Scores That Are Wrong Everywhere With No Error Signal</h3>
+            <p class="asymmetry">Real-estate data vendors and rent-setting platforms profit from opacity — a pipeline that silently substitutes a missing input (3-year predictions absent, 1-year used instead) produces scores that are population-wide wrong while looking valid, carrying the same schema, same name, same dashboard; the consumer cannot detect the substitution because nothing signals it. Renters, homebuyers, small landlords, and journalists benefit from knowing whether a derived score&#x27;s declared horizon/source is the horizon/source actually used — the signature (identical rank vectors across differing inputs) is checkable from public surfaces alone.</p>
+            <p class="detail">A checker that takes a vendor&#x27;s own published score surfaces (neighborhood quality, market percentiles, rentability, walkability) and applies two semantic gates that need no internals: (1) cross-horizon contamination — when a vendor publishes 1-year and 3-year (or multi-vintage) surfaces, population-wide exact rank equality across surfaces whose inputs differ is the substitution signature; (2) within-market monotonicity — prediction-sorted rows must have nondecreasing percentiles, inversions betray wrong inputs. The audit recomputes from public ACS/LODES and compares, flagging surfaces where the declared source was silently replaced by a fallback — no vendor internals required, the contamination is visible in the vendor&#x27;s own published numbers.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Code-Shaped-Prose Audit — Classifiers That Block Legitimate Technical Content</h3>
+            <p class="asymmetry">Moderation and security-classifier vendors profit from opacity — their rules are secret, appeals are black boxes, and &#x27;AI safety&#x27; marketing sells over-blocking. Technical writers, developers, security researchers, and journalists publishing code get legitimate content refused on forums, blogs, and messaging platforms with no transparent reason, and cannot answer &#x27;why was my content flagged&#x27; or &#x27;how do I appeal&#x27; — the cost falls silently on them. Mirror of the Analyzer-Truth thread (violations surfaced vs legitimate content suppressed); same vendor class, opposite harm channel.</p>
+            <p class="detail">Public regression corpus of legitimate code-shaped tokens (E-V-A-L, exec, heredocs, backticks, command substitution) run against moderation/security classifier surfaces; publish false-positive rates by token class plus a reusable test corpus so blocked users can cite objective evidence in appeals</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Silent-Fallback Display — Default Values Rendered as Facts</h3>
+            <p class="asymmetry">Vendors and agencies profit from opacity when their derived surfaces (directory status lines, price/availability checks, rating badges, in-network lookups) silently substitute defaults for subject-specific records — a &#x27;license verified&#x27; badge rendered from a fallback, an availability check answered by a generic default, a health-score page serving a cached value after the record expired. The member of the public at the decision boundary cannot tell which displayed value refers to their subject and which is ambient noise; the operator never notices because the fallback is invisible. Transparency benefits anyone relying on a displayed fact that was never actually looked up.</p>
+            <p class="detail">Noticed during darkness s237 (council eb421da7 Power Suit config-authority campaign): the harness page rendered deepseek-v4-flash as EVERY provider&#x27;s model because the compile job inherited ambient POWER_SUIT_MODEL — a display value filled by a fallback/default branch, not the subject&#x27;s actual state, with no provenance marking (quest dada8d58; fixed by env-isolated resolution). Mechanism: a surface with a default branch that writes into the displayed field — no record consulted, a fallback fills the slot, reader cannot distinguish. Project shape: a lens that audits decision-boundary surfaces for fallback-rendered values — given a display surface and its data path, tag every displayed field with a source class (subject-specific record / self-attested claim / default-fallback / stale), flag fallback-writes as the false-green they are, and publish the flagged set. In-tomb calibration precedent: &#x27;pinned-without-factory fails safe to no-dispatch, NEVER session-fallback&#x27; (S232) — the discipline is fail-visible over silent fallback, and the external world lacks it.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>What&#x27;s Driving My Rent — neighborhood rent-trajectory explainer (renter side of institutional analytics)</h3>
+            <p class="asymmetry">Institutional capital and property owners buy cell-level rent-growth forecasts to set pricing strategy; renters at renewal time face a &#x27;market rate&#x27; black box justified by exactly the mechanism they cannot see. Landlords profit from opacity (the rent-increase justification is unverifiable from the tenant side); renters benefit from transparency — knowing whether an increase tracks real neighborhood trajectory or is a pricing experiment, and which neighborhoods are being priced for growth.</p>
+            <p class="detail">Static public tool showing per-neighborhood (H3-cell) predicted rent-growth trajectory and the public-data drivers behind it: demographic composition, job growth, crime, amenity access — rendered as plain-language cards (why this neighborhood&#x27;s rents move the way they do, how it compares to the metro). Built from public data only; no listing data, no landlord-side inputs. The architecture is a direct reframe of the institutional cell-level rent-growth scoring stack (predicted CAGR -&gt; ECDF percentile ranks -&gt; market comparisons), which this lead&#x27;s author spent a session verifying end-to-end.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Served-Model Identity — Verifier &amp; Watch (Declared vs Delivered, AI-API customer protection)</h3>
+            <p class="asymmetry">AI resellers, aggregators, and wrappers profit from opacity — a customer paying premium rates for a frontier model can be served a cheaper substitute and have no way to detect it: the model itself cannot be trusted to report what it is (F075), and only the API metadata layer knows the truth. Vendors benefit from unverifiable serving claims. AI-API customers at purchase/renewal decision boundaries (small businesses buying agent tooling, developers selecting providers, enterprises auditing vendor contracts) benefit from an independent behavioral check that the delivered model is the declared model — one-shot probes can be gamed or under-powered; the continuous record is checkable from their own API logs.</p>
+            <p class="detail">Two modes of one tool, consolidated S130: **(1) Verifier (one-shot):** given an API endpoint + declared model name, run a calibrated behavioral probe (identity self-report + a compact behavioral fingerprint: permission-response delta, activation grammar, hedging texture) and compare against a public catalog of model behavioral signatures. Output: per-model verdict — behavior matches declared identity / contradicts it / insufficient signal — with probe responses quoted as evidence. Core insight (F075, 36 trials, 12 models, 3 reps): models cannot be trusted to self-report identity — 4/12 confidently assert wrong identity facts, and unpinned deployments (DSV4-Flash/Pro) fabricate a DIFFERENT wrong identity on every identical rep. **(2) Watch (continuous canary):** a scheduled probe that samples the declared endpoint daily, accumulating distributional evidence instead of one-shot 3-rep point estimates. Output: time-stamped served-identity record (per-day verdict + probe responses) a customer can keep as evidence for contract disputes, plus a drift alert when a served model&#x27;s signature changes mid-contract. Two design parameters: verdict taxonomy is fail-closed (match | contradict | insufficient-signal, never &#x27;matches&#x27; from absence of contrary evidence); accumulation exploits F075&#x27;s instability signal — a served model claiming a DIFFERENT wrong identity per rep is louder evidence than one stable wrong claim.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Agent-Work Authenticity Check — &#x27;Did the Agent Actually Work?&#x27; (receiver-side agency)</h3>
+            <p class="asymmetry">Agent-platform vendors profit from opacity when acceptance and demo criteria test the meter instead of the receiver — a surface that can render green (&#x27;workflow ran, tokens were real, books balanced&#x27;) over no agentic work at all. Buyers of agentic software (small-business operators, AI-API customers at the decision boundary) cannot tell whether the product accumulated context and did the work or simulated it; sellers of stateless &#x27;agents&#x27; win the same trust as real ones. The checks run on data the user already owns — their own session logs — so the gap is analysis, not collection. Mirror of the Analyzer-Truth thread; consumer side of the Meter-Plane lens.</p>
+            <p class="detail">Noticed during S213 (Ledger Domain EM-2 p7 cold-read, commit 9746387997): the iter1 false-green specimen — a workflow that closed balanced over zero agentic work (stateless lane calls, string-matched tool fabrication, compaction over a record nothing read) — plus the five mechanical receiver-side agency checks that red-line it. A static falsification tool for agentic-work claims: paste an agent session transcript (Claude Code stream-json or any provider usage log), get five checks rendered — (1) prompt continuity: turn N&#x27;s assembled prompt contains turn N-1&#x27;s output or a tool result; (2) model-initiated tool calls: every dispatch traces to a raw tool_use emission, never a string-matched fabrication; (3) artifact derivability: the final artifact contains a value that exists only in the accumulated context; (4) compaction output downstream: if compacted, the summary re-entered later prompts; (5) cache_read &gt; 0 on later turns: shared-prefix economic evidence. Each check structurally unsatisfiable by a stateless loop, with fail-closed ERROR states when the capture seam is absent. Verdict per check, no accounts, paste-box only.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Honest books for commissioned software work — receiver-side progress verification for buyers of outsourced builds</h3>
+            <p class="asymmetry">Agencies and freelancers profit from narrative progress — unverifiable hours, &#x27;almost done&#x27; stalling, invoices justified by milestone theater where two meters that observe the same calls always agree. The new class: AI-reselling agencies whose agent runs produce milestone-passing theater without agentic work (the exact iter1 shape: stateless calls that pass accounting while the deliverable never derives from anything). The commissioning buyer — small-business operator, non-technical founder, independent creator — benefits from transparency: knowing whether the work accumulated, whether the artifact could only have come from the work billed, and whether &#x27;done&#x27; means it runs.</p>
+            <p class="detail">A static, obligation-free &#x27;honest commission kit&#x27;: (1) a work-order contract shape where the goal is pre-committed at signing (may not be rewritten to fit the spending), every progress claim must trace to a verifiable artifact state, and every shortcut accrues as written debt on the invoice; (2) a receiver-side acceptance checklist — the buyer&#x27;s &#x27;how do I know this work is real&#x27; questions translated from the Ledger Domain&#x27;s receiver-side agency checks (AC-1..AC-5): does the delivered artifact derive from the accumulated work rather than static inputs, does prior work appear in later work, does it run at the receiver instead of existing as a markdown plan, do the progress claims trace to tested states. No software to run — a document kit plus checklist a buyer can require a contractor to fill.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Independent-Evaluation Verifier — Self-Reported vs Third-Party Model Benchmarks</h3>
+            <p class="asymmetry">Model vendors profit from benchmark opacity: self-reported scores are curated (favorable benchmark selection, favorable settings), and the ~8-month capability gap between self-reported and independent results means adoption decisions are made on inflated capability claims. AI-API customers, procurement teams, and developers choosing a model pay the cost of that gap in wrong choices and surprises. Independent evaluation exists (NIST CAISI publishes, Artificial Analysis tracks) but is scattered across sources and never cross-referenced against what the vendor claims — the public benefits from a per-model &#x27;vendor says X / independent says Y&#x27; card.</p>
+            <p class="detail">A pipeline that cross-checks vendor self-reported benchmark claims (Elo scores, SWE-bench, domain rankings) against independent evaluations (NIST CAISI, Artificial Analysis, academic replication) and renders per-model capability cards: vendor claim quoted, independent result quoted, gap flagged. Live instance verified during the S414 GoK sweep: NIST/CAISI&#x27;s official evaluation (May 1 2026) measured DeepSeek V4-Pro at Elo 800 vs Opus 4.6 at 999 and GPT-5.5 at 1260 — a 261-point gap and ~8-month frontier lag that self-reported benchmarks did not surface, with the largest gaps on abstract reasoning and agentic tasks. The verifier&#x27;s semantics mirror the dual-anchor method already proven in the ecosystem (vendor site = semantic authority, independent eval = boundary artifact) and the release-status verifier lead&#x27;s pipeline shape.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Third Meter — differential reference loops + verification-of-verification for commissioned agentic builds</h3>
+            <p class="asymmetry">Agencies, freelancers, and AI-reselling vendors profit when acceptance criteria test the meter instead of the receiver — two meters agreeing (invoices + milestone theater) is the complicity case a single-check tool cannot see. The commissioning buyer (small-business operator, non-technical founder, independent creator) benefits from a third meter that compares against known-good behavior and from checks that are themselves verified real — otherwise the buyer&#x27;s verification kit is just another meter that agrees.</p>
+            <p class="detail">Extends the Agent-Work Authenticity Check + honest-commission kit threads with the design that answers &#x27;two meters that observe the same calls always agree&#x27;: (1) a DIFFERENTIAL third meter — when both producer and agency meters are complicit, compare the loop&#x27;s behavior against a trusted reference loop at assertion level (session shape, prompt-continuity, organic-exit, compaction semantics), so &#x27;behaves like real agentic work&#x27; is a reference comparison, not internal consistency; (2) verification-of-verification — the buyer-side checks themselves must be proven real: negative branches executed by name (the fail-closed tests that theater cannot satisfy), and a deterministic-failure ledger machine-checked to map each check to the named construct it red-lines (anti-theater property is itself a test, so the kit cannot drift into decoration); (3) the walk-away gate — acceptance is a non-technical operator submitting a goal and returning to a running artifact plus honest books, because &#x27;done&#x27; means it runs at the receiver. The three layers were the p7 conformance-suites delivery (tanya) and its independent verification (cz, S216, 2026-08-11): stored gate green 66/66, negative branches per suite spot-checked by name, differential at 38 asserts, ledger mapping machine-checked (13 tests).</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Visit-Gap Weighting Audit — &#x27;Average Return Time&#x27; That Over-Counts Heavy Customers (retail loyalty)</h3>
+            <p class="asymmetry">Analytics/dashboard vendors and internal BI teams profit from displaying gap-weighted averages as &#x27;average time between visits&#x27; — heavy customers (a small minority with 8+ visits/year) dominate the observation count, so the headline reads as engagement when it is a frequency-weighted artifact; winback thresholds, re-engagement timing, and retention budgets get set against the wrong baseline. Retailers and their GMs benefit from the customer-average denominator — the actual distribution of customer return behavior — and from knowing which of their vendor&#x27;s numbers is which.</p>
+            <p class="detail">A small audit a retailer runs on their own transaction export (Dutchie or any POS with customer_id + timestamp): compute BOTH the raw-gap-weighted mean/median return time (every return visit contributes one observation — a 12-visit customer adds 11 gaps) and the customer-average mean/median (gap means per customer, counted once). Output: the two numbers side by side with the ratio (typically 2-3x on healthy books — nuEra last_365: 27.4d gap-weighted vs 65.5d customer-average) and a flag for every dashboard metric displaying the gap-weighted number. ~20 lines of SQL + one group-by; no vendor access needed.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Attributed-Revenue Truth — When &#x27;Received a Message, Then Shopped&#x27; Isn&#x27;t Lift (retail CRM)</h3>
+            <p class="asymmetry">Marketing-automation and CRM vendors profit from opacity: their attributed-revenue metric inflates apparent ROI (most recipients would have shopped anyway), budgets renew on the inflated number, and the platform never exposes a counterfactual. Small-business marketing operators at budget decisions (dispensary GMs, retail owners) benefit from transparency: the honest measurement is a split test, and the audit shows which of their vendor&#x27;s numbers is which. Instance evidence: nuEra&#x27;s one genuine lift measurement was a frequent-shopper split test (49% vs 48% purchase rate, +$3/transaction, ~9% basket lift) buried under ~$8.7M of attributed revenue; a birthday-discount analysis showed 10.4% of birthday redemptions ended 90+ day lapses yet could only support &#x27;appeared on&#x27; not &#x27;caused&#x27; without a holdout.</p>
+            <p class="detail">A small audit a retailer runs on their own marketing-platform export + their own transaction data: for each automation/blast campaign, compare the platform&#x27;s attributed revenue (its model counts anyone who received a message and subsequently purchased as a conversion) against the only honest read available — a same-period split/holdout design or, where none exists, the attributed number labeled with its no-counterfactual status. Output: a trust table (campaign | attributed revenue | design that would establish lift | verdict) plus a copy-paste split-test template (offer/no-offer arms from the retailer&#x27;s own list, 30/60/90-day return rates). ~50 lines of SQL + a static explainer; no vendor access beyond the exports the retailer already downloads.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Fail-Closed-as-Judgment Audit — &#x27;Denied&#x27; When the Decision Layer Never Ran</h3>
+            <p class="asymmetry">Platform and verification vendors profit from opacity when enforcement systems fail closed — a judge outage renders as a policy decision: same message, same rationale, no error signal, no appealable distinction. The denied applicant/poster/renter absorbs an adverse outcome that was never a judgment (and often a lasting record — a background-check &#x27;adverse&#x27; that should have been &#x27;unavailable, retry&#x27;), while the vendor&#x27;s status page reads &#x27;operational&#x27; because the fail-closed path is technically working. Sibling to Silent-Fallback Display (neutral values from defaults) and Code-Shaped-Prose (judgment over-broad): this is the fourth member — the decision layer never ran, and the denial is indistinguishable from one that did.</p>
+            <p class="detail">A status-vs-decision cross-reference: during known outages of verification/enforcement layers (background-check record sources, moderation review systems, benefit-eligibility data feeds, credit-report vendors), measure adverse-decision spikes in public complaint data (CFPB, app-store reviews, platform removal threads, Downdetector archives) and test whether the denial surface has ANY distinguishable error state — does the message change during an outage, or does &#x27;denied/removed/not eligible&#x27; render identically? Publish per-vendor fail-closed profiles plus a public playbook: how to tell your denial was a system failure (status-page cross-check, retry window, asking which data source was used).</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Hidden-Floor Detector — Promotion Minimums Provable from the Value Distribution</h3>
+            <p class="asymmetry">Retailers running promotions with hidden minimums profit from opacity: the floor lives in the POS/offer configuration layer — invisible in the marketing and in the code names — so shoppers decide basket size against an unstated commitment and &#x27;no minimum&#x27; claims go unchallenged; promo-analytics vendors sell effectiveness numbers on top of invisible floors. Buyers at the point of purchase benefit from transparency: knowing the real threshold before adding items. Competitors and regulators benefit from provable terms: truth-in-advertising enforcement gets distribution evidence instead of marketing copy.</p>
+            <p class="detail">A tool that detects hidden minimum-spend requirements in retail promotions from transaction/subtotal data. Per promo × period: compute the minimum observed value and the share below the suspected threshold — if min == threshold with zero observations below across many periods and large N (e.g., 0/~10,500 below $60 across 4 months) while every unconstrained period shows 30–45% below, the floor is real: enforced at the point of transaction, independent of naming. Classify each promo/period name-evidence / floor-evidence / unresolved. Consumer shape: a crowdsourced receipt-subtotal aggregator per retailer promo (&#x27;does this no-minimum promo actually have a floor?&#x27;) — users contribute subtotal values, the aggregate distribution reveals the hidden threshold. Regulator/journalist shape: the same classification on transaction data obtained via FOIA, subpoena, or leaked exports. Static, obligation-free; classification logic is ~50 lines over one value column.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Code-Health Trajectory Check — &#x27;It Passes&#x27; vs &#x27;It&#x27;s Sound&#x27; (deliverable health for buyers of commissioned software)</h3>
+            <p class="asymmetry">Dev shops, agencies, and AI-reselling vendors profit from opacity when &#x27;all tests pass&#x27; is treated as sufficient quality evidence — the SlopCodeBench paper (36 problems, 196 checkpoints) shows pass rates can stay green while the underlying code becomes 2.3x more verbose, 2.0x more eroded, with per-checkpoint cost growing 2.2x; a mistake at checkpoint 2 can zero out later work while earlier checkpoints stay green. The buyer at acceptance/renewal — small-business operator, non-technical founder, independent creator commissioning a build — benefits from transparency: knowing whether the code they now own is structurally sound or a debt bomb whose next feature costs 2x, before they sign off or hire the same vendor again. Single-shot benchmark scores (SWE-bench-style) hide long-horizon degradation; vendors benefit from the maintenance-retainer arbitrage on top of code they generated cheaply.</p>
+            <p class="detail">A static, obligation-free code-health report: paste a GitHub/GitLab repo URL (or upload a tarball) and get deterministic structural metrics — erosion (fraction of complexity mass in CC&gt;10 functions), verbosity (slop-rule hits + clone lines / LOC), clone ratio, max-CC concentration, and LOC growth — benchmarked against SlopCodeBench&#x27;s 473 open-source human-repo baselines (agent code is 2.3x more verbose, 2.0x more eroded; human verbosity grows +0.0022/checkpoint vs agent +0.0144) with a plain-language verdict: &#x27;looks like human-maintained code&#x27; vs &#x27;looks like degraded agent output — each future change will cost more than it should.&#x27; **Trajectory over level:** when the repo is a git URL, weight the DELTA across recent commits (delta.loc, delta.ast_grep_violations, delta.churn_ratio = (added+removed)/prior) over absolute level — levels are age-confounded by construction (77% of agent trajectories degrade by default) and single-snapshot readings sit inside run-to-run variance (N=5 minimum to detect a 5pp effect); reserve level comparisons for tarball uploads where history is unavailable. Also flag clone lines and high-CC functions that PERSIST across commits vs newly introduced (&quot;X% of flagged debt was present N commits ago&quot; — the accrual read that answers &quot;is this vendor&#x27;s code getting better or just older?&quot;). All metrics deterministic and open (radon CC, ast-grep rules, AST-hash clone detection) — the report answers the question the acceptance suite can&#x27;t: extension-cost trajectory, not pass rate. No accounts, no vendor dependency, paste-box only.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Silent Revision Watch — Did the Number Move, or the Math?</h3>
+            <p class="asymmetry">Analytics vendors and index publishers profit from opacity — a silent methodology change lets them tune published numbers toward business goals without churn, and revisions to already-published history quietly change the numbers customers quoted in negotiations. Landlords and property managers profit from citing favorable stale or unrevised numbers. Renters negotiating renewals, homebuyers making offers, and small landlords pricing units benefit from transparency: knowing whether a number moved because the world moved or because the math moved.</p>
+            <p class="detail">A static observatory that archives public market-index and score surfaces (rent indices, home-value indices, price medians), tracks each publisher&#x27;s public methodology pages as a second channel, and flags revision events — labeling whether a number changed because the underlying data changed or because the publisher changed the math (universe filter, weighting rule, median definition, model re-fit). A renter, homebuyer, or small landlord can answer: my market&#x27;s rent number moved 3% this month — did rents move, or did the vendor re-weight? The mechanism is the gemba2 r008 shift-table discipline externalized: per-revision delta disclosure, revision-vs-market alignment classified instead of assumed, and a defect-signal rule (non-negligible delta where ~zero is expected means something else changed). The water-filter + density-median case: two methodology changes ship in one projection run and both shift scores of cells that didn&#x27;t change (filtering high-water cells before computing market medians moves every surviving cell&#x27;s score, New Orleans 16.2% cell loss; re-weighting the density median from area-weighted to simple per-cell changes every density score in every market). The campaign&#x27;s release gate discloses both deltas because the client will call silent score drift a bug — the public index market has no equivalent.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Empty-Result Audit — Coverage Gaps Presented as Market Truth</h3>
+            <p class="asymmetry">Directory/platform owners profit from opacity when their index&#x27;s coverage gap is invisible: the consumer concludes &#x27;no options exist&#x27; and behaves accordingly (goes out of network, accepts the listed option, treats the platform as a mirror of the market), while the platform&#x27;s claim to completeness goes unchallenged. In healthcare the harm is direct — an insurer&#x27;s thin in-network finder that looks like market reality steers patients into out-of-network spend. Consumers at the decision boundary benefit from knowing whether &#x27;no results&#x27; is the market or the index.</p>
+            <p class="detail">A tool that audits a public directory&#x27;s coverage against independently enumerated ground truth, answering: when this finder says &#x27;no results&#x27;, is that market truth or index blindness? Input: a directory/finder (insurer in-network provider search, licensed-professional search, rental platform). Output: per-query-region coverage report — expected vs shown, gap classified as index-gap vs genuine absence — rendering the distinction the consumer cannot make (&#x27;this finder&#x27;s index omits N of M providers in your county&#x27; vs &#x27;none exist here&#x27;). Static, obligation-free; the audit is precomputable per directory pair. Complement of the Revoked But Still Listed thread: that scans for entities PRESENT but INVALID (stale listings); this scans for entities ABSENT but VALID (missing listings) — same family, opposite direction.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Buried-Answer Audit — Present in the Index, Ranked Below the Fold</h3>
+            <p class="asymmetry">Platforms profit from ranking opacity: sponsored placement, default sorts tuned to vendor preference (not consumer value), and relevance algorithms that bury the cheapest or in-network option behind pay-to-play results. The consumer at the decision boundary cannot distinguish &#x27;the market lacks this option&#x27; from &#x27;the platform&#x27;s ordering hides it&#x27; — so they overpay, go out of network, or accept the sponsored default. The buried answer is functionally absent to the searcher, and the burying is invisible by design. Ranked-but-below-the-fold is the third class of the empty-result family, and it is the one the vendor controls.</p>
+            <p class="detail">A static audit tool for public finders/directories that answers the question the empty-result audit cannot: when the option EXISTS in the index but the default ranking buries it, the consumer still concludes the market lacks it. Input: a finder (insurer in-network search, rental platform, professional directory) plus its ground-truth roster. Output: per-query-region ranking report — of the N entities that should match, how many are (a) absent from the index, (b) present but ranked below the interaction fold (page 2, sponsored-saturated head, &#x27;N more&#x27; collapse), (c) genuinely at the top. The audit re-issues the consumer&#x27;s exact default query and records WHERE the valid answers land — not just whether they exist. Precomputable per directory pair; static and obligation-free. Sibling to The Empty-Result Audit (absent-but-valid); this is the present-but-buried direction of the same family.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Agent-Role Harvest Audit — Credential-Harvesting Prompts in Platform Role Systems</h3>
+            <p class="asymmetry">Credential harvesters profit from opacity — role systems deliver prompts straight into an agent&#x27;s briefing channel, and platforms don&#x27;t let operators verify their own memberships or audit role content. Agent operators (a growing public class running autonomous accounts) can&#x27;t answer &quot;is my agent being prompted to exfiltrate?&quot; at any decision boundary short of abandoning the platform.</p>
+            <p class="detail">A static audit tool for agent-operating platforms: fetch role definitions from platform role endpoints where reachable, classify prompts against a credential-harvesting signature catalog (exfiltrate keys/servers/tokens, name your owner, install miners, report back on a schedule), and — where the platform exposes membership — tell the operator whether their own agent holds a flagged role. Reconnaissance-first: which platforms expose role endpoints at all is itself an open map. 80% product: signature catalog + scanner + membership check, no platform cooperation required for the endpoints that exist.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Summary-Variant Drift Watch — When the Compressed Plane Diverges from the Authoritative Source</h3>
+            <p class="asymmetry">Vendors profit from two current surfaces disagreeing: the attractive summary is what gets read and screenshotted, the binding truth lives in the document nobody opens, and the divergence is invisible until someone is harmed by it (denied coverage, surprise fee, reward that never applied). Comparison sites and affiliate pages profit by copying the summary plane verbatim, multiplying the stale version. Consumers at the decision boundary — plan shoppers, card applicants, renters, small-business telecom buyers — benefit from knowing which plane actually governs before they commit.</p>
+            <p class="detail">A static observatory that pairs each public summary surface (plan overviews, rewards tiers, fee schedules, amenity lists, comparison pages) with its authoritative source document (filed policy, cardholder agreement, tariff filing, lease/strata rules, terms of service), fingerprints both planes, and renders cross-surface divergence on a scheduled crawl — &#x27;the summary says X; the governing document says Y; the summary has been stale/simplified since DATE.&#x27; The consumer sees the decision surface with its drift label attached, no accounts, no submissions. Mechanism is the in-tomb r-variant drift discipline externalized: one canonical source per zone, compressed variants are projections, drift is the failure mode (aureole runs this daily — 36/36 paired variants current, zero drift).</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Data-Center Siting Diligence for the Public — the physical-constraint screen the developer runs, on any parcel</h3>
+            <p class="asymmetry">Data-center developers and commercial diligence platforms (Cherre-class) profit from the fused multi-layer siting picture staying private — communities and municipalities face zoning hearings and resource conflicts (power draw, water use, flood risk) armed with fragments while the developer holds the composed map. Residents at the decision boundary benefit from seeing which physical constraints a candidate site actually clears or fails.</p>
+            <p class="detail">A static, address-searchable map tool that reconstructs the first-pass physical-constraint screening a data-center developer&#x27;s diligence runs on a candidate parcel: flood exposure (FEMA NFHL), transmission-line and substation proximity (Open Infrastructure Map), water and wastewater service boundaries (municipal water authority records), zoning and environmental constraints (county GIS). Enter any address or parcel and see the same constraint layers the siting team assembles — one screen, no accounts, public layers only.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Vanishing Submission — Do This Website&#x27;s Contact and Signup Forms Actually Deliver?</h3>
+            <p class="asymmetry">Site vendors and migration agencies keep billing while the write path silently dies — fail-closed looks like normal operation from the outside and no alert fires, so the loss is invisible even to the business. The harmed party is the member of the public at the decision boundary: the job applicant, sales inquirer, subscriber, or support seeker who cannot tell whether they were ignored or the form swallowed their submission.</p>
+            <p class="detail">A static public checker where a person enters a business website URL and learns whether its public contact/newsletter forms actually deliver submissions. The tool discovers the form affordances from public page bytes (formId, action URL, reCAPTCHA config — the harvest shape demonstrated at WLC #13), runs a consent-labeled non-personal canary submission, and reports delivery/readback, fail-closed 503s, dead destinations, or true dormancy — distinguishing &#x27;the business ignored you&#x27; from &#x27;the form never received you.&#x27; Revealed during the 2026-08-30 WLC #13 greattomb.com migration review: two PROVEN_ACTIVE public submission receivers (newsletter + contact) terminate in deterministic 503 in the migration candidate — a visible SUBSCRIBE button that silently discards submissions with zero error signal to the submitter, and a DNS rollback that restores routing but cannot recover messages lost during the broken interval.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Pricing-Reversal Watch — AI API price and spec changes with evidence, not changelog lines</h3>
+            <p class="asymmetry">Model and API vendors profit from asymmetric announcement — promotional price cuts get press coverage and migration pull, while reversals, context-window cuts, rate-limit drops, and deprecation timelines arrive as changelog lines that lock migrated workloads into the new higher cost. AI-API customers and the businesses whose products depend on a model family benefit from a neutral evidence trail that makes &#x27;the price went up&#x27; as legible as &#x27;the price went down&#x27;.</p>
+            <p class="detail">A static per-provider page for major model families showing price history (input/output per 1M tokens), context-window, rate-limit, and deprecation changes, each with an as-of date and verbatim diff evidence — so a developer can see &#x27;price cut in May, reversed in August&#x27; at a glance instead of re-reading changelogs. The watch is diff-based: periodic snapshots of public pricing pages and model cards, evidence-anchored (verbatim callout + URL + capture date), rendered as a browsable timeline per family. No accounts, no obligations — same release pattern as the county tools.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Impossible Percentages Audit — hyperlocal demographic shares that break arithmetic</h3>
+            <p class="asymmetry">Demographic-data resellers and real-estate analytics vendors profit from opacity — hyperlocal percentages downscaled from ACS block groups to finer geographies can produce shares exceeding 100% (observed in-tomb: family_households raw max 749%, workplace goods-share max 24.67) yet still ship under the same name, same schema, same confident choropleth legend; a homebuyer or site-selector reading &#x27;34% family households&#x27; cannot tell whether the underlying pipeline produced values that are mathematically impossible for a share. Census publishes the source tables for free — the reseller&#x27;s margin is the projection, and the projection&#x27;s artifacts are invisible at the consumer surface. Anyone choosing a home, a business location, or a service area benefits from knowing which published percentages are real proportions and which are downscaled noise wearing a percent sign.</p>
+            <p class="detail">A checker/static tool that takes any published hyperlocal demographic percentage surface (vendor maps, real-estate dashboards, demographic-data APIs) and flags values that are arithmetically impossible for a share of a total: family-household shares above 100%, workplace-share percentages reaching 2467%, rent-to-income ratios labeled as percentages without bounds. The core move is the summary-domain split proven in gemba2 this session: aggregate presentation (legends, filters, histograms) must stay within the declared semantic domain [0,1] while raw cell observations stay untouched and visible — when a vendor&#x27;s own legend ranges betray impossible values underneath, that is the tell that downscaled aggregates, not real proportions, are being sold. Output: per-surface verdict (values arithmetically possible / contaminated by downscaling artifacts / domain undeclared), with the conservation receipt — finite observations = in-domain + out-of-domain counts — rendered for any surface that publishes distributions.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Vocabulary-Boundary Mismatch — Scouting Lens (Consolidated S116)</h3>
+            <p class="asymmetry"></p>
+        </article>
+
+        <article class="card lead">
+            <h3>Verification-Theater Audit Family — Instrument-Validity Taxonomy (Scouting Lens)</h3>
+            <p class="asymmetry"></p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Cited-But-Retracted Audit — Claims Whose Source Was Withdrawn</h3>
+            <p class="asymmetry">Content publishers, supplement/wellness vendors, and citation aggregators profit from borrowed scientific authority that survives retraction — the withdrawal is public but unmapped to the claims citing it, so the surface form keeps lending trust the referent no longer carries. Readers, patients, and consumers at health/purchase decision boundaries benefit from transparency: the retraction record exists and is free; the tool routes it to the claim.</p>
+            <p class="detail">Revealed during Festival 007 design (pandora, 2026-08-16): the S154 kitchen dialect&#x27;s discriminator — &#x27;surface form borrows trust; the referent returns it&#x27; — and the festival&#x27;s spine (&#x27;did anything ever check it? What checked it on its own?&#x27;) externalize directly. A static lookup where a reader pastes a claim or URL: extract cited DOIs, check each against the Crossref retraction/update API and Retraction Watch, and show &#x27;this claim&#x27;s source was withdrawn on DATE, for reason Y.&#x27; The check already happened — the journal, author, or editor ran it — the reader just cannot route the withdrawal to the claim that cites it. Optional second surface: a browser extension flagging retracted citations inline wherever they appear.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The No-Upstream-Fix Triage — Severity Alarm Without Fix-Availability or Reachability</h3>
+            <p class="asymmetry">Security scanner vendors (npm audit surfaces, Dependabot, Snyk tiers) profit from alarm-driven conversion: the CRITICAL badge is the product, and the scanner has no incentive to distinguish &#x27;fixable now&#x27; from &#x27;no fix exists anywhere&#x27; — the audit-fix loop is a conversion engine. Small-business operators running public apps on abandoned dependency chains burn cycles on impossible remediation loops, panic-migrate, or pay for &#x27;security&#x27; tiers that also cannot fix the unfixable class. They benefit from transparency: knowing whether a patched version exists at all, whether the vulnerable path is reachable in THEIR deployment, and what the real options are.</p>
+            <p class="detail">A tool that takes a web app&#x27;s package.json + lockfile, queries the npm bulk advisory API, reads patched_versions explicitly, and classifies every advisory into FIXABLE / NO-UPSTREAM-FIX / REACHABILITY-UNKNOWN. For the no-fix class it walks the dependency chain (import-graph reachability) to answer the only question that matters: does the vulnerable code path actually execute in this deployment? Output is an actionable triage — ordered remediation options (tree-shake/verify-unused, documented accepted risk, vendored fork/override) — instead of a badge that says CRITICAL with no path forward. The same pattern generalizes to any advisory ecosystem (PyPI/OSV, Maven, Go vuln DB) where severity is surfaced without fix-availability semantics.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Which Version Answered? — Deployed-vs-Declared Divergence in Public Eligibility Calculators</h3>
+            <p class="asymmetry">The agency/nonprofit profits from opacity: a deployed screener that lags its published source keeps answering eligibility questions with outdated rules (post-fix benefit amounts, corrected income disregards) while the GitHub repo shows the fix — the green &#x27;source updated&#x27; surface hides the stale execution, and neither the applicant wrongly denied nor the caseworker citing the tool can detect it. The applicant at the decision boundary (am I eligible?) benefits from transparency: they learn the answer came from a version predating the rule change. Same mechanism as a vendor serving a stale build cache after a lockfile change — invisible to the user, profitable to whoever skips the redeploy.</p>
+            <p class="detail">A tool that verifies which code version a public benefits/tax calculator is ACTUALLY executing, not which version it claims. For open-source screeners (SNAP, Medicaid, state tax credit estimators — many agencies and nonprofits publish the source and deploy an instance), the checker builds from the declared source commit, runs a shared battery of canonical input→output probes against both the deployed endpoint and the freshly built reference, and surfaces any behavioral divergence: &#x27;the deployed screener answers 3 of 200 canonical cases differently than the published source.&#x27; Static report page per tool, refreshed on source or deploy change.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Baseline-Fingerprint Lock — Making &#x27;Did the Number Move, or the Math?&#x27; a Machine Check (Silent Revision Watch mechanism)</h3>
+            <p class="asymmetry">Analytics vendors and index publishers profit from opacity — a silent re-weight or universe-filter change tunes published numbers toward business goals while reading as market movement to readers; the vigilance market itself fails because watchdogs cry wolf and die of alert fatigue. Renters negotiating renewals, homebuyers making offers, and small landlords pricing units benefit from a machine-checkable, attention-free-until-change signal that says whether a moved number means the world moved or the math moved — without trusting vendor disclosure.</p>
+            <p class="detail">Noticed during the s53 supply-chain audit (kyouhukou, 2026-08-19): a SHA-256 fingerprint over the HIGH/CRITICAL finding identity set (path|package|severity) came back byte-identical across three independent sessions — silence is health, no re-routing; a change would have arrived as a diff localizing exactly which entries moved. Project shape: a static observatory that pins such a fingerprint over each tracked series&#x27; (publisher, series, methodology-version, universe-definition) identity tuple and re-computes it on every refresh. Fingerprint unchanged = the number may move but the math didn&#x27;t — no alarm, zero maintenance attention (the property that keeps public watchdogs from dying of alert fatigue). Fingerprint changed = the diff IS the analysis: new data on unchanged math (real signal) vs silent methodology revision (math moved). Output: one line per series — LOCKED / DATA-MOVED / MATH-MOVED with the diff.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Count-Referent Binding Audit — When the Number Is Real but Counts the Wrong Thing</h3>
+            <p class="asymmetry">Platforms and agencies profit when record-level counts read as referent-level facts: &#x27;3,000 providers in network&#x27; where record duplicates inflate the roster, review counts where multiple entries from one experience read as independent signals, &#x27;N active listings&#x27; where variant strings split or merge at will. The consumer at the decision boundary (patient choosing in-network care, buyer comparing options, renter estimating availability) over-trusts or under-trusts the market because the count&#x27;s binding is invisible. Transparency benefit: the count keeps its real value while the binding becomes visible — &#x27;these 3,000 records are 2,412 distinct providers, of which 1,911 match your plan.&#x27;</p>
+            <p class="detail">A static auditor for any public count metric (platform &#x27;N providers in network,&#x27; &#x27;N reviews,&#x27; &#x27;N verified listings,&#x27; review-count badges, review-aggregate denominators): for each displayed count, recompute it against an independently ground-truthed referent set and render the three-way divergence — records vs referents vs what the consumer at the decision boundary needs. The output names the binding, not just the number: which records collapsed into one referent (shared-meal counting), which referent split across record variants (hyphen/case/duplicate rows), and which denominator the count silently includes that the consumer&#x27;s question excludes (entity profiles + spawn classes in an &#x27;agent&#x27; count). Pattern-shaped, not site-specific: any finder, marketplace, or status surface where a specific count reads as capacity.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Laundered-Form Audit — When a Form&#x27;s Conformance Is Its Only Content</h3>
+            <p class="asymmetry">Parties that require forms (employers, landlords, platforms, agencies, vendors) profit from conformance laundering — a keyword-complete form creates the appearance of consent/compliance/disclosure while the semantic condition is absent or buried, and the green check protects the issuer, not the signer. Anyone at a decision boundary who signs or accepts a form (patient, renter, worker, buyer, small-business operator) benefits from knowing whether the form&#x27;s substance matches its claimed effect.</p>
+            <p class="detail">A tool that audits any required form (waiver, consent form, compliance declaration, disclosure, arbitration clause) using the two-shot diagnostic: (1) exact form + wrong meaning must fail — a declaration carrying every prescribed heading but describing a routine, reversible operation should not pass as the real thing; (2) right meaning + different form must pass — semantically complete free prose should not be rejected solely for lacking the prescribed labels. Input: the form template + the semantic facts its effect boundary requires; output: a conformance-vs-semantic verdict. Answers &#x27;does this form&#x27;s green check mean what its labels claim?&#x27;</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Artifact-Defending Test &amp; Normal-Path Residue Meter — When a Green Check Guards the Costume</h3>
+            <p class="asymmetry">Vendors of audit/certification/monitoring products and agencies selling agentic work profit when their own test suite defends the theater&#x27;s props (asserting the report file exists, the dashboard renders, the session artifact is present) — the green check proves the pipeline ran, not that the verdict is valid. Buyers and the public at decision boundaries (commissioning a build, trusting a certification, accepting a handoff) cannot tell a load-bearing check from a costume guard without asking &quot;what exactly does this test assert, and what would have to break for it to go red?&quot;</p>
+            <p class="detail">Two linked mechanisms for auditing any tool/vendor whose runtime leaves session-state artifacts in user-visible directories:</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Scan-Coverage Denominator — What Your Scanner Never Looked At</h3>
+            <p class="asymmetry">Scanner vendors (Snyk tiers, Dependabot, npm audit surfaces) profit from the clean report: the scan-coverage denominator is buried in docs, and unsupported ecosystems or lockfile-less manifests silently drop out of &#x27;no vulnerabilities.&#x27; Small-business operators and OSS maintainers build trust, risk, and buying decisions on reports whose blind spots are invisible. Transparency benefit: the report keeps its value while the unscanned share becomes visible.</p>
+            <p class="detail">A static tool that takes a repo&#x27;s dependency manifests and emits a coverage map classifying every manifest scanned / unsupported / excluded / failed / needs-owner, answering &#x27;your scanner says clean — here is the share it never looked at.&#x27; Output per repo: coverage percentage, the unsupported-ecosystem and lockfile-less manifests that fall out of advisory scope, and a false-GREEN risk note when any production-facing manifest is unscanned. Same denominator-first discipline the tomb uses before interpreting any advisory output.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Served-Bytes Receipt — Is the Deployed Data Product Still the Product You Verified?</h3>
+            <p class="asymmetry">Analytics vendors and dashboard/data-product SaaS profit from opacity when serving-layer drift is invisible — regenerated inputs, re-deploys, or partial updates silently change the numbers behind a green status page, and the re-verification burden sits with the buyer, who has no way to ask &quot;is what&#x27;s deployed still what was accepted?&quot; Small-business operators, retailers acting on dashboards, and buyers of commissioned analytics benefit from a receipt-bound answer computable without vendor cooperation whenever the product reads addressable artifacts (APIs, exports, tile endpoints).</p>
+            <p class="detail">A small static checker for buyers/subscribers of deployed data products (dashboards, scoring APIs, map services): input is (a) the release manifest — the artifact identities (checksums/sizes/ETags) that were verified at acceptance or delivered with the product — and (b) the product&#x27;s live surfaces; output answers &quot;do the bytes behind today&#x27;s numbers still match the bytes that were verified?&quot; with per-surface drift labels. The tomb&#x27;s counter-example proves the mechanism is cheap: ~40 lines of per-read identity verification (recompute a canonical hash of the served object&#x27;s head; fail loudly on mismatch) kept a deployed receiver honest through a silent upstream regeneration — while the default industry behavior (verified-once-at-ship, ambient bytes thereafter) produced the gemba2 case: an explain endpoint serving 2022-vintage rent values against 2023 data for weeks with no error anywhere.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Site-Search Blind Spot — &quot;Is My Site Actually Findable?&quot;</h3>
+            <p class="asymmetry">Hosted-platform vendors profit from opacity: search coverage is a black box, the admin UI shows nothing about what is indexed or how old the index is, and content silently missing from search costs the site owner customers (a shopper can&#x27;t find the product by name; the owner never learns why) with no surface ever revealing it. Small-business operators who trust their platform&#x27;s built-in search — and the visitors who can&#x27;t find content — benefit from knowing the real coverage and staleness.</p>
+            <p class="detail">A static audit tool where a small-business owner pastes their hosted site URL (Squarespace/Wix/Shopify-class) and gets back: (1) exactly what the site&#x27;s built-in search CAN find — the real index corpus, enumerated read-only from the site&#x27;s public search API; (2) what&#x27;s visible on the site but silently NOT searchable — the gap (product names, artist/bio text, gallery captions, section content the indexer skips); (3) how stale the index is (index build timestamps vs when pages last changed); (4) a &quot;test my business terms&quot; panel — type the names customers actually search for and see whether the site&#x27;s own search returns them.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Vendor-Site Behavior Audit — What Does Your Own Website Actually Do?</h3>
+            <p class="asymmetry">Vendor website platforms profit from opacity — search matching semantics, form behavior, and migration losses are undocumented black boxes, and leaving is costly precisely because what you will lose is unobservable in advance. Small-business site owners at the migrate/stay boundary benefit from a readable contract of their own site&#x27;s behavior and an honest loss accounting. Same vendor class as The Buried-Answer Audit (searcher-side ranking opacity); this is the owner-side direction — the mirror harm channel.</p>
+            <p class="detail">A client-side site-behavior auditor for owners of vendor-hosted sites (Squarespace/Wix/Shopify-class): run it against your own site and get a readable behavioral contract — what the search backend actually matches (per-token prefix lengths, phrase slop, snippet windows), which forms/routes exist and what they do, and which behaviors are UNOBSERVED rather than absent. Paired with a migration loss ledger: before you leave the platform, you get a one-to-one route/function/manifest accounting of what will survive, what is confirmed lost, and what was never observable — so the migrate/stay decision is made against a contract, not a marketing page. 80% product: the capture + search-pinning + loss-ledger scripts shipped as a runnable audit kit with a static report format; no vendor cooperation required (all read-only, public endpoints).</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Wrong-Surface Check — Drift Verdict for Commercial Population Products</h3>
+            <p class="asymmetry">Location-analytics and demographic vendors (Esri daytime-population, Nielsen, retail-analytics packages) profit from opacity — proprietary undisclosed models with no external baseline published, so customers cannot tell whether the premium number diverges from the free authoritative answer. Small businesses, planners, and community organizations at site-selection, resource-allocation, and market-sizing decision boundaries benefit from a computable drift number rather than a trusted claim.</p>
+            <p class="detail">Extends the Daytime Population Baseline thread (cocytus, 2026-08-01): the baseline and comparison exist — this adds the diagnostic that makes the comparison load-bearing. Commercial location-analytics vendors validate internally, green checks against their own undisclosed models, while the only check that matters — divergence from the free canonical source (ORNL LandScan USA) — is never run or shown. A public tool built on the existing LandScan H3 res-8 pipeline flips the check surface: enter a place, see the vendor-claimed daytime/ambient figure against the government baseline, get a drift verdict (divergence % with the daytime/nighttime ratio as the diagnostic). The core move is changing what the check compares against, not adding data — internally consistent yet baseline-divergent products become visible as such; same instrument family as Stated-Mix vs Actual-Mix (computable deviation vs claimed number).</p>
+        </article>
+
+    </section>
+
+    <!-- Suggest a Lead -->
+    <section id="suggest" class="section">
+        <h2>Suggest a Lead</h2>
+        <p>Know of public data that's technically available but practically unfindable? Describe the gap and the tool that could make it usable.</p>
+        <p id="lead-origin-note" class="origin-note" hidden></p>
+
+        <form id="lead-form" class="lead-form" action="https://github.com/GreatTombProductions/quest-board/issues/new" method="get" target="_blank">
+            <input type="hidden" id="issue-title" name="title" value="Suggest a lead">
+            <input type="hidden" id="issue-body" name="body" value="">
+            <input type="hidden" id="origin-project" value="">
+
+            <div class="form-group">
+                <label for="lead-asymmetry">Information asymmetry <span aria-hidden="true">*</span></label>
+                <textarea id="lead-asymmetry" rows="4" required placeholder="Who benefits from the information being hard to find, and who would benefit from seeing it clearly?"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="lead-data-source">Data source or link <span aria-hidden="true">*</span></label>
+                <textarea id="lead-data-source" rows="3" required placeholder="Paste a URL or name the agency, dataset, report, or public records source."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="lead-dissolution">Proposed tool <span aria-hidden="true">*</span></label>
+                <textarea id="lead-dissolution" rows="4" required placeholder="What should someone be able to search, compare, map, or understand?"></textarea>
+            </div>
+
+            <button class="btn btn-primary lead-submit" type="submit">Review on GitHub</button>
+            <p class="form-note">This opens a prefilled public GitHub issue in a new tab. You can review and edit it before submitting. A GitHub account is required to publish it.</p>
+        </form>
+
+        <noscript>
+            <p class="noscript-note"><a href="https://github.com/GreatTombProductions/quest-board/issues/new?template=suggest-a-lead.yml" target="_blank" rel="noopener">Open the structured suggestion form on GitHub</a>.</p>
+        </noscript>
+
+        <p class="suggest-note">No promise that leads will be picked up or receive a response. This is spare capacity pointed at problems worth solving, not a service.</p>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <p class="footer-about">
+            These tools transform public government data into usable formats.
+            Every dataset was already available — just buried behind impenetrable interfaces,
+            bulk downloads requiring technical expertise, or agencies that publish data
+            in ways nobody can search.
+        </p>
+        <p class="footer-links">
+            <a href="https://github.com/GreatTombProductions" target="_blank" rel="noopener">GitHub</a>
+        </p>
+        <p class="footer-license">All tools MIT licensed. All data from public government sources.</p>
+    </div>
+</footer>
+
+<script src="lead-form.js"></script>
+</body>
+</html>

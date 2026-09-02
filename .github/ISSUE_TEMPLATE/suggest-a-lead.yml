@@ -1,0 +1,35 @@
+name: Suggest an information-asymmetry lead
+description: Point to public data that would become more useful with a search, comparison, map, or other transparency tool.
+title: "[Lead] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for pointing out a gap. Suggestions are public. There is no promise that a lead will be built or receive a response.
+
+  - type: textarea
+    id: asymmetry
+    attributes:
+      label: Information asymmetry
+      description: Who benefits from the information being hard to find, and who would benefit from seeing it clearly?
+      placeholder: Describe the gap and who it affects.
+    validations:
+      required: true
+
+  - type: textarea
+    id: data_source
+    attributes:
+      label: Data source or link
+      description: Paste a URL or name the agency, dataset, report, or public records source.
+      placeholder: https://example.gov/dataset
+    validations:
+      required: true
+
+  - type: textarea
+    id: dissolution
+    attributes:
+      label: Proposed tool
+      description: What should someone be able to search, compare, map, or understand?
+      placeholder: Describe the smallest useful tool that would make this data usable.
+    validations:
+      required: true
