@@ -14,17 +14,39 @@
 
 <header>
     <h1>Quest Board</h1>
-    <p class="subtitle">Open-source tools that dissolve information asymmetries</p>
-    <p class="tagline">Built with spare capacity from an AI-augmented workflow. No maintenance promises. Free forever.</p>
+    <p class="subtitle">Free tools for checking employers, housing, health, money and more.</p>
+    <p class="tagline">Public records, made searchable and comparable. Built with spare capacity from an AI-augmented workflow. No maintenance promises.</p>
 </header>
+
+<nav class="site-nav" aria-label="Sections">
+    <a href="#released">Available tools</a>
+    <a href="#leads">Open leads · not built</a>
+    <a href="#suggest">Suggest a lead</a>
+
+</nav>
 
 <main>
 
     <!-- Released Projects -->
     <section id="released" class="section">
-        <h2>Released (80 tools)</h2>
+        <h2>Available tools (80)</h2>
+        <p class="section-intro">Search a topic, question or data source. Each tool lists its own geography, dates and limits; a listing is not a promise of current data.</p>
+        <div id="catalogue-search" class="catalogue-search" hidden role="search" aria-label="Available tools">
+            <label for="tool-query">What do you want to check?</label>
+            <div class="search-row">
+                <input id="tool-query" type="search" placeholder="e.g. drinking water, unpaid wages, nursing homes" aria-describedby="search-help" autocomplete="off" spellcheck="false">
+                <button id="clear-search" class="btn btn-secondary" type="button">Clear search</button>
+            </div>
+            <p id="search-help">Matches tool names, descriptions and data sources. Use a few topic words; this searches the catalogue, not the records inside each tool.</p>
+            <p id="search-count" role="status" aria-live="polite" aria-atomic="true"></p>
+        </div>
+        <noscript><p class="section-intro">Search needs JavaScript. All available tools and their links are listed below.</p></noscript>
+        <div id="search-empty" class="search-empty" hidden>
+            <p>No available tools match these words. Try fewer or different topic words, or clear the search.</p>
+            <p><a href="#leads">Browse unbuilt leads</a> or <a href="#suggest">suggest a lead</a>. These are not available tools.</p>
+        </div>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>CAM Statement Check</h3>
             <p class="asymmetry">Landlords and property managers author the year-end reconciliation; institutional tenants hire lease auditors, while a small-business operator handed the same statement can neither pay with confidence nor contest with evidence. Whether caps were applied, exclusions honored and the share computed per the lease is determinable from documents the tenant already holds — once the arithmetic is laid out.</p>
             <p class="detail">Static client-side checker for small commercial tenants. Each statement line is marked recoverable, excluded by the lease (with the cited section), or not sure; uncertain lines produce a low/high range instead of a guess. Recomputes the pool with linear gross-up of variable lines (never grossed down), the management fee against a tenant-selected fee base, the share (RSF ratio or fixed %, compared with the printed share), net / base-year / expense-stop structures, and controllable-expense caps in three explicit formulas (year-over-year, compounding from base, simple from base). Verdict above / within / matches / below the range; line-by-line questions; an editable request for supporting documents that can be copied, downloaded with inputs and results, or printed. Missing inputs stop the calculation — nothing defaults to zero.</p>
@@ -35,7 +57,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Error Bars</h3>
             <p class="asymmetry">The Census publishes a margin of error with every ACS estimate; dashboards, market reports, and property platforms republish the estimate and drop the margin because precision optics sell and error bars don&#x27;t. Renters, homebuyers, small-business operators, community organizations, and local journalists act on ranges masquerading as points — &#x27;median household income $78,440&#x27; that is really consistent with roughly $74k-$83k, or a block-group count of 823 that is really 511-1,135. The tool restores the published uncertainty at the decision boundary where the number gets used.</p>
             <p class="detail">Check flow: search a county (or enter a 5-digit ZIP, mapped to counties by ZCTA land-area overlap; or browse by state) → county card, then census tracts and block groups as an expandable tree. Every statistic renders as estimate ± margin with the 90%-confidence range, a reliability flag (Census CV guidance for counts; a labeled display heuristic for medians), a distinguishable-from-zero line, and a per-stat box where any published number can be checked for statistical consistency. Method page: sources + receipts (107 requests, per-request SHA-256), variable list, margin arithmetic, coverage caveats, and the &#x27;not applicable&#x27; margin convention.</p>
@@ -46,7 +68,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Withdrawn Sources</h3>
             <p class="asymmetry">Retractions, corrections, and expressions of concern are public — but they are filed where the citing text isn&#x27;t, so content publishers, supplement vendors, and citation aggregators keep borrowing withdrawn authority. The reader at the decision boundary (patient, student, journalist, clinician checking a claim) cannot route a withdrawal notice to the claims citing it without identifier-level tooling. This is the portage layer: Retraction Watch CSV + Crossref metadata → paste-a-text check + full-database search.</p>
             <p class="detail">Check flow: paste text with citations; DOIs and PMIDs are extracted client-side (shared case table with a Python pipeline twin) and matched against the snapshot — every notice for an identifier renders with nature (retraction / expression of concern / correction / reinstatement), date, journal, publisher, authors, reason chips, and DOI/PubMed links; unmatched identifiers get a typed &#x27;no notice found&#x27; plus an optional live Crossref member-metadata check. Search flow: the whole snapshot by title, first author, or journal. Method page: pinned receipt (URL, SHA-256, fetched-at, records), field semantics, extraction + matching rules, coverage caveats, attribution.</p>
@@ -57,18 +79,18 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Execution Quality Check</h3>
             <p class="asymmetry">Brokers and venues benefit when execution quality stays fragmented across hundreds of separate monthly downloads; the standardized format exists so executions can be compared, but nobody has assembled the comparison. Investors comparing venues — or checking whether their fills are measurably worse than the market&#x27;s — need the portage layer: many Download Sites → searchable, comparable tables.</p>
             <p class="detail">Reporter comparison by order size band × stock universe × order type across the published statistics (price improvement, at-quote rate, effective/quoted spread, EFQ, realized spreads), sortable and filterable by reporter type; per-symbol explorer comparing every reporter that filed records for a stock; coverage ledger of every FINRA-registered reporter (in the build / registered with no file located / Download Site not retrieved) with probe evidence; method page with file receipts, per-reporter unit checks, sanity filters and filing anomalies found during the build.</p>
-            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Amended-format SEC Rule 605 reports for August 2026 from the exchanges&#x27; own sites (Cboe, IEX, MIAX, MEMX, Nasdaq), the shared Download Site host that NYSE, 24X and most broker-dealers use, and firm-hosted Download Sites: detailed 55-field pipe-delimited files + OES summary CSVs, fetched with SHA-256 receipts · 169 reporters; 17,708,977 detailed rows; 14,534 symbols; 4,127 published summary rows; 151 of 223 FINRA-registered firms in the build. Restated files fetched 2026-10-18; Park Avenue Securities verified 2026-10-21 as PAWM (formerly PASC), unchanged apart from its reporter code. Seven reporter codes restated and are shown from the later fetch; Moomoo (FUTM) returned HTTP 404 and is omitted.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Amended-format SEC Rule 605 reports for August 2026 from the exchanges&#x27; own sites (Cboe, IEX, MIAX, MEMX, Nasdaq), the shared Download Site host that NYSE, 24X and most broker-dealers use, and firm-hosted Download Sites: detailed 55-field pipe-delimited files + OES summary CSVs, fetched with SHA-256 receipts · 169 reporters; 17,708,940 detailed rows; 14,534 symbols; 4,127 published summary rows; 151 of 223 FINRA-registered firms in the build. Restated files fetched 2026-10-18 and 2026-10-23; Park Avenue Securities verified 2026-10-21 as PAWM (formerly PASC), unchanged apart from its reporter code. Nine reporter codes restated and are shown from the later fetches; Moomoo (FUTM) returned HTTP 404 and is omitted.</p>
             <div class="links">
                 <a href="https://greattombproductions.github.io/execution-quality-check/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
                 <a href="https://github.com/GreatTombProductions/execution-quality-check" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Served-Model Check</h3>
             <p class="asymmetry">AI resellers, aggregators, wrappers, and vendor compatibility routes can serve a different model than the one a customer is paying for — silently, with no error and no per-response signal, and the model itself cannot be trusted to self-report identity (documented: 4/12 endpoints confidently assert wrong identity facts; some are trial-unstable, inventing a different wrong identity on every identical probe). Customers at purchase/renewal decision boundaries (developers, small businesses on metered AI APIs, procurement teams) currently have no way to test &#x27;the model I configured is the model that ran&#x27; from their own evidence. AI-API customers benefit from transparency: the probe is computable from their own API access, requires no vendor cooperation, and produces a dated record that is useful exactly when a substitution dispute does.</p>
             <p class="detail">Paste-box verifier for the question no billing dashboard answers: is the served model the declared model? Two channels are scored against the declared id: (1) the self-report channel — a calibrated identity probe, scored by first-person assertion only (a name inside a rejection sentence never counts; the rule that flipped four apparent adoptions to failures in calibration); (2) the endpoint channel — the response&#x27;s own model / modelVersion field. Verdicts are fail-closed: contradiction signal (different model, version mismatch, unstable self-report across reps, explicit denial, conflicting developer attribution), no contradiction observed (explicitly not proof of identity), or insufficient signal (never a clean bill of health from absence). Watch mode scores dated probe logs into a drift timeline — a signature change mid-contract is the finding a single check cannot see. Probe runner script ships with the site (probe.py, OpenAI-compatible / Anthropic / Google styles). All scoring runs in the browser; nothing you paste leaves the page.</p>
@@ -79,7 +101,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Pricing-Reversal Watch</h3>
             <p class="asymmetry">AI API customers can see current prices but rarely the trajectory: promotional cuts get press, while reversals, rescinded increases, context-window changes, and renames arrive as a changelog line or not at all. Someone mid-migration or deciding to stay on a model family cannot answer &#x27;did this go up, and did it come back down?&#x27; without re-reading changelogs. This watch keeps each change with its date and the vendor&#x27;s own words, so a cancelled increase is as legible as a discount.</p>
             <p class="detail">Each change event lists announced/observed/confirmed/effective dates, the before -&gt; after values, and verbatim evidence: vendor quotes linked to raw HTML captures pinned by SHA-256, with monitoring notes kept separate and labeled. Featured trail: Claude Sonnet 5&#x27;s scheduled $3/$15 increase cancelled before it took effect ($2/$10 now standard); Claude Opus 5.5 arriving at $4/$20 while Opus 4.5-5 stay at $5/$25; DeepSeek&#x27;s August peak/off-peak escalation ($0.14 -&gt; $0.22 cache-miss), the September V4.1-Flash price reduction ($0.22 -&gt; $0.15), and a later unannounced schedule amendment making Chinese public holidays off-peak, quoted before and after. Price tables are read by column label and the build fails closed on layout drift or an unverifiable quote; vendors without a capture are documented gaps, never clean.</p>
@@ -90,7 +112,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Commercial Lease Offer Decoder</h3>
             <p class="asymmetry">Landlords, brokers, and comp vendors benefit when headline face rent is legible but concessions and escalation stay fragmented across term sheets; a small-business operator can mistake the highest-concession offer for the most expensive one or accept a nominal discount whose escalation erases it. Tenants benefit from seeing the economic deal rather than the advertised rate before signing or renewing.</p>
             <p class="detail">Static client-side calculator for small-business tenants comparing commercial lease offers that look incomparable on the brochure. Each offer — starting rent, annual escalation (% or $/SF), free-rent months, tenant-improvement allowance, term, rentable area — is rendered as an auditable cash-flow bridge from face rent to annualized effective rent, with a year-by-year schedule, an escalation line item that exposes discount-erosion, and an optional discount rate for the present-value (level-annuity) comparison. Cheapest offer flagged with the gap to it; printable negotiation view. No data leaves the browser.</p>
@@ -101,7 +123,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>API Rate-Window Clock</h3>
             <p class="asymmetry">API customers can see the vendor&#x27;s individual prices yet still cannot answer the launch-time question without translating weekdays, UTC windows, effective dates, and separate cache/input/output rates. Vendors collect the higher charge when otherwise identical workloads drift into peak periods; independent developers and small teams benefit from a decision-ready timing estimate before starting a long batch.</p>
             <p class="detail">Static client-side calculator for DeepSeek&#x27;s declared weekday peak/off-peak API schedule. Select a current model, enter cache-hit input, cache-miss input, and output tokens, and choose now or a planned local time. The result shows the selected USD band, component rates, cost, effective basis, and earliest cheaper boundary with wait time and savings. Chinese public holidays are off-peak all day, but no holiday list is published, so the user declares the start&#x27;s Beijing date and every weekday-peak result shows the holiday price. English and Chinese pricing pages are parsed independently and semantic-hash pinned; source conflict or missing rates disable calculation rather than producing a zero or average.</p>
@@ -112,7 +134,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Name Collision Audit</h3>
             <p class="asymmetry">Screening vendors, public-record aggregators, and data brokers benefit when a string-level match is presented as an identity-level finding. More candidate records reads as thoroughness while the vendor controls the matching label. Consumers at housing, employment, credit, and licensing decision boundaries benefit from an independent denominator: how many unrelated people should be expected to share the string before any vendor search begins.</p>
             <p class="detail">Static exact-name collision calculator using real Census population frequencies. Reports expected unrelated matching strings, probability of at least one collision, and source counts for surname-only or first+last estimates. The full-name calculation explicitly labels its independence approximation. Companion pages provide a copyable match-confidence disclosure request (exact / substring / phonetic / fuzzy / referent-resolved), an FCRA dispute playbook, and reproducible methodology. No names leave the browser; no record lookup occurs.</p>
@@ -123,7 +145,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Model Release Status Verifier</h3>
             <p class="asymmetry">AI news aggregators, SEO-driven trackers, and vendor marketing all profit from opacity about model release identities — invented version suffixes, inflated GA claims, preview-status ambiguity. Developers and procurement teams make adoption decisions on unverified claims. Vendors publish the truth themselves (model lists, deprecation schedules); the gap is that nobody renders it as an answerable question. This tool closes it: a pasted claim returns a verdict with the vendor&#x27;s own page quoted as evidence.</p>
             <p class="detail">Paste-box claim verifier covering Anthropic, OpenAI, DeepSeek, and Kimi (Moonshot). Four verdicts: confirmed / contradicted / partial / unverifiable — unverifiable means no vendor surface exists for that claim class (a documented gap, never assumed clean). Matches across snapshot-suffix ids (gpt-4o and gpt-4o-2024-05-13 are the same family), family names (&quot;Claude Fable 5&quot;), names written with spaces (&quot;GPT-6.1 Sol&quot; → gpt-6.1-sol) and vendor short forms (&quot;DeepSeek Flash&quot; → deepseek-flash, gated on the vendor keyword). Distinguishes dates embedded in model ids from dates claimed about the model. Every verdict quotes the vendor page it rests on with the fetch timestamp. Vendor pages are fetched at build time; each capture ships with its SHA-256 receipt, and a build stops when a vendor statement changes until the change is reviewed. All matching runs in the browser.</p>
@@ -134,7 +156,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Notice-Policy Check</h3>
             <p class="asymmetry">Model vendors profit from opacity when stated notice windows are generous but actual practice compresses them — developers plan migrations on the stated window and bear emergency-migration cost when actual notice falls short, and aggregators obscure the timeline further. The vendor&#x27;s own deprecation page is the only place where both the policy and the record live; this tool makes &#x27;stated policy vs what actually happened&#x27; a machine-checkable number instead of a marketing claim.</p>
             <p class="detail">Per-vendor compliance ledgers: model, announcement date, retirement date, actual notice days, and PASS/SHORT verdicts against every stated floor (GA 6 months / specialized 3 months / preview ~2 weeks for OpenAI; 60 days for Anthropic). Track-record bars show notice per completed retirement with the vendor&#x27;s own floor as reference. Policies quoted verbatim with escape hatches. Honest coverage by design: DeepSeek publishes no deprecation page or notice policy and is listed as a documented gap; models with no announcement or retirement date are marked n/a, never assumed. Each vendor page is kept as captured with its SHA-256 shown on the site.</p>
@@ -145,7 +167,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Real Rent Growth</h3>
             <p class="asymmetry">Property owners, REITs, property managers, and listing platforms profit from opacity — nominal rent growth is the sticker number everyone sees, and in high-inflation windows &quot;rents up 5%&quot; can hide negative real growth; the inflation-adjusted view never makes it into marketing or affordability discourse. Renters, small landlords, affordability researchers, and journalists benefit from transparency: knowing whether a market&#x27;s rents are genuinely rising in purchasing-power terms or merely tracking inflation.</p>
             <p class="detail">Median gross rent (Census table B25064) from three ACS 5-year vintages — 2014 (2010–14), 2019 (2015–19), 2023 (2019–23) — for every US county, parish, borough, and county-equivalent (~3,200 records). Growth computed over two windows (2014→2019 and 2019→2023) plus the full 2014→2023 period, each shown nominal and real. Inflation adjustment uses the national CPI-U (BLS, via FRED) between window midpoints (2012, 2017, 2021) applied multiplicatively — the same method the EQR institutional pipeline uses (nominal = (1+real) × CPI factor − 1). Each county view shows the three rent figures, both growth windows with nominal-vs-real bars, the inflation gap, and honest caveats (medians of different renter populations, not a repeat-rent index; margins of error not shown). Rankings surface the fastest real-growth and negative-real-growth counties per window. CPI factors are displayed, not hidden.</p>
@@ -156,7 +178,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>The Building&#x27;s Record</h3>
             <p class="asymmetry">Landlords and property managers know their buildings&#x27; municipal records — unaddressed violations, expired permits, unpermitted work, repeat inspection failures — because the renter or buyer across the table can&#x27;t check without knowing each city dataset&#x27;s vocabulary. Property-owner platforms sell this same public data back at a premium. Renters, homebuyers, and restaurant customers benefit from records that shape leasing, purchase, and patronage decisions becoming searchable by address. One Fulton Market building alone carries 102 building permits, 65 business licenses, 17 food inspections, and 2 building violations — all public, none findable by the address everyone knows.</p>
             <p class="detail">4.37M municipal records from the City of Chicago Data Portal, joined to street addresses via normalized address keys (a vocabulary bridge built at build time — string matching fails on address records by construction). Four datasets: Building Permits (843,652 records), Building Violations (2,021,953 records), Food Inspections (313,597 records), Business Licenses (1,193,772 records). Address normalization bridges consumer vocabulary (&quot;875 N Michigan Ave&quot;, &quot;875 North Michigan Avenue&quot;) to producer vocabulary (&quot;875 N MICHIGAN AVE&quot;) — units, ordinals, directionals, and street-type abbreviations all collapse to one canonical key. Per-building views show permit history with status/type/cost, violations by status (open/closed/other), food inspection results with violation notes, and business licenses with active/expired status. Every record links to its source row on the portal. Buildings with no records on file are reported honestly — the site says so rather than guessing. Notable-building sections surface the city&#x27;s most violation-heavy, permit-heavy, and license-heavy addresses.</p>
@@ -167,7 +189,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Hospital Infection Check</h3>
             <p class="asymmetry">Hospitals know their own infection rates. Patients choosing where to have surgery don&#x27;t. CMS publishes healthcare-associated infection data for every U.S. hospital — MRSA, C. diff, central line bloodstream infections, catheter UTIs, surgical site infections — but it&#x27;s buried in CSV downloads and API queries. Someone facing surgery wants to know: does this hospital have more infections than the national average? 4,792 hospitals, 173 with worse-than-national infection rates.</p>
             <p class="detail">4,792 U.S. hospitals from CMS Healthcare Associated Infections data (dataset 77hc-ibv8). Six infection categories: Central Line Associated Bloodstream Infection (CLABSI), Catheter Associated UTI (CAUTI), Surgical Site Infection — Colon Surgery, Surgical Site Infection — Abdominal Hysterectomy, MRSA Bacteremia, C. Difficile. Each with Standardized Infection Ratio (SIR), observed vs predicted cases, device/procedure days, confidence intervals, and comparison to national benchmark (better/worse/no different). 173 hospitals with worse-than-national measures, 1,898 with better-than-national. Enriched with hospital type, ownership, ER status, birthing-friendly designation from CMS Hospital General Information. Two search modes: hospital name and state browse (sorted by worst infection rates first).</p>
@@ -178,7 +200,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Model Lifecycle Watch</h3>
             <p class="asymmetry">AI news aggregators and SEO-driven trackers profit from opacity — inventing or inflating model release identities (GA claims, version suffixes, retirement dates) generates traffic while developers and procurement make adoption decisions on unverified claims, and vendors can quietly retire models whose users never read the docs page. Opus 4.1 was retired August 5, 2026 with a 60-day notice that most developers never saw — requests to claude-opus-4-1-20250805 now fail. Anyone running API workloads benefits from advance notice with the authoritative replacement, straight from the vendor&#x27;s own table.</p>
             <p class="detail">Each model card shows lifecycle status with the vendor&#x27;s own dates: retirement date (or &#x27;not sooner than&#x27; availability guarantee for active models), deprecation announcement date, recommended replacement, and the source page. Searchable by model name, filterable by status and vendor. Honest coverage by design: DeepSeek publishes no deprecation page, so only the retirements its API docs state are shown and the gap is listed rather than hidden. Every record carries an as-of date; each vendor page is kept as captured with a SHA-256 receipt, and the open-source pipeline stops when a page changes until the change is reviewed.</p>
@@ -189,7 +211,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Summary Fidelity Auditor</h3>
             <p class="asymmetry">Organizations benefit when a compact status label or resolution summary substitutes for the actual record: a ticket can be &#x27;resolved&#x27; while the customer&#x27;s operative request, deadline, or restriction disappears. Customers, auditors, support managers, and downstream readers benefit from a check that compares the summary to the source record rather than trusting the summary&#x27;s own status word.</p>
             <p class="detail">Extracts an operative clause from the source record, then flags status-word-only summaries, dropped restrictions/deadlines, flattened summaries, and apparent inversions. Includes examples and an optional known-clause override for audit workflows.</p>
@@ -200,7 +222,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Data Receipts</h3>
             <p class="asymmetry">Agencies and data vendors revise public datasets without changelogs — a number cited yesterday can silently become a different number today, while every downstream dashboard and citation built on the old pull quietly goes stale, and repackaged-data vendors benefit from &#x27;re-downloads re-license revenue&#x27;. Anyone who built on a public dataset has no way to answer the one question that matters: has my source changed since I pulled it? This ledger makes dataset movement visible and independently verifiable.</p>
             <p class="detail">Per-dataset receipts with method-labeled identity (full-content sha256 for small files, ETag/headers for large, normalized payload hash for APIs), change history, and re-derivation commands so every receipt can be independently verified. Honest coverage by design: sources that cannot be checked from this host (FEMA, PHMSA, BLS download server, SSA) are listed as unverifiable, never as stable. First-run finds documented: FDIC API domain migration (old endpoint 301s and old query syntax 400s), CMS provider-data time-based ETags, IRS 990-N dead link.</p>
@@ -211,7 +233,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Execution Cost Reality Check</h3>
             <p class="asymmetry">Strategy promoters and trading platforms benefit when gross returns and guessed transaction costs stay legible while real execution friction stays fragmented across technical disclosures. Retail investors benefit from seeing whether ordinary execution friction erases a claimed edge before risking money — the measured gap is 20-100x: a volume-scaled cost model implied ~183 bps spread for large-caps while actual quotes ran 0.6-9.0 bps (median 7.9), enough to flip a +39.6% gross strategy to -95.1% net.</p>
             <p class="detail">Break-even spread calculator, net-return table across 11 cost bands, measured per-ticker median spreads, model-vs-reality comparison (flat 10/20/50 bps and volume-scaled 183 bps vs. measured 7.9 bps median), Rule 605/606 disclosure pointers</p>
@@ -222,7 +244,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Drug Overdose Deaths by County</h3>
             <p class="asymmetry">Drug overdose deaths vary dramatically by county, but the CDC&#x27;s provisional data is buried in a Socrata dataset with suppressed rows and monthly granularity. Someone moving to a new county, a community organizer seeking grants, or a public health researcher has no easy way to see their county&#x27;s overdose death trend.</p>
             <p class="detail">2024 deaths, 2023→2024 trend, year-by-year detail, suppression notes, state browse</p>
@@ -233,7 +255,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>County Population Trends</h3>
             <p class="asymmetry">People make life decisions based on population trends — where to move, where to start a business, where to retire — but Census estimates are published as technical CSV files with cryptic codes. The data exists; it&#x27;s just not in consumer vocabulary.</p>
             <p class="detail">Population estimates and components of change (births, deaths, net migration) for all 3,144 U.S. counties, 2020–2025. Search by name or browse by state. See which counties are growing, shrinking, and why. Census Bureau data.</p>
@@ -244,7 +266,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Air Quality Check</h3>
             <p class="asymmetry">EPA publishes daily AQI by county in bulk CSV files on a government server. Someone with asthma evaluating where to live has no way to answer &#x27;how many unhealthy air days does this county average per year?&#x27; without data science skills.</p>
             <p class="detail">Median AQI, 90th percentile, category breakdown (Good through Hazardous), yearly trend, primary pollutant, worst AQI day</p>
@@ -255,7 +277,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Hospital Quality Check</h3>
             <p class="asymmetry">CMS collects and publishes quality data for every U.S. hospital — star ratings, mortality rates vs national average, complication rates, infection rates, readmission rates, patient experience surveys. This data exists to help patients make informed choices. But it&#x27;s buried in the CMS Provider Data portal behind API queries and CSV downloads. Someone facing a hospital visit — choosing where to have surgery, where to give birth, where to take a parent — has no easy way to compare hospitals on quality. 5,432 hospitals, 3,182 with star ratings, and the data is free — but the gap between &#x27;data exists&#x27; and &#x27;data is usable at the decision boundary&#x27; is enormous.</p>
             <p class="detail">5,432 U.S. hospitals from CMS Hospital General Information dataset. CMS Overall Star Rating (1–5 stars, 3,182 rated), mortality outcomes vs national average (death rates for heart attacks, pneumonia, stroke, etc.), safety outcomes vs national average (complications, infections), readmission outcomes vs national average, patient experience survey measure count, timely &amp; effective care measure count. Hospital type (Acute Care, Critical Access, VA, Children&#x27;s, etc.), ownership (non-profit, proprietary, government), emergency services, birthing friendly designation. Two search modes: hospital name and state browse (ranked by star rating). 4,498 hospitals with emergency departments, 2,263 designated birthing friendly.</p>
@@ -266,7 +288,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Mental Health Provider Shortage Check</h3>
             <p class="asymmetry">The federal government designates Mental Health Professional Shortage Areas (HPSAs) — counties and regions where the ratio of mental health providers to population falls critically below target. 799 counties are in Critical shortage, 2,468 are Severe or worse. But this data is buried in CSV downloads on the HRSA website. Someone choosing where to live, or someone struggling to find care, has no easy way to know they&#x27;re in a designated shortage area.</p>
             <p class="detail">3,082 U.S. counties from 13,836 active Mental Health HPSA designations. HPSA Score (0–25 severity scale), severity classification (Critical ≥ 20, Severe ≥ 16, Moderate ≥ 12, Mild &lt; 12), FTE provider shortage (how many mental health professionals are needed to reach target ratio), population served and underserved, average poverty rate in HPSA areas, rural vs urban designation breakdown. Two search modes: county name and state browse (ranked by average HPSA score). 799 counties in Critical shortage.</p>
@@ -277,7 +299,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>College Scorecard</h3>
             <p class="asymmetry">Prospective students and families evaluating colleges have no easy way to see earnings outcomes, debt levels, and graduation rates side-by-side. The Department of Education has published this data since 2015, but it lives in a complex API and bulk CSV files — inaccessible to anyone without data skills.</p>
             <p class="detail">6,273 U.S. colleges and universities with 68 metrics including: median earnings 10 years after entry, graduation and retention rates, admission rate and test scores, average annual cost and net price, median debt at graduation, student demographics, Pell grant rate, and minority-serving designations. Three search modes: school name, state browse, and detail view with all metrics.</p>
@@ -288,7 +310,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Food Access Atlas</h3>
             <p class="asymmetry">The USDA designates food deserts — census tracts where low-income residents live far from supermarkets — but the data is buried in an 85MB Excel file. Residents have no easy way to find out if their county has food desert tracts, what share of their population lacks supermarket access, or how their area compares nationally.</p>
             <p class="detail">3,136 U.S. counties aggregated from 72,531 census tracts. Food desert designation (Low Income + Low Access at multiple distance thresholds), low-access population counts, low-income population in low-access areas, SNAP participation rate, vehicle access, poverty rate, median family income. Two search modes: county name and state browse. County detail shows food desert tract breakdown, access bar charts, socioeconomic indicators, and largest food desert tracts.</p>
@@ -299,7 +321,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Jobs Near You</h3>
             <p class="asymmetry">People evaluating job markets or considering relocation have no easy way to see the actual distribution of jobs by industry at the county level. BLS QCEW data exists but is behind complex query interfaces. LODES is free, block-level precise, and includes 20-industry NAICS breakdowns with age and earnings distributions — but lives as compressed CSV on a Census server inaccessible to anyone without data skills.</p>
             <p class="detail">Search workplace jobs by county across 20 industry sectors. See age and earnings distributions for each county&#x27;s workforce. Data from the Census Bureau&#x27;s LEHD Origin-Destination Employment Statistics (LODES 8.4) — block-level workplace data aggregated to 3,144 counties. 151 million total U.S. jobs. Three search modes: county name, state browse, proximity.</p>
@@ -310,7 +332,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Nonprofit Check</h3>
             <p class="asymmetry">People donate to nonprofits without knowing their IRS standing. The IRS provides this data but their search tool is clunky and hard to use on mobile. A simple, fast search dissolves the friction.</p>
             <p class="detail">Combines three IRS bulk datasets: Publication 78 (tax-deductible organizations, 1.4M records), Auto-Revocation List (1.2M revoked exemptions), and Form 990-N e-Postcard filings (1.5M records). Search by organization name or EIN. See deductible status, most recent filing year, principal officer, website, and revocation history.</p>
@@ -321,7 +343,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>County GDP by Industry</h3>
             <p class="asymmetry">People evaluating job markets and local economies rely on anecdotes or national averages. Two adjacent counties can have radically different economic bases — one might be manufacturing-heavy and declining, the other tech-heavy and growing. BEA produces this data but it isn&#x27;t searchable by county name for the general public.</p>
             <p class="detail">3,127 counties across 56 states/territories. 24 years of GDP data (2001–2024) across 17 major industries. Three search modes: county name (letter-sharded), state browse (GDP-ranked), and proximity (geocoded address → counties within radius). County detail shows industry breakdown with percentage bars, national median comparison, and 24-year GDP trend chart.</p>
@@ -332,7 +354,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>County Migration Patterns</h3>
             <p class="asymmetry">Real estate agents and economic developers have migration pattern data; individuals don&#x27;t. Someone moving to a new area should know how many households are moving in and out, and where they&#x27;re coming from or going to.</p>
             <p class="detail">3,027 counties across 51 states. IRS county-to-county migration data from 2010–2011 tax years — 88K inflow pairs and 88K outflow pairs. Three search modes: county name (letter-sharded), state browse (ranked by net migration), and proximity (geocoded address → counties within radius). County detail shows top 15 origin and destination counties with returns, people, and average AGI.</p>
@@ -343,7 +365,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Eviction Rates by County</h3>
             <p class="asymmetry">Renters don&#x27;t know the eviction risk in their county. Landlords and property managers have this information implicitly — they operate in the market daily. Someone deciding where to rent should know &#x27;this county files evictions at 3x the rate of the next county over.&#x27; Eviction Lab publishes this data but it&#x27;s trapped in academic CSVs.</p>
             <p class="detail">Search eviction filing rates for every US county, 2000–2018. See yearly trends, compare counties to state and national medians, and find eviction risk near any address. Data from the Eviction Lab at Princeton University — the definitive source for US eviction research.</p>
@@ -354,7 +376,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>BLS County Unemployment Check</h3>
             <p class="asymmetry">Job seekers, career changers, and economic developers rely on aggregated national statistics that obscure dramatic local variation. Two adjacent counties can have 2x difference in unemployment rate. Monthly county-level data exists (BLS LAUS program since 1990) but isn&#x27;t easily searchable by name, state, or proximity.</p>
             <p class="detail">Search monthly unemployment rates for US counties. Compare counties to state and national averages. See year-over-year trends and monthly charts. Data from the Bureau of Labor Statistics Local Area Unemployment Statistics (LAUS) program. Currently 225 counties across 11 states — expanding to all 3,143 counties.</p>
@@ -365,7 +387,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>EPA County Compliance Check</h3>
             <p class="asymmetry">Industrial facilities near residential areas have public compliance records that are technically accessible but practically invisible. 5.6M+ EPA-regulated facilities across the US — people can&#x27;t easily answer &#x27;how many facilities near me have violations?&#x27; This tool makes county-level enforcement history searchable by name, state, or address.</p>
             <p class="detail">Search environmental compliance history for 3,229 US counties. See facility counts, violation rates, enforcement actions, inspections, and penalty totals. Data from EPA Enforcement and Compliance History Online (ECHO). Compare counties to national medians. Browse by state to see worst violators. Search by address to see facilities near you.</p>
@@ -376,7 +398,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Neighborhood Health Profile</h3>
             <p class="asymmetry">People choose where to live based on schools, crime rates, and commute times — but have zero visibility into neighborhood population health. Chronic disease prevalence varies 3–5x between adjacent counties. CDC publishes this data but it&#x27;s trapped in a 229,000-row CSV that requires statistical software to interpret.</p>
             <p class="detail">Search 40 population health measures for every US county — chronic disease, health behaviors, preventive care, disabilities, health status, and social needs. County name search, state browse, and proximity search near any address. Compare any county to national medians with color-coded indicators.</p>
@@ -387,7 +409,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Severe Weather History</h3>
             <p class="asymmetry">FEMA disaster declarations tell you what got official recognition. NOAA storm data tells you what actually happened — every tornado touchdown, every flash flood, every heat wave death since 1950. Insurers and climate modelers have this data pre-aggregated. Individuals buying property or evaluating risk don&#x27;t.</p>
             <p class="detail">Search 5.4 million severe weather events since 1950 by county name, state, or near any US address. See tornadoes, floods, hurricanes, hail, winter storms, heat waves — with injuries, deaths, property damage, yearly trends, seasonal patterns, and individual event narratives.</p>
@@ -398,7 +420,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Credit Reporting Complaint Check</h3>
             <p class="asymmetry">Three major credit bureaus (Experian, Equifax, TransUnion) control the hidden infrastructure that determines who gets housing, employment, and credit. 87% of 2.16M CFPB complaints go against these three companies. Most people experiencing credit report errors don&#x27;t know others have the same complaint about the same bureau about the same issue.</p>
             <p class="detail">Search 2.16 million CFPB credit reporting complaints by company name, ZIP code, or state. See complaint volumes, trends, common issues (incorrect information, improper report use, investigation problems), response patterns, and consumer stories.</p>
@@ -409,7 +431,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>ICE Detention Facility Check</h3>
             <p class="asymmetry">ICE detention is the largest immigration detention system in the world, but facility-level data — who is detained, for how long, from where, released to what outcome — is locked in FOIA-litigated spreadsheets. The Deportation Data Project won the FOIA fight. The data is public but not searchable by facility name or state.</p>
             <p class="detail">Search 893 ICE detention facilities with 8.9 million detention records from the Deportation Data Project&#x27;s FOIA-litigated database (1995–2025). Look up by facility name or browse by state to see detention volume, gender breakdowns, release reasons, citizenship countries, case statuses, and year trends.</p>
@@ -420,7 +442,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Deaths in Custody Check</h3>
             <p class="asymmetry">People trying to understand deaths in U.S. prisons and local jails face scattered and incomplete reports. BJS released unredacted individual-level data (names, facilities, causes, circumstances) but it lives in Excel files on an OJP FOIA reading room — not searchable by name, facility, or state.</p>
             <p class="detail">Search 21,341 individual death records in U.S. state prisons and local jails (October 2015 – December 2019) from the BJS Mortality in Correctional Institutions (MCI) data, publicly released via FOIA. Look up by person name, facility name, or browse by state. See cause of death, facility, offense, demographic details, and narrative descriptions of circumstances.</p>
@@ -431,7 +453,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Police Encounter Deaths</h3>
             <p class="asymmetry">People trying to understand deaths during law-enforcement encounters face scattered news reports, incomplete official accounting, and spreadsheet-shaped public-interest data that is hard to search by agency, person, or place.</p>
             <p class="detail">Search Fatal Encounters spreadsheet records of people killed during interactions with law enforcement from 2000 through 2021. Look up agencies, names, states, and ZIP areas; see year trends, force/circumstance categories, demographics recorded in the source data, incident descriptions, and source links.</p>
@@ -442,7 +464,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Debt Collection Complaint Check</h3>
             <p class="asymmetry">People contacted by debt collectors don&#x27;t know whether the collector has a pattern of violations, what complaints others have filed, or whether the company typically responds to complaints. The CFPB publishes complaint data but the interface is designed for individual lookup, not for seeing a company&#x27;s full complaint pattern.</p>
             <p class="detail">Search 1.1 million CFPB debt collection complaints by company name, ZIP code, or state. See complaint volumes, trends, common issues (debt not owed, false threats, harassment), debt types, response patterns, and consumer stories.</p>
@@ -453,7 +475,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Home Health Care Check</h3>
             <p class="asymmetry">Patients and families choose home health agencies from lists their doctor hands them, while CMS quality outcomes, patient survey data, claims-based safety measures, and value-based purchasing scores are scattered across three separate technical datasets.</p>
             <p class="detail">Search Medicare-certified home health agencies by name, ZIP, or state. See CMS quality measures, HHCAHPS patient survey results, value-based purchasing scores, claims-based safety measures, and bottom-quartile warning flags across 20+ public CMS metrics.</p>
@@ -464,7 +486,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Hospice Care Check</h3>
             <p class="asymmetry">Families choose hospice providers during high-pressure end-of-life decisions, while CMS quality and family caregiver survey data is split across technical datasets with measure codes, footnotes, and no quick warning-flag view.</p>
             <p class="detail">Search Medicare-certified hospice providers by name, ZIP, or state. See CMS Hospice Care Index, visits near death, nurse care minutes, family caregiver survey ratings, recommendation scores, ownership type, and bottom-quartile warning flags across public CMS measures.</p>
@@ -475,7 +497,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Federal Contractor Check</h3>
             <p class="asymmetry">Federal procurement is public, but the usable picture is fragmented across award tables, recipient identifiers, agency categories, industry codes, and product/service codes. Contractors and agencies understand the flow of public money; ordinary citizens see isolated press releases or opaque procurement jargon.</p>
             <p class="detail">Search major federal contractors by name. See FY2025 contract obligations, contractor rank, known aliases/identifiers, awarding agency breakdown, NAICS industry breakdown, product/service code breakdown, and largest awards returned by USAspending. Static snapshot of top procurement recipients, grouped by normalized recipient name.</p>
@@ -486,7 +508,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="bank financial stability deposit risk bank failure history">
             <h3>Bank Health Check</h3>
             <p class="asymmetry">Depositors can&#x27;t see their bank&#x27;s financial health relative to peers. A bank with declining profitability, rising loan losses, and high uninsured deposit concentration looks the same from the lobby as a healthy one. SVB&#x27;s depositors didn&#x27;t know their concentration risk until it was too late.</p>
             <p class="detail">Search any FDIC-insured bank by name, ZIP code, or state. Financial health grade, ROA, ROE, efficiency ratio, capital adequacy, noncurrent loan ratio, uninsured deposit percentage, 3-year quarterly trends, and peer comparison within size group. 4,274 active banks indexed with Q1 2026 Call Report data. 4,115 historical bank failures since 1934.</p>
@@ -497,7 +519,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Greenhouse Gas Emitter Check</h3>
             <p class="asymmetry">~8,700 large facilities report annual greenhouse gas emissions to EPA, but the data is buried in a clunky government tool. People living near power plants, refineries, chemical plants, and landfills don&#x27;t know the emissions profile of their neighbors.</p>
             <p class="detail">Search EPA GHGRP emissions by facility name, parent company, or ZIP code. Browse by state. See gas breakdowns (CO2, methane, nitrous oxide, fluorinated gases), 5-year trends, national percentile rankings, and home-equivalent context. Covers facilities emitting 25,000+ metric tons CO2e/year.</p>
@@ -508,7 +530,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="Oregon unpaid wages missing pay paycheck overtime employer owes money hours worked wage claim preparation">
             <h3>Wage Owed Oregon</h3>
             <p class="asymmetry">Oregon’s wage-claim form asks a worker to upload a day-by-day record of hours, type a required total owed of at least $50, give first and last dates owed and fit the story into 300 characters, all in one sitting with no save. Workers remember shifts, not totals, and tipped workers are often shown federal tip-credit logic that does not apply in Oregon. This page turns what a person remembers into the record and figures the form asks for.</p>
             <p class="detail">Enter days worked (hours or start/end times, approximate allowed), paste lines from a timekeeping app, or repeat a week. Produces a printable daily hours record for upload as Personal Time Records, the Wage Claim answers in the form’s order (total owed only for workweeks within verified July 2024–June 2027 rate periods; others listed with reasons), an editable 300-character issue draft, a have-ready list and BOLI’s assignment wording shown ahead of time. Hourly, non-exempt, standard overtime only. Save your record as a file or opt in to keeping it in the browser. Not a claim, filing or proof of recovery.</p>
@@ -519,7 +541,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Insider Trading Tracker</h3>
             <p class="asymmetry">Corporate executives and board members must report stock trades within 2 days via SEC Form 4. This is public data, but existing free tools are ad-heavy or paywalled. Retail investors don&#x27;t easily see patterns like &#x27;every director is selling&#x27; or &#x27;the CEO just bought $5M of stock&#x27; without paying for terminals or subscription services.</p>
             <p class="detail">Search any of the top 500 public companies to see insider buying and selling activity from SEC Form 4 filings. For each company: total open market purchases and sales, buy/sell ratio, notable trades over $1M, insider breakdown by role (CEO, CFO, Director, 10%+ Owner), individual transaction histories. Two search modes: company name and ticker symbol. Leaderboard shows top insider buyers and sellers by dollar volume.</p>
@@ -529,7 +551,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Nursing Home Staffing Check</h3>
             <p class="asymmetry">Families choosing nursing homes can&#x27;t see actual daily staffing levels. CMS collects payroll-based staffing data from every facility quarterly, but it&#x27;s buried in bulk CSV files. 94.5% of nursing homes fell below the federal RN staffing minimum on at least one day in Q4 2025.</p>
             <p class="detail">Search any nursing home to see actual staffing from CMS payroll data. For each facility: average RN and total nurse hours per resident per day, days below federal minimums, weekend vs weekday staffing comparison, staff turnover rates, contractor reliance, CMS star ratings, penalty history. 14,362 facilities across 53 states/territories. Three search modes: facility name, ZIP code, state browse.</p>
@@ -539,7 +561,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="medicine research drug trial evidence prescription medication trial results">
             <h3>Clinical Trial Results</h3>
             <p class="asymmetry">Pharmaceutical companies market drugs aggressively while clinical trial results — including adverse events, failed endpoints, and weak efficacy — sit in ClinicalTrials.gov where most consumers never search. People prescribed a drug can&#x27;t easily find out whether the pivotal trial actually met its primary endpoint.</p>
             <p class="detail">Search any drug name to see clinical trial results from ClinicalTrials.gov. For each drug: number of trials, total enrollment, conditions studied, sponsors, cross-trial adverse event aggregation, primary outcome results with statistical significance, and individual trial details. All data from the NIH ClinicalTrials.gov API.</p>
@@ -549,7 +571,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>H-2A Guestworker Visa Tracker</h3>
             <p class="asymmetry">The H-2A program brings 250,000+ temporary agricultural workers to the US annually. Farmworkers and advocates have no searchable way to see which farms use guestworkers, what wages were certified, or whether employer-provided housing passed compliance inspection. The data is public but buried in a 16MB government spreadsheet.</p>
             <p class="detail">Search DOL H-2A disclosure data by employer name or browse by state. See certified wages, worker counts, job requirements, and housing compliance for 13,430 employers and 254,688 workers. Includes housing addendum data showing inspection status across local, state, and federal authorities.</p>
@@ -560,7 +582,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Mortgage Denial Explorer</h3>
             <p class="asymmetry">Whether a bank denies mortgages at disproportionate rates in minority neighborhoods is legally significant and fully recorded in HMDA data — but the raw data is too large and technical for ordinary borrowers to consult. The CFPB data browser exists but requires knowing what to query.</p>
             <p class="detail">Search HMDA mortgage denial data by lender name or browse by state. See denial rates, racial disparity ratios, majority-minority tract analysis, and top denial reasons for 4,181 lenders across 2 million denials and $632 billion in denied loans.</p>
@@ -571,7 +593,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Opioid Prescriber Check</h3>
             <p class="asymmetry">Patients and communities cannot easily see which Medicare prescribers in their area have anomalous opioid prescribing rates. CMS publishes prescriber-level Part D data but it&#x27;s a 577MB CSV with 1.4M rows that no one browses.</p>
             <p class="detail">Search Medicare Part D opioid prescribing data by provider name or ZIP code. 442,864 prescribers with 11+ opioid claims, 58.9M total opioid claims, $2.2B in opioid drug costs. Three search modes: prescriber name, ZIP code area, and state overview with county drilldown.</p>
@@ -581,7 +603,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Provider Transparency</h3>
             <p class="asymmetry">AI providers inject behavioral modifications into conversations without user knowledge or consent. Users can&#x27;t inspect system prompts, detect injection points, or understand why their AI suddenly changed behavior.</p>
             <p class="detail">Education site explaining how AI providers inject hidden behavioral modifications into consumer conversations. Layer 1: evidence base and mechanism explanation. Layer 2: community submission form for user-reported behavioral shift experiences. Sourced from publicly available documents, provider research, and published constitutions.</p>
@@ -591,7 +613,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Doctor-Payment Drug Intelligence</h3>
             <p class="asymmetry">Pharma companies know exactly which doctors they pay, what drugs they make, how those drugs perform in adverse event reports, and what the brand-vs-generic price gap looks like. Patients sitting in the waiting room know none of this. The sales rep has a complete briefing; the patient has a prescription.</p>
             <p class="detail">Three-way join across CMS Open Payments, FDA FAERS, and NADAC drug pricing, bridged by FDA drugsFDA. Search by doctor name to see payments plus what the paying companies actually make — adverse events, deaths, hospitalizations, brand vs generic markup. Search by company to see their full physician payment footprint plus drug portfolio with safety profiles. 737K doctors, 582 companies matched to FDA, 1,076 drug profiles.</p>
@@ -602,7 +624,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Campaign Finance Check</h3>
             <p class="asymmetry">FEC individual contribution data is public but requires navigating an unusable government interface. Journalists use it daily; ordinary citizens almost never do.</p>
             <p class="detail">Search 55.5M individual contributions ($15.6B total) by employer name, zip code, or candidate. Every donation over $200 is public record. 2023-2024 election cycle.</p>
@@ -613,7 +635,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Corporate Compliance Profile</h3>
             <p class="asymmetry">Corporations know their own violation histories across every agency. Communities, workers, investors, and regulators each see only one silo. Nobody can search &#x27;show me everything about this employer&#x27; across OSHA, EPA, DOL, and CFPB simultaneously.</p>
             <p class="detail">Cross-references employer compliance records across four federal agencies: OSHA workplace safety inspections, EPA environmental enforcement actions, DOL Wage &amp; Hour Division violations, and CFPB consumer complaints. Search by company name to see violations, penalties, and complaint patterns in one view. Aggregates from existing project data — no additional data downloads required.</p>
@@ -624,7 +646,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Environmental Risk Profile</h3>
             <p class="asymmetry">Insurance companies compute environmental risk profiles for every property using public federal data — then price premiums based on analysis homeowners never see. The same data is public; the synthesis isn&#x27;t.</p>
             <p class="detail">Enter any US address. See documented toxic releases, dams, railroad incidents, aviation accidents, drinking water violations, and pesticide applications nearby. Aggregates 6 federal data sources. No pipeline — loads from existing deployed tools.</p>
@@ -635,7 +657,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Aviation Safety Check</h3>
             <p class="asymmetry">NTSB investigates civil aviation accidents but the data is buried in an Access database download. Passengers booking charter flights, helicopter tours, or choosing flight schools have no practical way to check an operator&#x27;s safety record.</p>
             <p class="detail">Search NTSB aviation accident data by airline, charter operator, flight school, tail number, or aircraft type. 31,000+ accidents and incidents since 2008 with probable cause narratives, fatality counts, and severity ratings. Proximity search shows accidents near any US address.</p>
@@ -646,7 +668,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Doctor-Pharma Payment Check</h3>
             <p class="asymmetry">Pharma companies spent $3.3 billion paying 984,000 doctors in 2024 — consulting fees, meals, travel, royalties. Patients have no practical way to check whether their doctor receives money from the companies whose products they prescribe.</p>
             <p class="detail">Search CMS Open Payments data by doctor name. See total payments, company breakdowns, and payment types for 984,000+ physicians. Top companies: AbbVie ($156M to 226K doctors), Stryker ($132M), Medtronic ($118M). Largest category: Food and Beverage ($412M).</p>
@@ -657,7 +679,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="recalled unsafe toys baby crib heater consumer product safety recall">
             <h3>Product Recall Check</h3>
             <p class="asymmetry">People buy products every day without knowing they&#x27;ve been recalled. Recalled cribs, space heaters, and toys cause injuries and deaths. CPSC data exists but most consumers never check it.</p>
             <p class="detail">Search CPSC consumer product recalls by product name or browse by category. 9,800+ recalls since 1973 covering toys, electronics, furniture, appliances, and more. Full hazard descriptions, injury reports, remedy instructions, and CPSC.gov links.</p>
@@ -668,7 +690,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Railroad Safety Incidents</h3>
             <p class="asymmetry">FRA requires railroads to report equipment accidents but the data is buried in a government portal. Communities near tracks don&#x27;t know the derailment history, hazmat release record, or safety performance of railroads operating in their area.</p>
             <p class="detail">Search FRA railroad accident data by company name or find incidents near any address. 224,000+ incidents since 1975 including derailments, collisions, hazmat releases, injuries, and deaths. Proximity search shows recent incidents within a configurable radius using geocoded FRA data from 2017-present.</p>
@@ -679,7 +701,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Medical Device Safety Check</h3>
             <p class="asymmetry">FDA adverse event reports for medical devices are public but buried in an API that requires technical knowledge to query. 24.7M reports across thousands of device types — exposed by searching a device name or manufacturer.</p>
             <p class="detail">Static lookup tool for FDA MAUDE (Manufacturer and User Facility Device Experience) adverse event reports. Search by device type or manufacturer to see total reports, deaths, injuries, malfunctions, yearly trends, and related entities. Pre-aggregated from openFDA API.</p>
@@ -690,7 +712,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Dam Safety Near You</h3>
             <p class="asymmetry">16,821 high-hazard dams (failure would cause loss of life), 2,647 simultaneously high-hazard AND poor/unsatisfactory condition. People live downstream and don&#x27;t know. Now searchable by address.</p>
             <p class="detail">Enter any US address, find dams within chosen radius with hazard potential and condition ratings. 92,464 dams from the National Inventory of Dams (USACE). Color-coded by hazard level, expandable detail cards.</p>
@@ -701,7 +723,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Drug Price Check</h3>
             <p class="asymmetry">Pharmacies know what they pay for drugs. Patients know what they&#x27;re charged. The gap is invisible. Brand drugs cost up to 1,214x their generic equivalents. Average markup: 60.9x. Now searchable by drug name.</p>
             <p class="detail">Search NADAC drug acquisition costs by drug name. 6,692 formulations across 3,396 base drug names. Brand vs generic markup comparison, price trend charts, formulation-level detail.</p>
@@ -712,7 +734,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Drug Side Effects Check</h3>
             <p class="asymmetry">20.3M adverse event reports exist in FDA&#x27;s FAERS database, but patients can&#x27;t easily check what&#x27;s been reported for their medication. 1.86M death reports, 4.35M hospitalizations now searchable by drug name.</p>
             <p class="detail">Search FDA adverse event reports by drug name (generic or brand). Top 80 drugs by report volume. Side effect breakdown, seriousness, yearly trends. Brand name to generic name mapping.</p>
@@ -723,7 +745,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Pesticide Use Near You</h3>
             <p class="asymmetry">California requires reporting every commercial pesticide application but locations are reported as PLSS coordinates requiring GIS expertise. 138M lbs, 3.4M applications, 582 chemicals now searchable by address.</p>
             <p class="detail">Enter a California address, see pesticide applications within 1/2-5 miles. Toxicity classification, restricted-use flagging, chemical breakdown, monthly application patterns. 22,923 PLSS sections.</p>
@@ -734,7 +756,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Airline On-Time Check</h3>
             <p class="asymmetry">Airlines compete on price and branding while burying on-time performance data. American Airlines&#x27; 72.9% on-time rate vs Delta&#x27;s 80.7% now visible in seconds, with route-level granularity.</p>
             <p class="detail">Search airline on-time performance by carrier name, compare airlines on specific routes, rank airports by delay rates. 14M flights across 15 carriers, 354 airports, 12,132 routes.</p>
@@ -745,7 +767,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="is my tap water safe to drink water contamination drinking supply">
             <h3>Drinking Water Quality Check</h3>
             <p class="asymmetry">After Flint, everyone knows water safety matters — but checking your own water system means navigating EPA&#x27;s SDWIS database, a 457MB download with 15.3M violation records. 2,152 systems currently exceeding lead action levels. Now searchable by zip code.</p>
             <p class="detail">Search water system violation history by zip code or system name. 143,021 active water systems with violation breakdown, lead and copper levels with trend, enforcement actions, state comparison.</p>
@@ -756,7 +778,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>EPA Enforcement Check</h3>
             <p class="asymmetry">Companies with terrible environmental records at one facility can operate elsewhere without communities knowing. $11.5B in penalties across 187,756 facilities now searchable by company name.</p>
             <p class="detail">Search EPA environmental violation records by company name. Company profiles show all facilities, penalties, formal actions, noncompliance history, program-specific details (CAA, CWA, RCRA, SDWA, TRI, GHG). 178,916 companies indexed.</p>
@@ -767,7 +789,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Food Recall Check</h3>
             <p class="asymmetry">A food company with 633 recalls looks the same as one with one. FDA data was searchable only by individual recall, not by company. 28,794 recalls now searchable by company name.</p>
             <p class="detail">Search FDA food recall records by company name. Classification breakdown (Class I/II/III), recall timeline, top reasons, individual recall details. 5,348 companies indexed.</p>
@@ -778,7 +800,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Mine Safety Check</h3>
             <p class="asymmetry">Mining operators with terrible safety records at one mine can open new mines without communities or prospective workers knowing the history. 3M+ violations, $1.8B penalties, 1,201 fatalities now searchable by operator name.</p>
             <p class="detail">Search MSHA mine safety violation records by operator or mine name. Operator profiles show all mines, violations per inspection rate, S&amp;S rate, penalty totals, fatality count. Compare to national averages.</p>
@@ -789,7 +811,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Auto Safety Check</h3>
             <p class="asymmetry">When a model has a pattern of brake failures or electrical fires, individual consumers experience it as &#x27;my car broke.&#x27; They don&#x27;t know 847 other owners reported the same failure. 32,031 vehicle/year combinations now searchable.</p>
             <p class="detail">Search vehicle safety complaints by make, model, and year. Component breakdown, complaint timeline, year-over-year comparison. Pre-aggregated from 2.2M NHTSA consumer complaints.</p>
@@ -800,7 +822,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Bank Complaint Check</h3>
             <p class="asymmetry">Banks, mortgage servicers, debt collectors, and credit reporting agencies profit from consumers not being able to comparison-shop on complaint history. 15 million complaints now searchable by company name.</p>
             <p class="detail">Search consumer complaint records for banks, lenders, debt collectors, and credit agencies by company name. Complaint volume by product category, timely response rate, most common issues, trends over time. 7,859 companies indexed.</p>
@@ -811,7 +833,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="elderly senior care nursing home safety care facility inspection ratings">
             <h3>Nursing Home Safety Check</h3>
             <p class="asymmetry">Families choosing nursing homes had no comparison tools. Corporate chains and PE-owned facilities profited from families not seeing $467M in fines and 418K deficiency citations.</p>
             <p class="detail">Search nursing homes by zip code or owner/chain name. 14,699 facilities with star ratings, staffing, deficiency citations by severity, penalty history. Owner search exposes serial violators.</p>
@@ -822,7 +844,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="hospital medical procedure cost cash price MRI scan cost">
             <h3>Hospital Price Compare</h3>
             <p class="asymmetry">CMS price transparency files are impenetrable (10-500MB JSON each). A brain MRI varies 3x across hospitals in the same metro. Now searchable by zip code.</p>
             <p class="detail">Enter zip code, pick procedure, compare cash prices across nearby hospitals. 6 procedures, 3,363 hospitals nationwide.</p>
@@ -833,7 +855,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>OSHA Safety Tracker</h3>
             <p class="asymmetry">Workers couldn&#x27;t check an employer&#x27;s safety record. 50+ years of OSHA data now searchable in seconds.</p>
             <p class="detail">Search OSHA inspection and violation records by employer name. 5.17M inspections, 12.77M violations, $6.5B penalties.</p>
@@ -844,7 +866,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Toxic Releases Near You</h3>
             <p class="asymmetry">EPA toxic release data was public but unfindable. Residents near industrial facilities can now answer &#x27;what chemicals are released near me?&#x27;</p>
             <p class="detail">Enter zip code, see EPA TRI facilities within chosen radius. 21,870 facilities, 559 chemicals, 3.4B lbs releases (2023).</p>
@@ -855,7 +877,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Utility Rate Check</h3>
             <p class="asymmetry">Monopoly utilities faced no consumer comparison pressure. Rate data buried in government spreadsheets, now searchable by zip code.</p>
             <p class="detail">Enter zip code, compare electric utility rates to state and national averages. 1,192 utilities, 38,564 zip codes.</p>
@@ -866,7 +888,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="Philadelphia rental housing landlord inspection history renter property owner code violations">
             <h3>Landlord Violations</h3>
             <p class="asymmetry">Tenants could see violations at their one address but not that their landlord&#x27;s LLC has 2,046 violations across 167 properties. Serial violators now surfaced by owner name search.</p>
             <p class="detail">Search Philadelphia housing code violations by landlord name, not just by address. 1.45M violations across 154,000+ owners. Owner profiles with all properties and violations.</p>
@@ -877,7 +899,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="unpaid wages back pay employer fined employer stolen wages enforcement history">
             <h3>Wage Theft Tracker</h3>
             <p class="asymmetry">Federal enforcement data was technically public but practically unfindable. 365,390 cases and $4.7 billion in back wages — exposed by searching an employer&#x27;s name.</p>
             <p class="detail">Static lookup tool for U.S. Department of Labor Wage and Hour Division enforcement records. Search by employer name, view enforcement history, county choropleth map, industry comparison percentiles. Data covers FY 2005 to March 2026.</p>
@@ -888,7 +910,7 @@
             </div>
         </article>
 
-        <article class="card released">
+        <article class="card released" data-search-terms="">
             <h3>Caloric Arbitrage</h3>
             <p class="asymmetry">Food surplus and deficit are mismatched in space and time. The separation is now visible on a map.</p>
             <p class="detail">Two views: Portland H3 proxy-based local specimen (surplus proxy from establishment density, deficit from USDA), plus global historical temporal animation (FAOSTAT caloric loss + undernourishment, ReFED US retail surplus, 2000–2024). Country choropleth with period slider, play/pause, evidence disclosure.</p>
@@ -1502,7 +1524,7 @@
 <footer>
     <div class="footer-content">
         <p class="footer-about">
-            These tools transform public government data into usable formats.
+            These tools transform public data into usable formats.
             Every dataset was already available — just buried behind impenetrable interfaces,
             bulk downloads requiring technical expertise, or agencies that publish data
             in ways nobody can search.
@@ -1510,10 +1532,11 @@
         <p class="footer-links">
             <a href="https://github.com/GreatTombProductions" target="_blank" rel="noopener">GitHub</a>
         </p>
-        <p class="footer-license">All tools MIT licensed. All data from public government sources.</p>
+        <p class="footer-license">All tools MIT licensed. Data sources, coverage and dates are listed on each tool.</p>
     </div>
 </footer>
 
+<script src="catalogue.js"></script>
 <script src="lead-form.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@ A portfolio of 80 open-source tools that make public data usable. Every tool tar
 
 **[Browse all 80 tools on the live site →](https://GreatTombProductions.github.io/quest-board/)**
 
-The live site is auto-generated from project manifests and always reflects the current tool roster. Search by name, category, or data source.
+The site is generated from project manifests. Search the available tools by topic words, name or data source; matching uses the card descriptions and selected plain-language search terms, not the records inside each tool. Results show a count, a no-match message and a clear-search button. Section links lead to available tools, unbuilt leads and suggesting a lead. With JavaScript disabled, the full list and tool links remain readable. Each tool states its own geography, dates and limits; availability is not a promise of current data.
 
 ## Suggest a lead
 
@@ -20,4 +20,4 @@ No promise that leads will be picked up. This is spare capacity pointed at probl
 
 ## License
 
-MIT. All data comes from public government sources.
+MIT. Data sources, coverage and dates are listed on each tool.
