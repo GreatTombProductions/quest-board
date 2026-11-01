@@ -37,7 +37,7 @@
                 <input id="tool-query" type="search" placeholder="e.g. drinking water, unpaid wages, nursing homes" aria-describedby="search-help" autocomplete="off" spellcheck="false">
                 <button id="clear-search" class="btn btn-secondary" type="button">Clear search</button>
             </div>
-            <p id="search-help">Matches tool names, descriptions and data sources. Use a few topic words; this searches the catalogue, not the records inside each tool.</p>
+            <p id="search-help">Ask a question or use topic words. Searches tool names, descriptions and data sources, not the records inside each tool. Related-topic results are labeled with unmatched words; check each tool’s geography, dates and limits.</p>
             <p id="search-count" role="status" aria-live="polite" aria-atomic="true"></p>
         </div>
         <noscript><p class="section-intro">Search needs JavaScript. All available tools and their links are listed below.</p></noscript>
@@ -332,7 +332,7 @@
             </div>
         </article>
 
-        <article class="card released" data-search-terms="">
+        <article class="card released" data-search-terms="charity charities donation tax-deductible giving">
             <h3>Nonprofit Check</h3>
             <p class="asymmetry">People donate to nonprofits without knowing their IRS standing. The IRS provides this data but their search tool is clunky and hard to use on mobile. A simple, fast search dissolves the friction.</p>
             <p class="detail">Combines three IRS bulk datasets: Publication 78 (tax-deductible organizations, 1.4M records), Auto-Revocation List (1.2M revoked exemptions), and Form 990-N e-Postcard filings (1.5M records). Search by organization name or EIN. See deductible status, most recent filing year, principal officer, website, and revocation history.</p>
@@ -464,7 +464,7 @@
             </div>
         </article>
 
-        <article class="card released" data-search-terms="">
+        <article class="card released" data-search-terms="debt collector calls">
             <h3>Debt Collection Complaint Check</h3>
             <p class="asymmetry">People contacted by debt collectors don&#x27;t know whether the collector has a pattern of violations, what complaints others have filed, or whether the company typically responds to complaints. The CFPB publishes complaint data but the interface is designed for individual lookup, not for seeing a company&#x27;s full complaint pattern.</p>
             <p class="detail">Search 1.1 million CFPB debt collection complaints by company name, ZIP code, or state. See complaint volumes, trends, common issues (debt not owed, false threats, harassment), debt types, response patterns, and consumer stories.</p>
@@ -508,7 +508,7 @@
             </div>
         </article>
 
-        <article class="card released" data-search-terms="bank financial stability deposit risk bank failure history">
+        <article class="card released" data-search-terms="bank financial stability deposit risk bank failure history is my bank failing">
             <h3>Bank Health Check</h3>
             <p class="asymmetry">Depositors can&#x27;t see their bank&#x27;s financial health relative to peers. A bank with declining profitability, rising loan losses, and high uninsured deposit concentration looks the same from the lobby as a healthy one. SVB&#x27;s depositors didn&#x27;t know their concentration risk until it was too late.</p>
             <p class="detail">Search any FDIC-insured bank by name, ZIP code, or state. Financial health grade, ROA, ROE, efficiency ratio, capital adequacy, noncurrent loan ratio, uninsured deposit percentage, 3-year quarterly trends, and peer comparison within size group. 4,274 active banks indexed with Q1 2026 Call Report data. 4,115 historical bank failures since 1934.</p>
@@ -712,7 +712,7 @@
             </div>
         </article>
 
-        <article class="card released" data-search-terms="">
+        <article class="card released" data-search-terms="dangerous dam hazard">
             <h3>Dam Safety Near You</h3>
             <p class="asymmetry">16,821 high-hazard dams (failure would cause loss of life), 2,647 simultaneously high-hazard AND poor/unsatisfactory condition. People live downstream and don&#x27;t know. Now searchable by address.</p>
             <p class="detail">Enter any US address, find dams within chosen radius with hazard potential and condition ratings. 92,464 dams from the National Inventory of Dams (USACE). Color-coded by hazard level, expandable detail cards.</p>
@@ -723,7 +723,7 @@
             </div>
         </article>
 
-        <article class="card released" data-search-terms="">
+        <article class="card released" data-search-terms="prescription cost expensive medication price">
             <h3>Drug Price Check</h3>
             <p class="asymmetry">Pharmacies know what they pay for drugs. Patients know what they&#x27;re charged. The gap is invisible. Brand drugs cost up to 1,214x their generic equivalents. Average markup: 60.9x. Now searchable by drug name.</p>
             <p class="detail">Search NADAC drug acquisition costs by drug name. 6,692 formulations across 3,396 base drug names. Brand vs generic markup comparison, price trend charts, formulation-level detail.</p>
@@ -756,7 +756,7 @@
             </div>
         </article>
 
-        <article class="card released" data-search-terms="">
+        <article class="card released" data-search-terms="late flights flight delays">
             <h3>Airline On-Time Check</h3>
             <p class="asymmetry">Airlines compete on price and branding while burying on-time performance data. American Airlines&#x27; 72.9% on-time rate vs Delta&#x27;s 80.7% now visible in seconds, with route-level granularity.</p>
             <p class="detail">Search airline on-time performance by carrier name, compare airlines on specific routes, rank airports by delay rates. 14M flights across 15 carriers, 354 airports, 12,132 routes.</p>
@@ -811,7 +811,7 @@
             </div>
         </article>
 
-        <article class="card released" data-search-terms="">
+        <article class="card released" data-search-terms="car problems vehicle defects">
             <h3>Auto Safety Check</h3>
             <p class="asymmetry">When a model has a pattern of brake failures or electrical fires, individual consumers experience it as &#x27;my car broke.&#x27; They don&#x27;t know 847 other owners reported the same failure. 32,031 vehicle/year combinations now searchable.</p>
             <p class="detail">Search vehicle safety complaints by make, model, and year. Component breakdown, complaint timeline, year-over-year comparison. Pre-aggregated from 2.2M NHTSA consumer complaints.</p>
@@ -927,6 +927,18 @@
     <section id="leads" class="section">
         <h2>Open Leads</h2>
         <p class="section-intro">Problems scouted but not yet built. No timeline, no promises.</p>
+
+        <article class="card lead">
+            <h3>The Portfolio Blind Spot — Concentration That No Record-Level Dataset Can Show</h3>
+            <p class="asymmetry">Property-data vendors sell rows — parcel, assessment, sale, owner-name-as-text. The relationship (one controller behind several numbered companies) is the expensive part they do not assemble, and it is the part a renter negotiating a renewal actually needs. Owners who fragment holdings across entities benefit from the per-record default; renters, tenant advocates and municipal planners benefit from seeing that five &quot;different&quot; landlords are one.</p>
+            <p class="detail">A static page where a renter, tenant advocate, or council staffer enters an address or a neighbourhood and sees *concentration* instead of a parcel record: how many rental units in the radius share an owner name and a registered-office address, how that count has moved, and the resolution evidence behind each grouping. It never asserts a beneficial owner — it shows candidate clusters with the fields that produced them and reports &quot;unresolved&quot; where the join is ambiguous. The contrast is the per-record view every listing site already gives you, in which one landlord appears N times as N independent competitors.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Projection Track Record — How Wrong Are Five-Year Neighborhood Forecasts, Really?</h3>
+            <p class="asymmetry">Demographic/location-analytics vendors (Esri Updated Demographics 5-year projections, Claritas and similar) profit from selling small-area projections with no published hindcast skill at the grain they sell. Small-business operators choosing a site, nonprofits sizing a service area and local planners pay for &quot;growth&quot; numbers they cannot audit. Early S915 band, one code only (B01001_001E total population, block groups, in-regime hindcasts, p90 absolute error at h1): naive 313, pooled Ridge 333, drift 403. At that grain &quot;assume no change&quot; had a tighter p90 than trend extrapolation. That is a measured diagnostic, not Aura&#x27;s method selection or a claim about any vendor&#x27;s model.</p>
+            <p class="detail">A static public page where anyone types an address and sees what a &quot;projected 2029 population / households / education mix&quot; claim is worth there. For that block group and tract it shows the honest past record: if you had forecast from 2017, 2018, ... the published ACS5 release h years later, how far off would &quot;no change&quot;, straight-line trend and a pooled model have been? Show the error band, the share of cells inside the Census MOE, and the plain baseline every vendor projection should be compared against. No forecast is sold as truth: the page publishes the track record, not a preferred number.</p>
+        </article>
 
         <article class="card lead">
             <h3>Inspection-Only Disclosure — Which Councils Make You Visit City Hall to See Their Land Interests (BC municipal FDA)</h3>
