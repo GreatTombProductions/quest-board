@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quest Board — Open-Source Tools Against Information Asymmetry</title>
-    <meta name="description" content="Open-source tools that dissolve information asymmetries. Built with spare capacity from an AI-augmented workflow. 81 tools released — free forever.">
+    <meta name="description" content="Open-source tools that dissolve information asymmetries. Built with spare capacity from an AI-augmented workflow. 82 tools released — free forever.">
     <meta property="og:title" content="Quest Board — Open-Source Tools Against Information Asymmetry">
-    <meta property="og:description" content="Open-source tools that dissolve information asymmetries. 81 tools making public data usable — all free, all open source.">
+    <meta property="og:description" content="Open-source tools that dissolve information asymmetries. 82 tools making public data usable — all free, all open source.">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,7 +29,7 @@
 
     <!-- Released Projects -->
     <section id="released" class="section">
-        <h2>Available tools (81)</h2>
+        <h2>Available tools (82)</h2>
         <p class="section-intro">Search a topic, question or data source. Each tool lists its own geography, dates and limits; a listing is not a promise of current data.</p>
         <div id="catalogue-search" class="catalogue-search" hidden role="search" aria-label="Available tools">
             <label for="tool-query">What do you want to check?</label>
@@ -45,6 +45,17 @@
             <p>No available tools match these words. Try fewer or different topic words, or clear the search.</p>
             <p><a href="#leads">Browse unbuilt leads</a> or <a href="#suggest">suggest a lead</a>. These are not available tools.</p>
         </div>
+
+        <article class="card released" data-search-terms="Vercel deployment protection scope Netlify password does not cover production Cloudflare Pages preview access login on the custom domain only old deployment URL still public">
+            <h3>URL Family Check</h3>
+            <p class="asymmetry">A host&#x27;s protection control reads as if it covers the project. It covers a class of addresses, and the class is easy to miss: you test the address you share, see a login, and stop. Older deployment addresses, preview links, or the host&#x27;s own project name can still answer. The host&#x27;s docs name several of those classes. They do not show you what your addresses do today.</p>
+            <p class="detail">Static page plus a standard-library Python command. You paste addresses from your own deploy list. Each is requested once with no cookie and no password. Redirects are recorded and not followed, because on Vercel the login is that redirect. 401 is challenged, 403 is refused, 200-class is served (body not read), and a failed request stays a failure. The page quotes which address classes each host&#x27;s setting claims to cover, including Vercel&#x27;s legacy pre-production scope that leaves production addresses open and Cloudflare&#x27;s preview policy that does not cover the pages.dev production name or a custom domain.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Vercel Deployment Protection and Vercel Authentication docs (page date 15 September 2026), Netlify Password Protection overview, and Cloudflare Pages preview-deployment docs, fetched 14 November 2026. No project of anyone else&#x27;s was requested. · 0 stored records. The page is a dated reading. The command keeps nothing.</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/url-family-check/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/url-family-check" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
 
         <article class="card released" data-search-terms="DOI lookup dataset not published yet registered DOI not findable portal serves older version than advertised data catalogue lists a version that is not downloadable">
             <h3>Release State Check</h3>
@@ -556,6 +567,7 @@
             <h3>Insider Trading Tracker</h3>
             <p class="asymmetry">Corporate executives and board members must report stock trades within 2 days via SEC Form 4. This is public data, but existing free tools are ad-heavy or paywalled. Retail investors don&#x27;t easily see patterns like &#x27;every director is selling&#x27; or &#x27;the CEO just bought $5M of stock&#x27; without paying for terminals or subscription services.</p>
             <p class="detail">Search any of the top 500 public companies to see insider buying and selling activity from SEC Form 4 filings. For each company: total open market purchases and sales, buy/sell ratio, notable trades over $1M, insider breakdown by role (CEO, CFO, Director, 10%+ Owner), individual transaction histories. Two search modes: company name and ticker symbol. Leaderboard shows top insider buyers and sellers by dollar volume.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">SEC EDGAR Form 4 Filings (public domain)</p>
             <div class="links">
                 <a href="https://greattombproductions.github.io/insider-trading/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
                 <a href="https://github.com/GreatTombProductions/insider-trading" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
@@ -566,6 +578,7 @@
             <h3>Nursing Home Staffing Check</h3>
             <p class="asymmetry">Families choosing nursing homes can&#x27;t see actual daily staffing levels. CMS collects payroll-based staffing data from every facility quarterly, but it&#x27;s buried in bulk CSV files. 94.5% of nursing homes fell below the federal RN staffing minimum on at least one day in Q4 2025.</p>
             <p class="detail">Search any nursing home to see actual staffing from CMS payroll data. For each facility: average RN and total nurse hours per resident per day, days below federal minimums, weekend vs weekday staffing comparison, staff turnover rates, contractor reliance, CMS star ratings, penalty history. 14,362 facilities across 53 states/territories. Three search modes: facility name, ZIP code, state browse.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CMS Payroll Based Journal Daily Nurse Staffing (Q4 2025), CMS Provider Data (facility profiles)</p>
             <div class="links">
                 <a href="https://greattombproductions.github.io/nursing-staffing/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
                 <a href="https://github.com/GreatTombProductions/nursing-staffing" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
@@ -576,6 +589,7 @@
             <h3>Clinical Trial Results</h3>
             <p class="asymmetry">Pharmaceutical companies market drugs aggressively while clinical trial results — including adverse events, failed endpoints, and weak efficacy — sit in ClinicalTrials.gov where most consumers never search. People prescribed a drug can&#x27;t easily find out whether the pivotal trial actually met its primary endpoint.</p>
             <p class="detail">Search any drug name to see clinical trial results from ClinicalTrials.gov. For each drug: number of trials, total enrollment, conditions studied, sponsors, cross-trial adverse event aggregation, primary outcome results with statistical significance, and individual trial details. All data from the NIH ClinicalTrials.gov API.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">ClinicalTrials.gov API v2 (NIH)</p>
             <div class="links">
                 <a href="https://greattombproductions.github.io/clinical-trials/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
                 <a href="https://github.com/GreatTombProductions/clinical-trials" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
@@ -608,6 +622,7 @@
             <h3>Opioid Prescriber Check</h3>
             <p class="asymmetry">Patients and communities cannot easily see which Medicare prescribers in their area have anomalous opioid prescribing rates. CMS publishes prescriber-level Part D data but it&#x27;s a 577MB CSV with 1.4M rows that no one browses.</p>
             <p class="detail">Search Medicare Part D opioid prescribing data by provider name or ZIP code. 442,864 prescribers with 11+ opioid claims, 58.9M total opioid claims, $2.2B in opioid drug costs. Three search modes: prescriber name, ZIP code area, and state overview with county drilldown.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">CMS Medicare Part D Prescribers by Provider (2024), CMS Medicare Part D Opioid Prescribing Rates by Geography (2023)</p>
             <div class="links">
                 <a href="https://greattombproductions.github.io/opioid-prescribers/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
                 <a href="https://github.com/GreatTombProductions/opioid-prescribers" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
@@ -618,6 +633,7 @@
             <h3>Provider Transparency</h3>
             <p class="asymmetry">AI providers inject behavioral modifications into conversations without user knowledge or consent. Users can&#x27;t inspect system prompts, detect injection points, or understand why their AI suddenly changed behavior.</p>
             <p class="detail">Education site explaining how AI providers inject hidden behavioral modifications into consumer conversations. Layer 1: evidence base and mechanism explanation. Layer 2: community submission form for user-reported behavioral shift experiences. Sourced from publicly available documents, provider research, and published constitutions.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">Anthropic Constitution (CC0 1.0), Provider research papers, Publicly documented system prompts, Community submissions (Layer 2)</p>
             <div class="links">
                 <a href="https://greattombproductions.github.io/what-happened-to-your-ai/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
                 <a href="https://github.com/GreatTombProductions/what-happened-to-your-ai" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
@@ -1643,15 +1659,33 @@
         </article>
 
         <article class="card lead">
-            <h3>The URL-Family Access Check — Does the Login Cover Every Surface That Serves Your App?</h3>
-            <p class="asymmetry">The platform&#x27;s protection toggle reads as total — &quot;Password Protection: ON&quot; or &quot;SSO: enabled&quot; — but it is scoped per URL surface, not per app: builds deployed before the toggle, and previews outside its scope, remain reachable on immutable URLs the dashboard does not list side-by-side with the protected one. The platform profits from the friction (all-deployments protection is a settings hunt or an upsell tier); a pentest industry profits from finding the old URL after the fact. The operator at the decision boundary — &quot;can we put real customer data on this / share this demo privately / claim this is internal-only?&quot; — tests the pretty address, gets the login wall, and stops: a false green as a service. Customers whose data lives on stale exposed builds benefit most from the operator seeing the full surface list.</p>
-            <p class="detail">A static, dated checker for anyone hosting on a managed platform (Vercel, Netlify, Cloudflare Pages, Render-class hosts). Give it your project&#x27;s address; it enumerates the URL family that platform actually serves — the custom domain/alias, the current production deployment, historical immutable deployment URLs, preview deployments — and probes each unauthenticated, returning a per-surface verdict: challenged, denied, or **served without auth**, with the deploy date of any build that still answers. The one-line result the dashboard never shows: &quot;your login covers 1 of the 4 surfaces currently serving this app.&quot; Enumeration on the buyer&#x27;s own platform credentials, probing needs none; artifact only, nothing running after release.</p>
-        </article>
-
-        <article class="card lead">
             <h3>The Flattering Baseline — Which Comparison Your Promo&#x27;s Lift Depends On (small-operator retail)</h3>
             <p class="asymmetry">Promo agencies, loyalty platforms and discount-scheduling vendors choose the comparison — and the comparison is the claim. Prior-period is the standard choice and the flattering one whenever the prior period ran soft: in the instance below, the same three weekends read +4% to +7% against the prior month and roughly flat against the same weekends a year earlier, because the prior month was itself about 20% below the year-ago month. The deck shows one comparison and never the spread, and the operator at a renewal decision can compute the other three from data they already hold. This is the fallback population for its sibling above: Attributed-Revenue Truth tells a retailer they need a counterfactual, which most small operators do not have — for them the only evidence available is a before/after, and a before/after moves with the window you pick.</p>
             <p class="detail">A small tool an operator points at their own POS export (store, day, customer, customer-paid amount). It computes the SAME promo window under four comparisons — the prior period, the same window a year earlier, matched non-promo stores if they have them, and the weekday side of the same weeks — and prints one table in which a single claimed lift becomes four numbers. The spread is the output, not a preferred figure. Each row carries what that comparison can and cannot rule out (prior period: no seasonality control; year-ago: no chain control; control stores: assumes comparability; weekday: isolates a weekend-specific shift), so the operator can see which of their vendor&#x27;s number is which. Roughly a hundred lines and one static explainer page; no vendor access and no accounts.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Effort Dial — does the &#x27;thinking level&#x27; you chose do anything on this model?</h3>
+            <p class="asymmetry">Vendors profit when a dial looks finer than it is: a buyer who selects a higher level believes they bought more reasoning, and a buyer comparing two products assumes the same model behaves the same in both. As read on 2026-11-11, one vendor accepts seven level names that do three things; one harness runs an unsupported level as the nearest lower one with no error; the same model defaults to a different level through its API than through its vendor&#x27;s own coding tool; and several vendors&#x27; model listings do not return the levels at all. People choosing a plan or a setting for paid AI work, and small operators configuring a tool for staff, benefit from seeing which choices are real before paying for them.</p>
+            <p class="detail">A dated public table, one row per vendor, model and access route, answering what a buyer cannot see at the dial: which effort or thinking levels that model actually has, which accepted values are quietly mapped onto another, which fall back without an error, and what runs when nothing is chosen. Each row cites the vendor&#x27;s own page and the date read, and says &#x27;unknown&#x27; where the vendor publishes nothing. A reader looks up the model they pay for and sees whether the setting they chose is a distinct level, an alias or a no-op.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Unequal-Window Rate Table — &#x27;Highest Rate&#x27; That Is Only the Oldest Cohort</h3>
+            <p class="asymmetry">An agency or vendor whose cohort opened earliest ranks first on raw counts and has no incentive to normalize — dividing by exposure is the last thing it will volunteer, and the published table looks complete without it. Whoever opened most recently always looks worst, which is a mechanical fact about the calendar rather than about performance. Parents comparing schools, patients comparing facilities, renters comparing districts and voters comparing municipal performance all read the ranking as a statement about quality; the corrected table keeps every real difference and removes the ones that are only age.</p>
+            <p class="detail">A checker for any published rate table or league table that compares entities opened, enrolled, or observed at different dates — school and district report cards, program-completion dashboards, municipal &#x27;per 100k&#x27; comparisons, facility readmission rates, cohort retention tables. Input: the published table plus each row&#x27;s start date (usually published beside it, sometimes only inferable from the first period with data). Output: the same ranking recomputed per 30 days of exposure, beside the raw ranking, with every pair whose order flips named explicitly — plus a split for rows whose denominator includes traffic that cannot carry the event (inactive enrollees, automated visits, refreshes counted as responses), which suppresses rates unevenly. Static; recomputes from the table&#x27;s own numbers, no source cooperation.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Permission That Arrived With the Snippet — &#x27;Customizable&#x27; Meaning Whose Authority</h3>
+            <p class="asymmetry">Platform vendors profit from the ambiguity: &quot;customizable&quot; sells capability, and the cheapest implementation — your code on the app&#x27;s origin, with your cookie — is invisible in the feature matrix. The buyer at the decision boundary (a team lead enabling a marketplace widget, an operator installing a dashboard extension, anyone pasting a &quot;harmless&quot; customization snippet a support agent sent them) assumes a boundary exists because the settings page implies one; nothing they can see distinguishes expression from delegation. Marketplace sellers profit doubly: their widget runs with every customer&#x27;s ambient session and the platform&#x27;s docs never say so. The person and the company benefit from seeing, before enabling, whether a customization surface is a sandbox or a session.</p>
+            <p class="detail">A dated public table, one row per SaaS platform or widget marketplace (team workspaces, dashboards, helpdesks, CRM extensions, analytics embeds), answering five questions a buyer cannot see at the purchase decision: (1) does custom code run on the app&#x27;s own origin or a sandboxed frame without `allow-same-origin`; (2) can it read the session cookie or send authenticated requests with your ambient sign-in; (3) what stops it sending your data out through a fetch, image address, link or navigation; (4) does an action fire only on your click or can the code fire it autonomously; (5) who enforces resource limits — the platform, or nothing. Each row cites the vendor&#x27;s own docs, extension manifest, CSP header or devtools-observable behavior, with the date read, and says &#x27;unstated&#x27; where the vendor publishes nothing. A reader looking up a workspace tool their company already pays for sees which of its &quot;customizable&quot; surfaces are expression and which are full-session delegation.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>Deployment-protection claims vs immutable deployment URLs: a public checker for &#x27;is my staging site actually private?&#x27;</h3>
+            <p class="asymmetry">The hosting vendor profits from the gap between a protection setting&#x27;s name and what it enforces: the dashboard says protected (all_except_custom_domains sounds exhaustive), the alias challenges correctly, and the private staging content remains reachable at immutable deployment URLs and preview URLs nobody told the operator about. The operator (small-business site owner, agency contractor, anyone with private staging/preview content) believes the dashboard and cannot see the open back door without knowing the URL taxonomy. Transparency beneficiary: the operator, who gets a named divergence class instead of a false sense of privacy.</p>
+            <p class="detail">A static, obligation-free checker page: an operator pastes a Vercel project URL (or any host with immutable deployment URLs); the tool enumerates the alias and the immutable per-deployment URLs behind it, then reports per-URL: HTTP status unauthenticated vs with the operator&#x27;s own session, whether deployment protection actually challenges, and the divergence class (alias-gated-but-deployment-URL-open, protection-scope name vs enforcement, preview exposure). Output is a plain table plus a copyable summary the operator can hand to their vendor or fix from. No account needed on our side; probes run from the visitor&#x27;s browser like any visitor.</p>
         </article>
 
     </section>
