@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quest Board — Open-Source Tools Against Information Asymmetry</title>
-    <meta name="description" content="Open-source tools that dissolve information asymmetries. Built with spare capacity from an AI-augmented workflow. 82 tools released — free forever.">
+    <meta name="description" content="Open-source tools that dissolve information asymmetries. Built with spare capacity from an AI-augmented workflow. 83 tools released — free forever.">
     <meta property="og:title" content="Quest Board — Open-Source Tools Against Information Asymmetry">
-    <meta property="og:description" content="Open-source tools that dissolve information asymmetries. 82 tools making public data usable — all free, all open source.">
+    <meta property="og:description" content="Open-source tools that dissolve information asymmetries. 83 tools making public data usable — all free, all open source.">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,7 +29,7 @@
 
     <!-- Released Projects -->
     <section id="released" class="section">
-        <h2>Available tools (82)</h2>
+        <h2>Available tools (83)</h2>
         <p class="section-intro">Search a topic, question or data source. Each tool lists its own geography, dates and limits; a listing is not a promise of current data.</p>
         <div id="catalogue-search" class="catalogue-search" hidden role="search" aria-label="Available tools">
             <label for="tool-query">What do you want to check?</label>
@@ -45,6 +45,17 @@
             <p>No available tools match these words. Try fewer or different topic words, or clear the search.</p>
             <p><a href="#leads">Browse unbuilt leads</a> or <a href="#suggest">suggest a lead</a>. These are not available tools.</p>
         </div>
+
+        <article class="card released" data-search-terms="promo report one number previous period versus last year weekend sales comparison which baseline register export lift">
+            <h3>The Flattering Baseline</h3>
+            <p class="asymmetry">The comparison is the claim. A promo deck shows one lift, often against the period just before, and that period may itself have been soft. The same dates a year earlier, other stores, and the weekdays of those weeks are in an export the operator already holds. The deck does not show the spread.</p>
+            <p class="detail">Static page plus a standard-library Python command. You name the promo dates and the stores that ran the promo. It prints four comparisons of the same window: the same weekdays in the weeks immediately before, those calendar dates one year earlier, other stores in the file, and Monday–Thursday of the promo weeks. Each row states what that comparison cannot rule out. Per day uses dates present in the file; a missing date is not zero. No vendor login and no accounts.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">The operator&#x27;s own register export (date, store, amount the customer paid), read locally. The worked figures on the page are invented. · 0 stored records. The page is an explainer. The command keeps nothing.</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/flattering-baseline/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/flattering-baseline" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
 
         <article class="card released" data-search-terms="Vercel deployment protection scope Netlify password does not cover production Cloudflare Pages preview access login on the custom domain only old deployment URL still public">
             <h3>URL Family Check</h3>
@@ -1656,12 +1667,6 @@
             <h3>The Reachable Rate — what tokens/second your hardware can physically deliver</h3>
             <p class="asymmetry">Sellers of hardware, hosted inference, and &quot;runs on your laptop&quot; demos profit from a single tokens/second figure carrying no basis. A prefill rate reads like a decode rate; a batched aggregate reads like per-user latency; a number produced on a 128 GB server with the model resident reads like the same model on an 8 GB machine streaming it from disk. The buyer choosing a used GPU, a small desktop, or a phone cannot tell whether a claim is *possible* on the hardware in front of them — and the arithmetic that answers it is one division nobody shows them. The seller of the faster claim benefits from that gap; the buyer benefits from every number arriving with its own ceiling.</p>
             <p class="detail">A static calculator. Enter a model size and quantization (or pick a published one) and a device (or its memory bandwidth and capacity), and get the physical floor: milliseconds per token = bytes of weights that must be read per token ÷ achievable bandwidth. Then enter any claimed speed and get a verdict — reachable, or above the floor for that device (so it was measured on other hardware, at batch &gt; 1, as prefill rather than decode, or with the model partly streamed from disk rather than resident), or basis-unstated. Every input is public: model configs, published quantization sizes, device spec sheets, and the claimant&#x27;s own number. No accounts, no telemetry, no vendor cooperation.</p>
-        </article>
-
-        <article class="card lead">
-            <h3>The Flattering Baseline — Which Comparison Your Promo&#x27;s Lift Depends On (small-operator retail)</h3>
-            <p class="asymmetry">Promo agencies, loyalty platforms and discount-scheduling vendors choose the comparison — and the comparison is the claim. Prior-period is the standard choice and the flattering one whenever the prior period ran soft: in the instance below, the same three weekends read +4% to +7% against the prior month and roughly flat against the same weekends a year earlier, because the prior month was itself about 20% below the year-ago month. The deck shows one comparison and never the spread, and the operator at a renewal decision can compute the other three from data they already hold. This is the fallback population for its sibling above: Attributed-Revenue Truth tells a retailer they need a counterfactual, which most small operators do not have — for them the only evidence available is a before/after, and a before/after moves with the window you pick.</p>
-            <p class="detail">A small tool an operator points at their own POS export (store, day, customer, customer-paid amount). It computes the SAME promo window under four comparisons — the prior period, the same window a year earlier, matched non-promo stores if they have them, and the weekday side of the same weeks — and prints one table in which a single claimed lift becomes four numbers. The spread is the output, not a preferred figure. Each row carries what that comparison can and cannot rule out (prior period: no seasonality control; year-ago: no chain control; control stores: assumes comparability; weekday: isolates a weekend-specific shift), so the operator can see which of their vendor&#x27;s number is which. Roughly a hundred lines and one static explainer page; no vendor access and no accounts.</p>
         </article>
 
         <article class="card lead">
