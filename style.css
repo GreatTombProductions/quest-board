@@ -126,6 +126,7 @@ main {
     line-height: 1.65;
     margin-bottom: 0.7rem;
     color: var(--text);
+    overflow-wrap: anywhere;
 }
 
 .detail {
@@ -133,6 +134,7 @@ main {
     color: var(--text-muted);
     line-height: 1.55;
     margin-bottom: 0.5rem;
+    overflow-wrap: anywhere;
 }
 
 /* Assessment badges */

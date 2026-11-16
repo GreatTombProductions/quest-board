@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quest Board — Open-Source Tools Against Information Asymmetry</title>
-    <meta name="description" content="Open-source tools that dissolve information asymmetries. Built with spare capacity from an AI-augmented workflow. 83 tools released — free forever.">
+    <meta name="description" content="Open-source tools that dissolve information asymmetries. Built with spare capacity from an AI-augmented workflow. 84 tools released — free forever.">
     <meta property="og:title" content="Quest Board — Open-Source Tools Against Information Asymmetry">
-    <meta property="og:description" content="Open-source tools that dissolve information asymmetries. 83 tools making public data usable — all free, all open source.">
+    <meta property="og:description" content="Open-source tools that dissolve information asymmetries. 84 tools making public data usable — all free, all open source.">
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -29,7 +29,7 @@
 
     <!-- Released Projects -->
     <section id="released" class="section">
-        <h2>Available tools (83)</h2>
+        <h2>Available tools (84)</h2>
         <p class="section-intro">Search a topic, question or data source. Each tool lists its own geography, dates and limits; a listing is not a promise of current data.</p>
         <div id="catalogue-search" class="catalogue-search" hidden role="search" aria-label="Available tools">
             <label for="tool-query">What do you want to check?</label>
@@ -45,6 +45,17 @@
             <p>No available tools match these words. Try fewer or different topic words, or clear the search.</p>
             <p><a href="#leads">Browse unbuilt leads</a> or <a href="#suggest">suggest a lead</a>. These are not available tools.</p>
         </div>
+
+        <article class="card released" data-search-terms="cancelled subscription still charging my credit card gym cancelled but the credit card is still being billed dispute a credit card charge after I cancelled billing error letter to my card company United States personal credit card, not a debit card">
+            <h3>Charged after cancelling</h3>
+            <p class="asymmetry">You cancelled a membership or a subscription, and the charges kept coming on a credit card. Working out which statement first showed each charge, and whether a written notice can still arrive within 60 days, is left to you. A card company&#x27;s own help page often points at an app button that its billing-rights text says does not have to start an investigation.</p>
+            <p class="detail">Add the cancellation email, your statements and what the card app shows. Nothing you add leaves the browser. The page matches each charge to the statement that first showed it, counts the 60 days a notice has to arrive, and drafts that notice for you to check and send yourself. Personal credit cards in the United States, from the federal rule read 16 November 2026. Not a filing, not a decision that the cancellation took effect, and not a promise of a refund. Debit cards, business cards, prepaid cards and cards issued outside the United States are not given this procedure.</p>
+            <p class="detail" style="font-size: 0.82rem; color: var(--text-dim);">12 CFR 1026.13 (Regulation Z) and public billing-rights text, read 16 November 2026 · No one&#x27;s statements are stored here. The page keeps nothing unless you save a file on your own device.</p>
+            <div class="links">
+                <a href="https://greattombproductions.github.io/charged-after-cancelling/" class="btn btn-primary" target="_blank" rel="noopener">Use the tool</a>
+                <a href="https://github.com/GreatTombProductions/charged-after-cancelling" class="btn btn-secondary" target="_blank" rel="noopener">Source</a>
+            </div>
+        </article>
 
         <article class="card released" data-search-terms="promo report one number previous period versus last year weekend sales comparison which baseline register export lift">
             <h3>The Flattering Baseline</h3>
@@ -1691,6 +1702,12 @@
             <h3>Deployment-protection claims vs immutable deployment URLs: a public checker for &#x27;is my staging site actually private?&#x27;</h3>
             <p class="asymmetry">The hosting vendor profits from the gap between a protection setting&#x27;s name and what it enforces: the dashboard says protected (all_except_custom_domains sounds exhaustive), the alias challenges correctly, and the private staging content remains reachable at immutable deployment URLs and preview URLs nobody told the operator about. The operator (small-business site owner, agency contractor, anyone with private staging/preview content) believes the dashboard and cannot see the open back door without knowing the URL taxonomy. Transparency beneficiary: the operator, who gets a named divergence class instead of a false sense of privacy.</p>
             <p class="detail">A static, obligation-free checker page: an operator pastes a Vercel project URL (or any host with immutable deployment URLs); the tool enumerates the alias and the immutable per-deployment URLs behind it, then reports per-URL: HTTP status unauthenticated vs with the operator&#x27;s own session, whether deployment protection actually challenges, and the divergence class (alias-gated-but-deployment-URL-open, protection-scope name vs enforcement, preview exposure). Output is a plain table plus a copyable summary the operator can hand to their vendor or fix from. No account needed on our side; probes run from the visitor&#x27;s browser like any visitor.</p>
+        </article>
+
+        <article class="card lead">
+            <h3>The Guard-After-the-Funeral Audit — Security Rules That Still Bind a Deleted Thing</h3>
+            <p class="asymmetry">Cloud and SaaS security tooling vendors profit from opacity when a control outlives its object: exceptions, allowlist entries, monitor exclusions, WAF rules, identity mappings and alert suppressions created FOR a workload, credential or service account keep counting as configured coverage after the thing they referenced is deleted. The buyer&#x27;s compliance dashboard shows the same green either way, because &#x27;rule exists&#x27; is cheap to report and &#x27;rule&#x27;s referent exists&#x27; is never checked. Renewal-time coverage figures therefore include guards over corpses. Operators at their annual access review, and small teams whose security posture is one glance at a console, benefit from a decomposition that separates rules-which-name-live-things from rules-which-name-nothing; vendors of rule-count dashboards benefit from leaving them blended. The asymmetry is one-sided in the buyer&#x27;s favor once visible: deleting a dead rule is free, and every dead rule is either noise (diluting the alert channel) or a hole (an exception someone can land in later).</p>
+            <p class="detail">static public tool</p>
         </article>
 
     </section>
