@@ -1715,6 +1715,12 @@
             <p class="detail">static public tool</p>
         </article>
 
+        <article class="card lead">
+            <h3>Whose Clock Is Wrong? — Which Software Still Thinks British Columbia Changes Clocks</h3>
+            <p class="asymmetry">The province&#x27;s law changed, but software follows the time-zone database each vendor ships, and vendors do not say which version they ship. On 2026-11-19 a current Chromium build (149) and a current Node.js runtime (24, time-zone data 2025c) still read Vancouver in January as UTC-8. The operating-system database on the same machine (tzdata 2026e) already read it as UTC-7. So a browser-based booking or calendar tool can put every winter appointment an hour off while the phone&#x27;s clock is right, and nothing tells the user which one is wrong. The people who carry the cost are BC residents and small operators (clinics, salons, tutors, trades) whose clients turn up an hour early or late. A per-reader answer they can run on their own machine settles which tool to trust before they book.</p>
+            <p class="detail">A static page that runs in the visitor&#x27;s own browser and answers one question per zone: what time does this browser think it is in Vancouver on a winter date (2027-01-15 15:30 UTC should read 08:30), and does that match the law? It shows the result next to a dated table of what other readers returned when someone tested them: operating-system time-zone packages, browser builds, language runtimes, common calendar and booking exports (an .ics invite created in each, read back). It also gives the practical workaround: in a tool that still reads &quot;Pacific&quot; as UTC-8, choose a fixed UTC-7 zone, or a neighbour that never changes, such as America/Phoenix.</p>
+        </article>
+
     </section>
 
     <!-- Suggest a lead, or — when ?project= is set — one plain note about that tool -->
